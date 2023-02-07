@@ -1,0 +1,87 @@
+:root {
+  --background: white;
+  --color: black;
+  --font: system-ui;
+  --width: 1400px;
+}
+
+body {
+  margin: initial;
+  background: var(--background);
+  color: var(--color);
+  font-family: var(--font);
+}
+
+.wrapper {
+  max-width: var(--width);
+  margin: auto;
+  padding: 1em;
+}
+
+header {
+  border-bottom: 1px solid;
+}
+
+header .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+header .wrapper form {
+  flex: 1;
+}
+
+header .wrapper input {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-align: end;
+  width: 100%;
+}
+
+main .wrapper .results,
+main .wrapper .results div {
+  display: grid;
+  align-items: center;
+  gap: 1em;
+}
+
+main .wrapper .results {
+  grid-template-columns: repeat(auto-fill, minmax(375px, auto));
+}
+
+main .wrapper .results div {
+  grid-template-columns: 100px auto;
+}
+
+main .wrapper .results p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+main .wrapper .results img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+a {
+  color: inherit;
+  text-decoration: initial;
+}
+
+::selection {
+  background: var(--color);
+  color: var(--background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: black;
+    --color: white;
+  }
+}
