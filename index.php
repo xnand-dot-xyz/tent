@@ -31,6 +31,8 @@
   Tent is still in early development.
   <br>
   Once it is relatively mature, its source code will be released on Codeberg.
+  <br>
+  You will be able to run it using PHP and its cURL and XML extensions.
 </p>
 
 <?php include "elements/footer.php" ?>
