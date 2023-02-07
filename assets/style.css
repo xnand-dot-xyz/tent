@@ -71,8 +71,8 @@ main .wrapper .results p {
 }
 
 main .wrapper .results img {
-  width: 100%;
-  aspect-ratio: 1;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
 }
