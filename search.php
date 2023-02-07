@@ -23,6 +23,7 @@
     $image = $result->type === "b"
       ? $result->img
       : str_replace("/img/", "/img/a", $result->img);
+    $image = "image.php?file=" . basename($image);
 
     echo "<a href=" . ($result->item_url_path ?: $result->item_url_root) . ">";
     echo "<div>";
