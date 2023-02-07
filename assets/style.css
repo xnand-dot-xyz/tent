@@ -18,6 +18,14 @@ body {
   padding: 1em;
 }
 
+.wrapper > :first-child {
+  margin-top: 0;
+}
+
+.wrapper > :last-child {
+  margin-bottom: 0;
+}
+
 header {
   border-bottom: 1px solid;
 }
