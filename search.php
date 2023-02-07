@@ -20,12 +20,16 @@
   echo "<div class=results>";
 
   foreach ($results as $result) {
+    $link = $result->item_url_path ?: $result->item_url_root;
+    if ($result->type === "b")
+      $link = "artist.php?url=" . urlencode($result->item_url_root);
+
     $image = $result->type === "b"
       ? $result->img
       : str_replace("/img/", "/img/a", $result->img);
     $image = "image.php?file=" . basename($image);
 
-    echo "<a href=" . ($result->item_url_path ?: $result->item_url_root) . ">";
+    echo "<a href=" . $link . ">";
     echo "<div>";
     echo "<img src=" . $image . ">";
     echo "<p>";
