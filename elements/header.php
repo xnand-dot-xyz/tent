@@ -1,5 +1,5 @@
 <?php
-  if ($title) {
+  if (isset($title)) {
     $title = "Tent · " . $title;
   } else {
     $title = "Tent";
