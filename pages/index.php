@@ -42,11 +42,4 @@
   <li><code>https://f4.bcbits.com/img/$1</code> → <code><?= $url ?>image.php?file=$1</code></li>
 </ul>
 
-<h2>Is Tent open-source?</h2>
-<p>
-  Tent's source code can be found at <a href="https://codeberg.org/sun/Tent">Codeberg</a>.
-  <br>
-  To run it, download the repository, install <a href="https://www.php.net/">PHP</a> and its cURL and XML extensions and point your server to <code>pages</code>.
-</p>
-
 <?php include "../elements/footer.php" ?>
