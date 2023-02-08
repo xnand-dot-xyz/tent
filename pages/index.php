@@ -44,11 +44,9 @@
 
 <h2>Is Tent open-source?</h2>
 <p>
-  Tent is still in early development.
+  Tent's source code can be found at <a href="https://codeberg.org/sun/Tent">Codeberg</a>.
   <br>
-  Once it is relatively mature, its source code will be released on Codeberg.
-  <br>
-  You will be able to run it using PHP and its cURL and XML extensions.
+  To run it, download the repository, install PHP and its cURL and XML extensions and point your server to <code>pages</code>.
 </p>
 
 <?php include "../elements/footer.php" ?>

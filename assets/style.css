@@ -97,6 +97,10 @@ a {
   text-decoration: initial;
 }
 
+p a {
+  text-decoration: underline;
+}
+
 ::selection {
   background: var(--color);
   color: var(--background);
