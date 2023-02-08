@@ -8,7 +8,7 @@
   $url = $scheme . "://" . $host . str_replace("/index.php", "/", $uri);
 ?>
 
-<h1>Tent</h1>
+<h1><?= $config["title"] ?></h1>
 <p>
   Tent is a simple alternative front-end for Bandcamp.
   <br>

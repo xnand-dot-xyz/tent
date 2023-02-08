@@ -1,8 +1,13 @@
 <?php
+  include "../config/config.php";
+
+  if (!isset($config["title"]))
+    $config["title"] = "Tent";
+
   if (isset($title)) {
-    $title = "Tent · " . $title;
+    $title = $config["title"] . " · " . $title;
   } else {
-    $title = "Tent";
+    $title = $config["title"];
   };
 ?>
 

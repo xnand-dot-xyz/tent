@@ -1,9 +1,11 @@
       </div>
     </main>
-    <footer>
-      <div class="wrapper">
-        <span>© 2023-present, Sunny.</span>
-      </div>
-    </footer>
+    <?php if (isset($config["text"])) { ?>
+      <footer>
+        <div class="wrapper">
+          <span><?= $config["text"] ?></span>
+        </div>
+      </footer>
+    <?php } ?>
   </body>
 </html>

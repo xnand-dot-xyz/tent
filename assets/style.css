@@ -6,10 +6,14 @@
 }
 
 body {
-  margin: initial;
   background: var(--background);
   color: var(--color);
   font-family: var(--font);
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: initial;
 }
 
 .wrapper {
@@ -31,7 +35,7 @@ header {
 }
 
 main {
-  max-height: calc(100vh - 7em);
+  flex: 1;
   overflow: auto;
 }
 
