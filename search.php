@@ -17,7 +17,7 @@
 
   $results = json_decode(curl_exec($ch))->auto->results;
 
-  echo "<div class=results>";
+  echo "<div class=\"results\">";
 
   foreach ($results as $result) {
     $link = $result->item_url_path ?? $result->item_url_root;
@@ -33,9 +33,9 @@
         break;
     };
 
-    echo "<a href=" . $link . ">";
+    echo "<a href=\"" . $link . "\">";
     echo "<div>";
-    echo "<img src=image.php?file=" . basename($result->img) . ">";
+    echo "<img src=\"image.php?file=" . basename($result->img) . "\">";
     echo "<p>";
     echo htmlspecialchars($result->name);
 

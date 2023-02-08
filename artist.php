@@ -9,7 +9,7 @@
 <?php include "elements/header.php" ?>
 
 <?php
-  echo "<div class=results>";
+  echo "<div class=\"results\">";
 
   foreach ($document->find("#music-grid li") as $release) {
     $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
@@ -21,9 +21,9 @@
       $image = $image->attr("src");
     $image = "image.php?file=" . basename($image);
 
-    echo "<a href=https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $release->find("a")->attr("href") . ">";
+    echo "<a href=\"https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $release->find("a")->attr("href") . "\">";
     echo "<div>";
-    echo "<img src=" . $image . ">";
+    echo "<img src=\"" . $image . "\">";
     echo "<p>";
     echo htmlspecialchars($title[0]);
     if (isset($title[1])) {
