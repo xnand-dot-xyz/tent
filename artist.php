@@ -1,6 +1,8 @@
 <?php
   require "modules/querypath/src/qp.php";
 
+  /* TODO: UTF-8 titles don't seem to be decoded correctly.
+           An example can be seen with "Die Tür Ist Zu" on the SWANS page. */
   $document = htmlqp(file_get_contents("https://" . urlencode($_GET["name"]) . ".bandcamp.com"));
 
   $title = $document->find("#band-name-location .title")->text();
