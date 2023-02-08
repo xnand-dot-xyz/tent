@@ -12,6 +12,8 @@
 <?php
   echo "<h1>" . htmlspecialchars($document->find("#band-name-location .title")->text()) . "</h1>";
 
+  echo "<div class=\"page\">";
+
   echo "<div class=\"results\">";
 
   $releases = $document->find("#music-grid li");
@@ -49,6 +51,10 @@
 
   if (!$releases->length)
     echo "<div>No results.</div>";
+
+  echo "</div>";
+
+  include "../elements/sidebar.php";
 
   echo "</div>";
 ?>

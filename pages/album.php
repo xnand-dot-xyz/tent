@@ -11,12 +11,28 @@
 
 <?php
   echo "<h1>";
+  echo htmlspecialchars($document->find("h2")->next()->find("a")->text()) . ": ";
   echo htmlspecialchars($document->find("h2")->text());
-  echo "<br>";
-  echo "<small>" . htmlspecialchars($document->find("h2")->next()->text()) . "</small>";
   echo "</h1>";
 
-  // ...
+  echo "<div class=\"subpage\">";
+
+  echo "<div class=\"sidebar\">";
+
+  $image = $document->find("#tralbumArt a")->attr("href");
+  $description = $document->find(".tralbum-about")->text();
+
+  if (isset($image)) echo "<img src=\"" . convert_link($image) . "\">";
+  if (isset($description)) echo "<p>" . $description . "</p>";
+
+  echo "</div>";
+
+  echo "<div>";
+  echo "</div>";
+
+  include "../elements/sidebar.php";
+
+  echo "</div>";
 ?>
 
 <?php include "../elements/footer.php" ?>
