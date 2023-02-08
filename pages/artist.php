@@ -25,6 +25,11 @@
     if (!filter_var($link, FILTER_VALIDATE_URL)) {
       $link = "https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $link;
     };
+    if (!parse_url($link, PHP_URL_PATH)) {
+      $domain = explode(".", parse_url($link, PHP_URL_HOST));
+      if (end($domain) === "com" && prev($domain) === "bandcamp")
+        $link = "artist.php?name=" . prev($domain);
+    };
 
     echo "<a href=\"" . $link . "\">";
     echo "<div>";
