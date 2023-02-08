@@ -3,9 +3,9 @@
 function convert_link($link) {
   $scheme = $_SERVER["REQUEST_SCHEME"];
   $host = $_SERVER["HTTP_HOST"];
-  $uri = strtok($_SERVER["REQUEST_URI"], "?");
+  $uri = $_SERVER["REQUEST_URI"];
 
-  $base = $scheme . "://" . $host . preg_replace("/\/.*.php/", "/", $uri);
+  $base = $scheme . "://" . $host . preg_replace("/\/.*.php/", "/", strtok($uri, "?"));
 
   $host = parse_url($link, PHP_URL_HOST);
   $path = parse_url($link, PHP_URL_PATH);
