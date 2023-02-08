@@ -44,7 +44,7 @@
         break;
     };
 
-    if ($text)
+    if (isset($text))
       echo "<br><small>" . $text . "</small>";
 
     echo "</p>";
