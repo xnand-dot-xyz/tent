@@ -4,7 +4,7 @@
   if (!isset($config["title"]))
     $config["title"] = "Tent";
 
-  if (isset($title)) {
+  if (isset($title) && !empty($title)) {
     $title = $config["title"] . " · " . $title;
   } else {
     $title = $config["title"];

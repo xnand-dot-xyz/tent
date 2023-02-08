@@ -1,5 +1,9 @@
 <?php
   $file = "../assets/" . basename($_GET["file"]);
+
+  if (!file_exists($file))
+    return http_response_code(404);
+
   $data = file_get_contents($file);
 
   $mime = new finfo(FILEINFO_MIME_TYPE);

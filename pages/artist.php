@@ -11,7 +11,9 @@
 <?php
   echo "<div class=\"results\">";
 
-  foreach ($document->find(".artists-grid li, #music-grid li, #discography li") as $release) {
+  $releases = $document->find(".artists-grid li, #music-grid li, #discography li");
+
+  foreach ($releases as $release) {
     $title = preg_split("/\n[\n\s]+/", trim($release->find(".artists-grid-name, .title, .trackTitle")->text()));
 
     $image = $release->find("img");
@@ -45,6 +47,10 @@
     echo "</p>";
     echo "</div>";
     echo "</a>";
+  };
+
+  if (!$releases->length) {
+    echo "<div>No results.</div>";
   };
 
   echo "</div>";

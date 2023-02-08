@@ -60,6 +60,10 @@
     echo "</a>";
   };
 
+  if (empty($results)) {
+    echo "<div>No results.</div>";
+  };
+
   echo "</div>";
 ?>
 
