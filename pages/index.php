@@ -3,7 +3,7 @@
 
 <h1><?= $config["title"] ?></h1>
 <p>
-  Tent is a simple alternative front-end for <a href="https://bandcamp.com/">Bandcamp</a>.
+  <?= $config["title"] ?> is a simple alternative front-end for <a href="https://bandcamp.com/">Bandcamp</a>.
   <br>
   It was inspired by <a href="https://nitter.net/">Nitter</a> and the like.
 </p>
@@ -12,7 +12,7 @@
 <p>Use the search bar at the top to find what you're looking for.</p>
 
 <h2>Why would I use this?</h2>
-<p>You might prefer Tent over the official Bandcamp website if you want to</p>
+<p>You might prefer it over the official Bandcamp website if you want to</p>
 <ul>
   <li>browse Bandcamp without enabling JavaScript,</li>
   <li>escape Bandcamp's analytics or</li>
