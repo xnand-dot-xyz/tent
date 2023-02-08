@@ -23,7 +23,7 @@
   $description = $document->find(".tralbum-about")->text();
 
   if (isset($image)) echo "<img src=\"" . convert_link($image) . "\">";
-  if (isset($description)) echo "<p>" . $description . "</p>";
+  if (isset($description)) echo "<p>" . nl2br($description) . "</p>";
 
   echo "</div>";
 
