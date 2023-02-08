@@ -11,8 +11,8 @@
 <?php
   echo "<div class=\"results\">";
 
-  foreach ($document->find("#music-grid li, #discography li") as $release) {
-    $title = preg_split("/\n[\n\s]+/", trim($release->find(".title, .trackTitle")->text()));
+  foreach ($document->find(".artists-grid li, #music-grid li, #discography li") as $release) {
+    $title = preg_split("/\n[\n\s]+/", trim($release->find(".artists-grid-name, .title, .trackTitle")->text()));
 
     $image = $release->find("img");
     if ($image->hasAttr("data-original"))
