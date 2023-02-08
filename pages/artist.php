@@ -10,6 +10,8 @@
 <?php include "../utilities/link.php" ?>
 
 <?php
+  echo "<h1>" . htmlspecialchars($document->find("#band-name-location .title")->text()) . "</h1>";
+
   echo "<div class=\"results\">";
 
   $releases = $document->find("#music-grid li");

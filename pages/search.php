@@ -6,6 +6,8 @@
 <?php include "../utilities/link.php" ?>
 
 <?php
+  echo "<h1>Search: “" . htmlspecialchars($_GET["query"]) . "”</h1>";
+
   $ch = curl_init("https://bandcamp.com/api/bcsearch_public_api/1/autocomplete_elastic");
 
   curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);

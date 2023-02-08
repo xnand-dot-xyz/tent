@@ -10,6 +10,12 @@
 <?php include "../utilities/link.php" ?>
 
 <?php
+  echo "<h1>";
+  echo htmlspecialchars($document->find("h2")->text());
+  echo "<br>";
+  echo "<small>" . htmlspecialchars($document->find("h2")->next()->text()) . "</small>";
+  echo "</h1>";
+
   // ...
 ?>
 
