@@ -11,8 +11,8 @@
 <?php
   echo "<div class=\"results\">";
 
-  foreach ($document->find("#music-grid li") as $release) {
-    $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
+  foreach ($document->find("#music-grid li, #discography li") as $release) {
+    $title = preg_split("/\n[\n\s]+/", trim($release->find(".title, .trackTitle")->text()));
 
     $image = $release->find("img");
     if ($image->hasAttr("data-original"))
@@ -21,7 +21,12 @@
       $image = $image->attr("src");
     $image = "image.php?file=" . basename($image);
 
-    echo "<a href=\"https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $release->find("a")->attr("href") . "\">";
+    $link = $release->find("a")->attr("href");
+    if (!filter_var($link, FILTER_VALIDATE_URL)) {
+      $link = "https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $link;
+    };
+
+    echo "<a href=\"" . $link . "\">";
     echo "<div>";
     echo "<img src=\"" . $image . "\">";
     echo "<p>";
