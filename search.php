@@ -20,7 +20,7 @@
   echo "<div class=results>";
 
   foreach ($results as $result) {
-    $link = $result->item_url_path ?: $result->item_url_root;
+    $link = $result->item_url_path ?? $result->item_url_root;
 
     switch ($result->type) {
       case "b":
@@ -61,7 +61,7 @@
         echo "<small>";
         echo "by " . htmlspecialchars($result->band_name);
         echo "<br>";
-        echo "on " . htmlspecialchars($result->album_name ?: $result->name);
+        echo "on " . htmlspecialchars($result->album_name ?? $result->name);
         echo "</small>";
         break;
     };
