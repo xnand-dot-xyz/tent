@@ -6,13 +6,12 @@
 
   $data = file_get_contents($file);
 
-  $mime = new finfo(FILEINFO_MIME_TYPE);
-  $mime = $mime->buffer($data);
-
-  switch (pathinfo($file, PATHINFO_EXTENSION)) {
-    case "css":
-      $mime = "text/css";
+  $mime = json_decode(file_get_contents("../modules/mime-db/db.json"));
+  foreach ($mime as $key => $value) {
+    if (isset($value->extensions) && in_array(pathinfo($_GET["file"], PATHINFO_EXTENSION), $value->extensions)) {
+      $mime = $key;
       break;
+    };
   };
 
   header("Content-Type: " . $mime);
