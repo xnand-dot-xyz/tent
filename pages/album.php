@@ -27,7 +27,26 @@
 
   echo "</div>";
 
-  echo "<div>";
+  echo "<div class=\"tracks\">";
+
+  $tracks = $document->find(".track_list .track_row_view");
+
+  echo "<ol>";
+  foreach ($tracks as $track) {
+    $link = $track->find(".title a")->attr("href");
+    if (!filter_var($link, FILTER_VALIDATE_URL)) {
+      $link = "https://" . urlencode($_GET["artist"]) . ".bandcamp.com" . $link;
+    };
+    $link = convert_link($link);
+
+    echo "<li>";
+    echo "<a href=\"" . $link . "\">";
+    echo $track->find(".track-title")->text();
+    echo "</a>";
+    echo "</li>";
+  };
+  echo "</ol>";
+
   echo "</div>";
 
   include "../elements/sidebar.php";

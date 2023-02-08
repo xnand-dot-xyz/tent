@@ -29,7 +29,7 @@
     echo "<a href=\"" . $link . "\">";
     echo "<div>";
     echo "<img src=\"" . convert_link($result->img) . "\">";
-    echo "<p>";
+    echo "<span>";
     echo htmlspecialchars($result->name);
 
     unset($text);
@@ -49,7 +49,7 @@
     if (isset($text))
       echo "<br><small>" . $text . "</small>";
 
-    echo "</p>";
+    echo "</span>";
     echo "</div>";
     echo "</a>";
   };

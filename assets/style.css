@@ -22,11 +22,13 @@ body {
   padding: 1em;
 }
 
-.wrapper > :first-child {
+.wrapper > :first-child,
+.wrapper div > :first-child {
   margin-top: 0;
 }
 
-.wrapper > :last-child {
+.wrapper > :last-child,
+.wrapper div > :last-child {
   margin-bottom: 0;
 }
 
@@ -118,7 +120,8 @@ main .wrapper .results img {
   object-fit: cover;
 }
 
-main .wrapper .sidebar a {
+main .wrapper .sidebar a,
+main .wrapper .tracks a {
   font-weight: bold;
   text-decoration: initial;
 }

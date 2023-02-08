@@ -34,7 +34,7 @@
     echo "<a href=\"" . $link . "\">";
     echo "<div>";
     echo "<img src=\"" . $image . "\">";
-    echo "<p>";
+    echo "<span>";
     echo htmlspecialchars($title[0]);
 
     if (isset($title[1])) {
@@ -44,7 +44,7 @@
       echo "</small>";
     };
 
-    echo "</p>";
+    echo "</span>";
     echo "</div>";
     echo "</a>";
   };
