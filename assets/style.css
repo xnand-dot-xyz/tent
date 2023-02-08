@@ -128,14 +128,9 @@ p a {
 }
 
 @media (max-width: 1000px) {
-
   main .wrapper .page,
   main .wrapper .subpage {
     grid-template-columns: auto;
-  }
-
-  main .wrapper .sidebar {
-    display: none;
   }
 }
 
