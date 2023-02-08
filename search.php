@@ -21,8 +21,17 @@
 
   foreach ($results as $result) {
     $link = $result->item_url_path ?: $result->item_url_root;
-    if ($result->type === "b")
-      $link = "artist.php?url=" . urlencode($result->item_url_root);
+
+    switch ($result->type) {
+      case "b":
+        $domain = explode(".", parse_url($result->item_url_root, PHP_URL_HOST));
+        if (end($domain) === "com" && prev($domain) === "bandcamp")
+          /* TODO: Some artists and labels use custom domains for their pages.
+                   Blindly sending requests to these could be a security risk.
+                   Is there a good way to support these?`*/
+          $link = "artist.php?name=" . prev($domain);
+        break;
+    };
 
     $image = $result->type === "b"
       ? $result->img
