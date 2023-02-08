@@ -33,14 +33,9 @@
         break;
     };
 
-    $image = $result->type === "b"
-      ? $result->img
-      : str_replace("/img/", "/img/a", $result->img);
-    $image = "image.php?file=" . basename($image);
-
     echo "<a href=" . $link . ">";
     echo "<div>";
-    echo "<img src=" . $image . ">";
+    echo "<img src=image.php?file=" . basename($result->img) . ">";
     echo "<p>";
     echo htmlspecialchars($result->name);
 
@@ -48,12 +43,6 @@
       case "a":
         echo "<br>";
         echo "<small>by " . htmlspecialchars($result->band_name) . "</small>";
-        break;
-
-      case "b":
-        /* TODO: Some artists seem to use a different image URL scheme prefixed
-                 with an `a`, similar to releases and tracks. Is it possible to
-                 determine which scheme is used when? */
         break;
 
       case "t":
