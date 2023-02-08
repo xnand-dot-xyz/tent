@@ -2,7 +2,7 @@
   $title = htmlspecialchars($_GET["query"]);
 ?>
 
-<?php include "elements/header.php" ?>
+<?php include "../elements/header.php" ?>
 
 <?php
   $ch = curl_init("https://bandcamp.com/api/bcsearch_public_api/1/autocomplete_elastic");
@@ -63,4 +63,4 @@
   echo "</div>";
 ?>
 
-<?php include "elements/footer.php" ?>
+<?php include "../elements/footer.php" ?>

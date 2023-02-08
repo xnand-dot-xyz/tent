@@ -1,4 +1,4 @@
-<?php include "elements/header.php" ?>
+<?php include "../elements/header.php" ?>
 
 <h1>Tent</h1>
 <p>
@@ -35,4 +35,4 @@
   You will be able to run it using PHP and its cURL and XML extensions.
 </p>
 
-<?php include "elements/footer.php" ?>
+<?php include "../elements/footer.php" ?>

@@ -1,5 +1,5 @@
 <?php
-  require "modules/querypath/src/qp.php";
+  require "../modules/querypath/src/qp.php";
 
   /* TODO: UTF-8 titles don't seem to be decoded correctly.
            An example can be seen with "Die Tür Ist Zu" on the SWANS page. */
@@ -8,7 +8,7 @@
   $title = $document->find("#band-name-location .title")->text();
 ?>
 
-<?php include "elements/header.php" ?>
+<?php include "../elements/header.php" ?>
 
 <?php
   echo "<div class=\"results\">";
@@ -42,4 +42,4 @@
   echo "</div>";
 ?>
 
-<?php include "elements/footer.php" ?>
+<?php include "../elements/footer.php" ?>
