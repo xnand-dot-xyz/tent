@@ -50,6 +50,13 @@ footer .wrapper {
   gap: 1em;
 }
 
+header .wrapper a {
+  max-width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 header .wrapper form,
 footer .wrapper span {
   flex: 1;
@@ -85,8 +92,11 @@ main .wrapper .subpage img {
 main .wrapper .results,
 main .wrapper .results div {
   display: grid;
-  align-items: center;
   gap: 1em;
+}
+
+main .wrapper .results div {
+  align-items: center;
 }
 
 main .wrapper .results {
