@@ -30,13 +30,24 @@ header {
   border-bottom: 1px solid;
 }
 
-header .wrapper {
+main {
+  max-height: calc(100vh - 7em);
+  overflow: auto;
+}
+
+footer {
+  border-top: 1px solid;
+}
+
+header .wrapper,
+footer .wrapper {
   display: flex;
   align-items: center;
   gap: 1em;
 }
 
-header .wrapper form {
+header .wrapper form,
+footer .wrapper span {
   flex: 1;
 }
 
