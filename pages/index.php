@@ -32,8 +32,9 @@
 <ul>
   <?php
     $rules = [
-      "https://bandcamp.com/search?q=$1",
       "https://$1.bandcamp.com/",
+      "https://$1.bandcamp.com/album/$2",
+      "https://bandcamp.com/search?q=$1",
       "https://f4.bcbits.com/img/$1"
     ];
 

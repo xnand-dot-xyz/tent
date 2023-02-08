@@ -8,13 +8,15 @@ function convert_link($link) {
   $base = $scheme . "://" . $host . preg_replace("/\/.*.php/", "/", strtok($uri, "?"));
 
   $host = parse_url($link, PHP_URL_HOST);
-  $path = parse_url($link, PHP_URL_PATH);
+  $path = ltrim(parse_url($link, PHP_URL_PATH), "/");
   parse_str(parse_url($link, PHP_URL_QUERY), $query);
 
-  if ($host === "bandcamp.com" && $path === "/search") {
+  if ($host === "bandcamp.com" && $path === "search") {
     return $base . "search.php?query=" . $query["q"];
   } elseif (str_ends_with($host, ".bandcamp.com") && !$path) {
     return $base . "artist.php?name=" . explode(".", $host)[0];
+  } elseif (str_ends_with($host, ".bandcamp.com") && explode("/", $path)[0] === "album") {
+    return $base . "album.php?artist=" . explode(".", $host)[0] . "&name=" . explode("/", $path)[1];
   } elseif ($host === "f4.bcbits.com") {
     return $base . "image.php?file=" . basename($link);
   } else {
