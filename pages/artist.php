@@ -17,10 +17,7 @@
     $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
 
     $image = $release->find("img");
-    if ($image->hasAttr("data-original"))
-      $image = $image->attr("data-original");
-    else
-      $image = $image->attr("src");
+    $image = $image->hasAttr("data-original") ? $image->attr("data-original") : $image->attr("src");
     $image = "image.php?file=" . basename($image);
 
     $link = $release->find("a")->attr("href");
@@ -33,20 +30,21 @@
     echo "<img src=\"" . $image . "\">";
     echo "<p>";
     echo htmlspecialchars($title[0]);
+
     if (isset($title[1])) {
       echo "<br>";
       echo "<small>";
       echo "by " . htmlspecialchars($title[1]);
       echo "</small>";
     };
+
     echo "</p>";
     echo "</div>";
     echo "</a>";
   };
 
-  if (!$releases->length) {
+  if (!$releases->length)
     echo "<div>No results.</div>";
-  };
 
   echo "</div>";
 ?>

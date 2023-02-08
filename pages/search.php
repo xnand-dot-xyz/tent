@@ -27,7 +27,7 @@
         $domain = explode(".", parse_url($result->item_url_root, PHP_URL_HOST));
         if (end($domain) === "com" && prev($domain) === "bandcamp")
           /* TODO: Some artists and labels use custom domains for their pages.
-                   Blindly sending requests to these could be a security risk.
+                   Blindly sending requests to them could be a security risk.
                    Is there a good way to support these? */
           $link = "artist.php?name=" . prev($domain);
         break;
@@ -39,30 +39,30 @@
     echo "<p>";
     echo htmlspecialchars($result->name);
 
+    unset($text);
+
     switch ($result->type) {
       case "a":
-        echo "<br>";
-        echo "<small>by " . htmlspecialchars($result->band_name) . "</small>";
+        $text = "by " . htmlspecialchars($result->band_name);
         break;
 
       case "t":
-        echo "<br>";
-        echo "<small>";
-        echo "by " . htmlspecialchars($result->band_name);
-        echo "<br>";
-        echo "on " . htmlspecialchars($result->album_name ?? $result->name);
-        echo "</small>";
+        $text = "by " . htmlspecialchars($result->band_name);
+        $text .= "<br>";
+        $text .= "on " . htmlspecialchars($result->album_name ?? $result->name);
         break;
     };
+
+    if ($text)
+      echo "<br><small>" . $text . "</small>";
 
     echo "</p>";
     echo "</div>";
     echo "</a>";
   };
 
-  if (empty($results)) {
+  if (empty($results))
     echo "<div>No results.</div>";
-  };
 
   echo "</div>";
 ?>
