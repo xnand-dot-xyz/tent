@@ -1,7 +1,7 @@
 <?php
   require "../modules/querypath/src/qp.php";
 
-  $document = htmlqp(file_get_contents("https://" . urlencode($_GET["name"]) . ".bandcamp.com"));
+  $document = htmlqp(file_get_contents("https://" . urlencode($_GET["name"]) . ".bandcamp.com/music"));
 
   $title = $document->find("#band-name-location .title")->text();
 ?>
@@ -11,10 +11,10 @@
 <?php
   echo "<div class=\"results\">";
 
-  $releases = $document->find(".artists-grid li, #music-grid li, #discography li");
+  $releases = $document->find("#music-grid li");
 
   foreach ($releases as $release) {
-    $title = preg_split("/\n[\n\s]+/", trim($release->find(".artists-grid-name, .title, .trackTitle")->text()));
+    $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
 
     $image = $release->find("img");
     if ($image->hasAttr("data-original"))
@@ -26,11 +26,6 @@
     $link = $release->find("a")->attr("href");
     if (!filter_var($link, FILTER_VALIDATE_URL)) {
       $link = "https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $link;
-    };
-    if (!parse_url($link, PHP_URL_PATH)) {
-      $domain = explode(".", parse_url($link, PHP_URL_HOST));
-      if (end($domain) === "com" && prev($domain) === "bandcamp")
-        $link = "artist.php?name=" . prev($domain);
     };
 
     echo "<a href=\"" . $link . "\">";
