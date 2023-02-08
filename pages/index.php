@@ -10,9 +10,9 @@
 
 <h1><?= $config["title"] ?></h1>
 <p>
-  Tent is a simple alternative front-end for Bandcamp.
+  Tent is a simple alternative front-end for <a href="https://bandcamp.com/">Bandcamp</a>.
   <br>
-  It was inspired by Nitter and the like.
+  It was inspired by <a href="https://nitter.net/">Nitter</a> and the like.
 </p>
 
 <h2>How do I get started?</h2>
@@ -46,7 +46,7 @@
 <p>
   Tent's source code can be found at <a href="https://codeberg.org/sun/Tent">Codeberg</a>.
   <br>
-  To run it, download the repository, install PHP and its cURL and XML extensions and point your server to <code>pages</code>.
+  To run it, download the repository, install <a href="https://www.php.net/">PHP</a> and its cURL and XML extensions and point your server to <code>pages</code>.
 </p>
 
 <?php include "../elements/footer.php" ?>
