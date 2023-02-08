@@ -11,7 +11,7 @@ For end-user documentation, see the home page of an instance of your choice.
 ## Setup
 
 1. Install PHP.
-2. Install PHP's curl and dom extensions.
+2. Install PHP's cURL and XML extensions.
 3. Clone the repository and its submodules.
 4. Point your server to `pages`.
 
