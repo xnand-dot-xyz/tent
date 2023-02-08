@@ -28,7 +28,7 @@
         if (end($domain) === "com" && prev($domain) === "bandcamp")
           /* TODO: Some artists and labels use custom domains for their pages.
                    Blindly sending requests to these could be a security risk.
-                   Is there a good way to support these?`*/
+                   Is there a good way to support these? */
           $link = "artist.php?name=" . prev($domain);
         break;
     };
@@ -52,8 +52,8 @@
 
       case "b":
         /* TODO: Some artists seem to use a different image URL scheme prefixed
-                  with an `a`, similar to releases and tracks. Is it possible to
-                  determine which scheme is used when? */
+                 with an `a`, similar to releases and tracks. Is it possible to
+                 determine which scheme is used when? */
         break;
 
       case "t":
