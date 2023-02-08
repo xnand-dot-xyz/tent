@@ -1,12 +1,5 @@
 <?php include "../elements/header.php" ?>
-
-<?php
-  $scheme = $_SERVER["REQUEST_SCHEME"];
-  $host = $_SERVER["HTTP_HOST"];
-  $uri = $_SERVER["REQUEST_URI"];
-
-  $url = $scheme . "://" . $host . str_replace("/index.php", "/", $uri);
-?>
+<?php include "../utilities/link.php" ?>
 
 <h1><?= $config["title"] ?></h1>
 <p>
@@ -37,9 +30,21 @@
 <h2>How do I set up Redirector?</h2>
 <p>To set up a redirection extension, create the following rules:</p>
 <ul>
-  <li><code>https://bandcamp.com/search?q=$1</code> → <code><?= $url ?>search.php?query=$1</code></li>
-  <li><code>https://$1.bandcamp.com/</code> → <code><?= $url ?>artist.php?name=$1</code></li>
-  <li><code>https://f4.bcbits.com/img/$1</code> → <code><?= $url ?>image.php?file=$1</code></li>
+  <?php
+    $rules = [
+      "https://bandcamp.com/search?q=$1",
+      "https://$1.bandcamp.com/",
+      "https://f4.bcbits.com/img/$1"
+    ];
+
+    foreach ($rules as $rule) {
+      echo "<li>";
+      echo "<code>" . $rule . "</code>";
+      echo " → ";
+      echo "<code>" . convert_link($rule) . "</code>";
+      echo "</li>";
+    };
+  ?>
 </ul>
 
 <?php include "../elements/footer.php" ?>

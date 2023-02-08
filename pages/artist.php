@@ -7,6 +7,7 @@
 ?>
 
 <?php include "../elements/header.php" ?>
+<?php include "../utilities/link.php" ?>
 
 <?php
   echo "<div class=\"results\">";
@@ -18,12 +19,13 @@
 
     $image = $release->find("img");
     $image = $image->hasAttr("data-original") ? $image->attr("data-original") : $image->attr("src");
-    $image = "image.php?file=" . basename($image);
+    $image = convert_link($image);
 
     $link = $release->find("a")->attr("href");
     if (!filter_var($link, FILTER_VALIDATE_URL)) {
       $link = "https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $link;
     };
+    $link = convert_link($link);
 
     echo "<a href=\"" . $link . "\">";
     echo "<div>";
