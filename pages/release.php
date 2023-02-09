@@ -39,7 +39,7 @@
       $duration = floor($duration / 60) . ":" . sprintf("%02d", $duration % 60);
 
       echo "<tr>";
-      echo "<td>" . $track->track_num . ".</td>";
+      echo "<td>" . ($track->track_num ?? 1) . ".</td>";
       echo "<td><a href=\"" . $link . "\">" . $track->title . "</a></td>";
       echo "<td>" . $duration . "</td>";
       echo "</tr>";
