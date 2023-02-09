@@ -1,20 +1,18 @@
 <?php
+  function echo_item ($link, $image, $text, $description) {
+    echo "<a href=\"" . $link . "\">";
+    echo "<img src=\"" . $image . "\">";
+    echo "<span>";
+    echo $text;
 
-function echo_item ($link, $image, $text, $description) {
-  echo "<a href=\"" . $link . "\">";
-  echo "<img src=\"" . $image . "\">";
-  echo "<span>";
-  echo $text;
+    if (isset($description)) {
+      echo "<br>";
+      echo "<small>";
+      echo $description;
+      echo "</small>";
+    };
 
-  if (isset($description)) {
-    echo "<br>";
-    echo "<small>";
-    echo $description;
-    echo "</small>";
+    echo "</span>";
+    echo "</a>";
   };
-
-  echo "</span>";
-  echo "</a>";
-};
-
 ?>

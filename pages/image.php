@@ -11,11 +11,11 @@
       ]
     ]);
     $image = file_get_contents($image, false, $context);
-    
+
     if (explode(" ", $http_response_header[0])[1] === "200") {
       $mime = new finfo(FILEINFO_MIME_TYPE);
       $mime = $mime->buffer($image);
-    
+
       header("Content-Type: " . $mime);
       echo $image;
 

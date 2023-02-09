@@ -4,11 +4,10 @@
   if (!isset($config["title"]))
     $config["title"] = "Tent";
 
-  if (isset($title) && !empty($title)) {
+  if (isset($title) && !empty($title))
     $title = $config["title"] . " · " . $title;
-  } else {
+  else
     $title = $config["title"];
-  };
 ?>
 
 <!doctype html>
