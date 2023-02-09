@@ -98,6 +98,7 @@ main .wrapper .results a {
 
 main .wrapper .results {
   grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+  align-items: start;
 }
 
 main .wrapper .results a {
