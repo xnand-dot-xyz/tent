@@ -23,7 +23,7 @@
       <div class="wrapper">
         <a href="."><?= $title ?></a>
         <form action="search.php">
-          <input name="query" placeholder="Search...">
+          <input name="query" placeholder="Search..." required>
         </form>
       </div>
     </header>
