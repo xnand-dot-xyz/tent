@@ -7,6 +7,7 @@
 ?>
 
 <?php include "../elements/header.php" ?>
+<?php include "../elements/item.php" ?>
 <?php include "../utilities/link.php" ?>
 
 <?php
@@ -21,6 +22,9 @@
   foreach ($releases as $release) {
     $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
 
+    unset($text);
+    if ($title[1]) $text = "by " . htmlspecialchars($title[1]);
+
     $image = $release->find("img");
     $image = $image->hasAttr("data-original") ? $image->attr("data-original") : $image->attr("src");
     $image = convert_link($image);
@@ -29,20 +33,7 @@
     $link = prefix_link($link, "name");
     $link = convert_link($link);
 
-    echo "<a href=\"" . $link . "\">";
-    echo "<img src=\"" . $image . "\">";
-    echo "<span>";
-    echo htmlspecialchars($title[0]);
-
-    if (isset($title[1])) {
-      echo "<br>";
-      echo "<small>";
-      echo "by " . htmlspecialchars($title[1]);
-      echo "</small>";
-    };
-
-    echo "</span>";
-    echo "</a>";
+    echo_item($link, $image, htmlspecialchars($title[0]), $text);
   };
 
   if (!$releases->length)

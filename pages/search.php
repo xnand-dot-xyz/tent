@@ -3,6 +3,7 @@
 ?>
 
 <?php include "../elements/header.php" ?>
+<?php include "../elements/item.php" ?>
 <?php include "../utilities/link.php" ?>
 
 <?php
@@ -26,11 +27,6 @@
     $link = $result->item_url_path ?? $result->item_url_root;
     $link = convert_link($link);
 
-    echo "<a href=\"" . $link . "\">";
-    echo "<img src=\"" . convert_link($result->img) . "\">";
-    echo "<span>";
-    echo htmlspecialchars($result->name);
-
     unset($text);
 
     switch ($result->type) {
@@ -45,11 +41,7 @@
         break;
     };
 
-    if (isset($text))
-      echo "<br><small>" . $text . "</small>";
-
-    echo "</span>";
-    echo "</a>";
+    echo_item($link, convert_link($result->img), htmlspecialchars($result->name), $text);
   };
 
   if (empty($results))
