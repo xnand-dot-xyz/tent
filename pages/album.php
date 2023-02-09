@@ -25,21 +25,23 @@
 
   echo "<div class=\"tracks\">";
 
+  echo "<table>";
+
   $tracks = $document->find(".track_list .track_row_view");
 
-  echo "<ol>";
   foreach ($tracks as $track) {
     $link = $track->find(".title a")->attr("href");
     $link = prefix_link($link, "artist");
     $link = convert_link($link);
 
-    echo "<li>";
-    echo "<a href=\"" . $link . "\">";
-    echo $track->find(".track-title")->text();
-    echo "</a>";
-    echo "</li>";
+    echo "<tr>";
+    echo "<td>" . $track->find(".track_number")->text() . "</td>";
+    echo "<td><a href=\"" . $link . "\">" . $track->find(".track-title")->text() . "</a></td>";
+    echo "<td>" . $track->find(".time")->text() . "</td>";
+    echo "</tr>";
   };
-  echo "</ol>";
+
+  echo "</table>";
 
   echo "</div>";
 
