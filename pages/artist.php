@@ -12,7 +12,8 @@
 <?php include "../utilities/link.php" ?>
 
 <?php
-  echo "<h1>" . htmlspecialchars($document->find("#band-name-location .title")->text()) . "</h1>";
+  if ($document->find("#band-name-location .title")->length)
+    echo "<h1>" . htmlspecialchars($document->find("#band-name-location .title")->text()) . "</h1>";
 
   echo "<div class=\"page\">";
 
