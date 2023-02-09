@@ -27,7 +27,6 @@
     $link = convert_link($link);
 
     echo "<a href=\"" . $link . "\">";
-    echo "<div>";
     echo "<img src=\"" . convert_link($result->img) . "\">";
     echo "<span>";
     echo htmlspecialchars($result->name);
@@ -50,12 +49,11 @@
       echo "<br><small>" . $text . "</small>";
 
     echo "</span>";
-    echo "</div>";
     echo "</a>";
   };
 
   if (empty($results))
-    echo "<div>No results.</div>";
+    echo "<span>No results.</span>";
 
   echo "</div>";
 ?>

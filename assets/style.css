@@ -1,14 +1,12 @@
 :root {
   --background: white;
   --color: black;
-  --font: system-ui;
-  --width: 1400px;
 }
 
 body {
   background: var(--background);
   color: var(--color);
-  font-family: var(--font);
+  font-family: system-ui;
 
   display: flex;
   flex-direction: column;
@@ -17,7 +15,7 @@ body {
 }
 
 .wrapper {
-  max-width: var(--width);
+  max-width: 1400px;
   margin: auto;
   padding: 1em;
 }
@@ -74,44 +72,37 @@ header .wrapper input {
   width: 100%;
 }
 
-main .wrapper .page {
+main .wrapper .page,
+main .wrapper .subpage {
   display: grid;
   gap: 1em;
+}
+
+main .wrapper .page {
   grid-template-columns: auto 250px;
 }
 
 main .wrapper .subpage {
-  display: grid;
-  gap: 1em;
   grid-template-columns: 250px auto 250px;
 }
 
-main .wrapper .page img,
-main .wrapper .subpage img {
+main .wrapper img {
   width: 100%;
 }
 
 main .wrapper .results,
-main .wrapper .results div {
+main .wrapper .results a {
   display: grid;
   gap: 1em;
-}
-
-main .wrapper .results div {
-  align-items: center;
 }
 
 main .wrapper .results {
   grid-template-columns: repeat(auto-fill, minmax(300px, auto));
 }
 
-main .wrapper .results div {
+main .wrapper .results a {
   grid-template-columns: 100px auto;
-}
-
-main .wrapper .results p {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  align-items: center;
 }
 
 main .wrapper .results img {
@@ -120,19 +111,14 @@ main .wrapper .results img {
   object-fit: cover;
 }
 
-main .wrapper .sidebar a,
-main .wrapper .tracks a {
+main .wrapper .tracks a,
+main .wrapper .sidebar a {
   font-weight: bold;
-  text-decoration: initial;
 }
 
 a {
   color: inherit;
   text-decoration: initial;
-}
-
-p a {
-  text-decoration: underline;
 }
 
 ::selection {

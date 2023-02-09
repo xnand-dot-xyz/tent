@@ -9,9 +9,9 @@
   if (!empty($description)) echo "<p>" . nl2br(trim(preg_replace("/\.\.\...more\s*\n\s*$/", "", $description))) . "</p>";
 
   if ($links->length) echo "<p>";
-  foreach ($links as $link) {
+  foreach ($links as $index => $link) {
     echo "<a href=\"" . convert_link($link->attr("href")) . "\">" . htmlspecialchars($link->text()) . "</a>";
-    echo "<br>";
+    if ($index !== count($links) - 1) echo "<br>";
   };
   if ($links->length) echo "</p>";
 

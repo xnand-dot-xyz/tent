@@ -32,7 +32,6 @@
     $link = convert_link($link);
 
     echo "<a href=\"" . $link . "\">";
-    echo "<div>";
     echo "<img src=\"" . $image . "\">";
     echo "<span>";
     echo htmlspecialchars($title[0]);
@@ -45,12 +44,11 @@
     };
 
     echo "</span>";
-    echo "</div>";
     echo "</a>";
   };
 
   if (!$releases->length)
-    echo "<div>No results.</div>";
+    echo "<span>No results.</span>";
 
   echo "</div>";
 
