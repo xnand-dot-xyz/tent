@@ -59,7 +59,7 @@
     echo "</div>";
 
     $image = $document->find(".bio-pic a")->attr("href");
-    $text = $document->find("#bio-text")->text();
+    $text = json_decode($document->find("script[type=\"application/ld+json\"]")->text())->publisher->description;
     $links = $document->find("#band-links li a");
 
     echo_sidebar($image, $text, $links);

@@ -45,7 +45,7 @@
   echo "</div>";
 
   $image = $document->find(".bio-pic a")->attr("href");
-  $description = $document->find("#bio-text")->text();
+  $description = $document->find("meta[property=\"og:description\"]")->attr("content");
   $links = $document->find("#band-links li a");
 
   echo_sidebar($image, $description, $links);
