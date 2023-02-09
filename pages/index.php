@@ -34,6 +34,7 @@
     $rules = [
       "https://$1.bandcamp.com/",
       "https://$1.bandcamp.com/album/$2",
+      "https://$1.bandcamp.com/track/$2",
       "https://bandcamp.com/search?q=$1",
       "https://f4.bcbits.com/img/$1",
       "https://t4.bcbits.com/stream/$1/mp3-128/$2?token=$3"
