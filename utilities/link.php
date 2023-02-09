@@ -24,4 +24,12 @@ function convert_link($link) {
   };
 };
 
+function prefix_link($link, $parameter) {
+  if (!filter_var($link, FILTER_VALIDATE_URL)) {
+    return $link = "https://" . urlencode($_GET[$parameter]) . ".bandcamp.com" . $link;
+  } else {
+    return $link;
+  };
+};
+
 ?>

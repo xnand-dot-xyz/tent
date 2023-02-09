@@ -34,9 +34,7 @@
   echo "<ol>";
   foreach ($tracks as $track) {
     $link = $track->find(".title a")->attr("href");
-    if (!filter_var($link, FILTER_VALIDATE_URL)) {
-      $link = "https://" . urlencode($_GET["artist"]) . ".bandcamp.com" . $link;
-    };
+    $link = prefix_link($link, "artist");
     $link = convert_link($link);
 
     echo "<li>";

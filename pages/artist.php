@@ -26,9 +26,7 @@
     $image = convert_link($image);
 
     $link = $release->find("a")->attr("href");
-    if (!filter_var($link, FILTER_VALIDATE_URL)) {
-      $link = "https://" . urlencode($_GET["name"]) . ".bandcamp.com" . $link;
-    };
+    $link = prefix_link($link, "name");
     $link = convert_link($link);
 
     echo "<a href=\"" . $link . "\">";
