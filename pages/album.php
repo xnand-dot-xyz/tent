@@ -46,7 +46,7 @@
       echo "<tr>";
       echo "<td></td>";
       echo "<td colspan=\"2\">";
-      echo "<audio src=\"" . convert_link($track->file->{"mp3-128"}) . "\" controls></audio>";
+      echo "<audio src=\"" . convert_link($track->file->{"mp3-128"}) . "\" controls preload=\"none\"></audio>";
       echo "</td>";
       echo "</tr>";
     };
