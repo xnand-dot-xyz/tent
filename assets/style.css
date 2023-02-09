@@ -95,8 +95,16 @@ main .wrapper table td {
   vertical-align: top;
 }
 
-main .wrapper table td:first-child,
-main .wrapper table td:last-child {
+main .wrapper table td[colspan] {
+  padding: initial !important;
+}
+
+main .wrapper table td[colspan] audio {
+  width: 100%;
+  padding-top: 4px;
+}
+
+main .wrapper table td:not(:nth-child(2)) {
   width: 0;
   white-space: nowrap;
   text-align: right;

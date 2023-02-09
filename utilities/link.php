@@ -18,6 +18,8 @@
       return $base . "album.php?artist=" . explode(".", $host)[0] . "&name=" . explode("/", $path)[1];
     elseif ($host === "f4.bcbits.com")
       return $base . "image.php?file=" . basename($link);
+    elseif ($host === "t4.bcbits.com")
+      return $base . "audio.php?directory=" . explode("/", $path)[1] . "&file=" . explode("/", $path)[3] . "&token=" . $query["token"];
     else
       return $link;
   };

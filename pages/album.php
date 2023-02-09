@@ -41,6 +41,15 @@
     echo "<td><a href=\"" . $link . "\">" . $track->title . "</a></td>";
     echo "<td>" . $duration . "</td>";
     echo "</tr>";
+
+    if ($track->file) {
+      echo "<tr>";
+      echo "<td></td>";
+      echo "<td colspan=\"2\">";
+      echo "<audio src=\"" . convert_link($track->file->{"mp3-128"}) . "\" controls></audio>";
+      echo "</td>";
+      echo "</tr>";
+    };
   };
 
   echo "</table>";
