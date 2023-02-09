@@ -1,12 +1,10 @@
 <?php
+
+function echo_sidebar ($image, $text, $links = null) {
   echo "<div class=\"sidebar\">";
 
-  $image = $document->find(".bio-pic a")->attr("href");
-  $description = $document->find("#bio-text")->text();
-  $links = $document->find("#band-links li a");
-
   if (isset($image)) echo "<img src=\"" . convert_link($image) . "\">";
-  if (!empty($description)) echo "<p>" . nl2br(trim(preg_replace("/\.\.\...more\s*\n\s*$/", "", $description))) . "</p>";
+  if (!empty($text)) echo "<p>" . nl2br(trim(preg_replace("/\.\.\...more\s*\n\s*$/", "", $text))) . "</p>";
 
   if ($links->length) echo "<p>";
   foreach ($links as $index => $link) {
@@ -16,4 +14,6 @@
   if ($links->length) echo "</p>";
 
   echo "</div>";
+};
+
 ?>

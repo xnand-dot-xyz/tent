@@ -8,6 +8,7 @@
 
 <?php include "../elements/header.php" ?>
 <?php include "../elements/item.php" ?>
+<?php include "../elements/sidebar.php" ?>
 <?php include "../utilities/link.php" ?>
 
 <?php
@@ -41,7 +42,11 @@
 
   echo "</div>";
 
-  include "../elements/sidebar.php";
+  $image = $document->find(".bio-pic a")->attr("href");
+  $description = $document->find("#bio-text")->text();
+  $links = $document->find("#band-links li a");
+
+  echo_sidebar($image, $description, $links);
 
   echo "</div>";
 ?>

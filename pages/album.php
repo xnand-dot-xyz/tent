@@ -7,6 +7,7 @@
 ?>
 
 <?php include "../elements/header.php" ?>
+<?php include "../elements/sidebar.php" ?>
 <?php include "../utilities/link.php" ?>
 
 <?php
@@ -17,15 +18,10 @@
 
   echo "<div class=\"subpage\">";
 
-  echo "<div class=\"sidebar\">";
-
   $image = $document->find("#tralbumArt a")->attr("href");
-  $description = $document->find(".tralbum-about")->text();
+  $text = $document->find(".tralbum-about")->text();
 
-  if (isset($image)) echo "<img src=\"" . convert_link($image) . "\">";
-  if (!empty($description)) echo "<p>" . nl2br($description) . "</p>";
-
-  echo "</div>";
+  echo_sidebar($image, $text);
 
   echo "<div class=\"tracks\">";
 
@@ -47,7 +43,11 @@
 
   echo "</div>";
 
-  include "../elements/sidebar.php";
+  $image = $document->find(".bio-pic a")->attr("href");
+  $text = $document->find("#bio-text")->text();
+  $links = $document->find("#band-links li a");
+
+  echo_sidebar($image, $text, $links);
 
   echo "</div>";
 ?>
