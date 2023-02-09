@@ -1,7 +1,8 @@
 <?php
+  include "../utilities/dom.php";
   require "../modules/querypath/src/qp.php";
 
-  $document = htmlqp(file_get_contents("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"])));
+  $document = htmlqp(encode_document(file_get_contents("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]))));
   $json = json_decode($document->find("script[data-tralbum]")->attr("data-tralbum"));
 
   $title = $json->current->title;

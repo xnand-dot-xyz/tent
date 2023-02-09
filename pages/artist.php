@@ -1,7 +1,8 @@
 <?php
+  include "../utilities/dom.php";
   require "../modules/querypath/src/qp.php";
 
-  $document = htmlqp(file_get_contents("https://" . urlencode($_GET["name"]) . ".bandcamp.com/music"));
+  $document = htmlqp(encode_document(file_get_contents("https://" . urlencode($_GET["name"]) . ".bandcamp.com/music")));
 
   $title = $document->find("#band-name-location .title")->text();
 ?>
