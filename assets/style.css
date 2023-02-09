@@ -91,6 +91,10 @@ main .wrapper table {
   width: 100%;
 }
 
+main .wrapper table td {
+  vertical-align: top;
+}
+
 main .wrapper table td:first-child,
 main .wrapper table td:last-child {
   width: 0;
