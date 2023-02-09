@@ -2,8 +2,9 @@
   require "../modules/querypath/src/qp.php";
 
   $document = htmlqp(file_get_contents("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/album/" . urlencode($_GET["name"])));
+  $json = json_decode($document->find("script[data-tralbum]")->attr("data-tralbum"));
 
-  $title = $document->find("h2")->text();
+  $title = $json->current->title;
 ?>
 
 <?php include "../elements/header.php" ?>
@@ -12,14 +13,14 @@
 
 <?php
   echo "<h1>";
-  echo htmlspecialchars($document->find("h2")->next()->find("a")->text()) . ": ";
-  echo htmlspecialchars($document->find("h2")->text());
+  echo htmlspecialchars($json->artist) . ": ";
+  echo htmlspecialchars($json->current->title);
   echo "</h1>";
 
   echo "<div class=\"subpage\">";
 
-  $image = $document->find("#tralbumArt a")->attr("href");
-  $text = $document->find(".tralbum-about")->text();
+  $image = "https://f4.bcbits.com/img/" . $json->art_id . "_10.jpg";
+  $text = $json->current->about;
 
   echo_sidebar($image, $text);
 
@@ -27,17 +28,18 @@
 
   echo "<table>";
 
-  $tracks = $document->find(".track_list .track_row_view");
-
-  foreach ($tracks as $track) {
-    $link = $track->find(".title a")->attr("href");
+  foreach ($json->trackinfo as $track) {
+    $link = $track->title_link;
     $link = prefix_link($link, "artist");
     $link = convert_link($link);
 
+    $duration = round($track->duration);
+    $duration = floor($duration / 60) . ":" . sprintf("%02d", $duration % 60);
+
     echo "<tr>";
-    echo "<td>" . $track->find(".track_number")->text() . "</td>";
-    echo "<td><a href=\"" . $link . "\">" . $track->find(".track-title")->text() . "</a></td>";
-    echo "<td>" . $track->find(".time")->text() . "</td>";
+    echo "<td>" . $track->track_num . ".</td>";
+    echo "<td><a href=\"" . $link . "\">" . $track->title . "</a></td>";
+    echo "<td>" . $duration . "</td>";
     echo "</tr>";
   };
 
