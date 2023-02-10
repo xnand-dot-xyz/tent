@@ -2,9 +2,11 @@
   require_once "../config/config.php";
   require_once "../utilities/dom.php";
   require_once "../modules/querypath/src/qp.php";
+  require_once "../modules/random-user-agent/src/UserAgent.php";
 
   $ch = curl_init("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]));
 
+  curl_setopt($ch, CURLOPT_USERAGENT, \Campo\UserAgent::random());
   if (isset($config["identity"]))
     curl_setopt($ch, CURLOPT_COOKIE, "identity=" . $config["identity"]);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

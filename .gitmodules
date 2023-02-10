@@ -4,3 +4,6 @@
 [submodule "modules/querypath"]
 	path = modules/querypath
 	url = https://github.com/technosophos/querypath.git
+[submodule "modules/random-user-agent"]
+	path = modules/random-user-agent
+	url = https://github.com/joecampo/random-user-agent.git
