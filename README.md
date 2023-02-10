@@ -7,6 +7,7 @@ For end-user documentation, see the home page of an instance of your choice.
 ## Instances
 
 - https://tent.sny.sh/
+- https://tent.bloatcat.tk/
 
 ## Setup
 
