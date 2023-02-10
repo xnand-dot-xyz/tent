@@ -1,8 +1,15 @@
 <?php
+  include "../config/config.php";
   include "../utilities/dom.php";
   require "../modules/querypath/src/qp.php";
 
-  $document = htmlqp(encode_document(file_get_contents("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]))));
+  $ch = curl_init("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]));
+
+  if (isset($config["identity"]))
+    curl_setopt($ch, CURLOPT_COOKIE, "identity=" . $config["identity"]);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+  $document = htmlqp(encode_document(curl_exec($ch)));
   $json = json_decode($document->find("script[data-tralbum]")->attr("data-tralbum"));
 
   $title = $json->current->title;
