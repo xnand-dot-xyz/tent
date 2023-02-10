@@ -1,10 +1,11 @@
 <?php
-  $audio = "https://t4.bcbits.com/stream/" . urlencode($_GET["directory"]) . "/" . urlencode($_GET["format"]) . "/" . urlencode($_GET["file"]) . "?token=" . urlencode($_GET["token"]);
-  $audio = file_get_contents($audio);
+  $ch = curl_init("https://t4.bcbits.com/stream/" . urlencode($_GET["directory"]) . "/" . urlencode($_GET["format"]) . "/" . urlencode($_GET["file"]) . "?token=" . urlencode($_GET["token"]));
 
-  $mime = new finfo(FILEINFO_MIME_TYPE);
-  $mime = $mime->buffer($audio);
+  curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($ch, $data) {
+    echo $data;
+    return strlen($data);
+  });
 
-  header("Content-Type: " . $mime);
-  echo $audio;
+  header("Content-Type: application/octet-stream");
+  curl_exec($ch);
 ?>

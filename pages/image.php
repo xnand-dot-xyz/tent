@@ -5,19 +5,21 @@
   ];
 
   foreach ($images as $image) {
-    $context = stream_context_create([
-      "http" => [
-        "ignore_errors" => true
-      ]
-    ]);
-    $image = file_get_contents($image, false, $context);
+    $ch = curl_init($image);
 
-    if (explode(" ", $http_response_header[0])[1] === "200") {
-      $mime = new finfo(FILEINFO_MIME_TYPE);
-      $mime = $mime->buffer($image);
+    curl_setopt($ch, CURLOPT_NOBODY, true);
 
-      header("Content-Type: " . $mime);
-      echo $image;
+    curl_exec($ch);
+
+    if (curl_getinfo($ch, CURLINFO_RESPONSE_CODE) === 200) {
+      curl_setopt($ch, CURLOPT_NOBODY, false);
+      curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($ch, $data) {
+        echo $data;
+        return strlen($data);
+      });
+
+      header("Content-Type: application/octet-stream");
+      curl_exec($ch);
 
       break;
     };
