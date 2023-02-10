@@ -19,7 +19,7 @@
     elseif ($host === "f4.bcbits.com")
       return $base . "image.php?file=" . basename($link);
     elseif ($host === "t4.bcbits.com")
-      return $base . "audio.php?directory=" . explode("/", $path)[1] . "&file=" . explode("/", $path)[3] . "&token=" . $query["token"];
+      return $base . "audio.php?directory=" . explode("/", $path)[1] . "&format=" . explode("/", $path)[2] . "&file=" . explode("/", $path)[3] . "&token=" . $query["token"];
     else
       return $link;
   };

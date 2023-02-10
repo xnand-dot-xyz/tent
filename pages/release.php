@@ -45,10 +45,14 @@
       echo "</tr>";
 
       if ($track->file) {
+        $file = $track->file;
+        $file = get_mangled_object_vars($file);
+        $file = end($file);
+
         echo "<tr>";
         echo "<td></td>";
         echo "<td colspan=\"2\">";
-        echo "<audio src=\"" . convert_link($track->file->{"mp3-128"}) . "\" controls preload=\"none\"></audio>";
+        echo "<audio src=\"" . convert_link($file) . "\" controls preload=\"none\"></audio>";
         echo "</td>";
         echo "</tr>";
       };
