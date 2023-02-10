@@ -1,5 +1,7 @@
 <?php
   function encode_document($text) {
+    libxml_use_internal_errors(true);
+
     $document = new DOMDocument();
     $document->loadHTML("<?xml encoding=\"UTF-8\">" . $text);
 

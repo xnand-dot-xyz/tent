@@ -26,7 +26,7 @@
     $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
 
     unset($text);
-    if ($title[1]) $text = "by " . htmlspecialchars($title[1]);
+    if (array_key_exists(1, $title)) $text = "by " . htmlspecialchars($title[1]);
 
     $image = $release->find("img");
     $image = $image->hasAttr("data-original") ? $image->attr("data-original") : $image->attr("src");
@@ -36,7 +36,7 @@
     $link = prefix_link($link, "name");
     $link = convert_link($link);
 
-    echo_item($link, $image, htmlspecialchars($title[0]), $text);
+    echo_item($link, $image, htmlspecialchars($title[0]), $text ?? null);
   };
 
   if (!$releases->length)
