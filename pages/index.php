@@ -1,5 +1,5 @@
-<?php include "../elements/header.php" ?>
-<?php include "../utilities/link.php" ?>
+<?php require_once "../elements/header.php" ?>
+<?php require_once "../utilities/link.php" ?>
 
 <h1><?= $config["title"] ?></h1>
 <p>
@@ -50,4 +50,4 @@
   ?>
 </ul>
 
-<?php include "../elements/footer.php" ?>
+<?php require_once "../elements/footer.php" ?>

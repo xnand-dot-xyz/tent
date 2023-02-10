@@ -1,7 +1,7 @@
 <?php
-  include "../config/config.php";
-  include "../utilities/dom.php";
-  require "../modules/querypath/src/qp.php";
+  require_once "../config/config.php";
+  require_once "../utilities/dom.php";
+  require_once "../modules/querypath/src/qp.php";
 
   $ch = curl_init("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]));
 
@@ -15,9 +15,9 @@
   $title = $json->current->title;
 ?>
 
-<?php include "../elements/header.php" ?>
-<?php include "../elements/sidebar.php" ?>
-<?php include "../utilities/link.php" ?>
+<?php require_once "../elements/header.php" ?>
+<?php require_once "../elements/sidebar.php" ?>
+<?php require_once "../utilities/link.php" ?>
 
 <?php
   if ($json) {
@@ -81,4 +81,4 @@
   };
 ?>
 
-<?php include "../elements/footer.php" ?>
+<?php require_once "../elements/footer.php" ?>

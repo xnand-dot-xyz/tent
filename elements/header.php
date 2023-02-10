@@ -1,5 +1,5 @@
 <?php
-  include "../config/config.php";
+  require_once "../config/config.php";
 
   if (!isset($config["title"]))
     $config["title"] = "Tent";

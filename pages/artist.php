@@ -1,16 +1,16 @@
 <?php
-  include "../utilities/dom.php";
-  require "../modules/querypath/src/qp.php";
+  require_once "../utilities/dom.php";
+  require_once "../modules/querypath/src/qp.php";
 
   $document = htmlqp(encode_document(file_get_contents("https://" . urlencode($_GET["name"]) . ".bandcamp.com/music")));
 
   $title = $document->find("#band-name-location .title")->text();
 ?>
 
-<?php include "../elements/header.php" ?>
-<?php include "../elements/item.php" ?>
-<?php include "../elements/sidebar.php" ?>
-<?php include "../utilities/link.php" ?>
+<?php require_once "../elements/header.php" ?>
+<?php require_once "../elements/item.php" ?>
+<?php require_once "../elements/sidebar.php" ?>
+<?php require_once "../utilities/link.php" ?>
 
 <?php
   if ($document->find("#band-name-location .title")->length)
@@ -53,4 +53,4 @@
   echo "</div>";
 ?>
 
-<?php include "../elements/footer.php" ?>
+<?php require_once "../elements/footer.php" ?>

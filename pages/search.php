@@ -2,9 +2,9 @@
   $title = htmlspecialchars($_GET["query"]);
 ?>
 
-<?php include "../elements/header.php" ?>
-<?php include "../elements/item.php" ?>
-<?php include "../utilities/link.php" ?>
+<?php require_once "../elements/header.php" ?>
+<?php require_once "../elements/item.php" ?>
+<?php require_once "../utilities/link.php" ?>
 
 <?php
   echo "<h1>Search: “" . htmlspecialchars($_GET["query"]) . "”</h1>";
@@ -50,4 +50,4 @@
   echo "</div>";
 ?>
 
-<?php include "../elements/footer.php" ?>
+<?php require_once "../elements/footer.php" ?>
