@@ -5,7 +5,7 @@
 <p>
   <?= $config["title"] ?> is a simple alternative front-end for <a href="https://bandcamp.com/">Bandcamp</a>.
   <br>
-  It was inspired by <a href="https://nitter.net/">Nitter</a> and the like.
+  It was inspired by <a href="https://invidious.io/">Invidious</a>, <a href="https://nitter.net/">Nitter</a> and the like.
 </p>
 
 <h2>How do I get started?</h2>
