@@ -15,7 +15,7 @@
     elseif (str_ends_with($host, ".bandcamp.com") && !$path)
       return $base . "artist.php?name=" . explode(".", $host)[0];
     elseif (str_ends_with($host, ".bandcamp.com"))
-      return $base . "release.php?type=" . explode("/", $path)[0] . "&artist=" . explode(".", $host)[0] . "&name=" . explode("/", $path)[1];
+      return $base . "release.php?artist=" . explode(".", $host)[0] . "&type=" . explode("/", $path)[0] . "&name=" . explode("/", $path)[1];
     elseif ($host === "f4.bcbits.com")
       return $base . "image.php?file=" . basename($link);
     elseif ($host === "t4.bcbits.com")
