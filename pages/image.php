@@ -17,8 +17,10 @@
         echo $data;
         return strlen($data);
       });
+
       $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-      header("Content-Type: $contentType");
+      header("Content-Type: " . $contentType);
+
       curl_exec($ch);
 
       break;
