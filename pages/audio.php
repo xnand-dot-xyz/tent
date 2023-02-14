@@ -6,6 +6,7 @@
     return strlen($data);
   });
 
-  header("Content-Type: application/octet-stream");
+  $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+  header("Content-Type: $contentType");
   curl_exec($ch);
 ?>
