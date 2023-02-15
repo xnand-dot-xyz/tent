@@ -22,7 +22,7 @@
 <?php
   if ($json) {
     echo "<h1>";
-    echo htmlspecialchars($json->artist) . ": ";
+    echo "<a href=\"" . convert_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com") . "\">" . htmlspecialchars($json->artist) . "</a>: ";
     echo htmlspecialchars($json->current->title);
     echo "</h1>";
 
