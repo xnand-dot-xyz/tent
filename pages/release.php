@@ -73,6 +73,9 @@
 
     echo "</table>";
 
+    $lyrics = $json->current->lyrics;
+    if ($lyrics) echo "<p>" . nl2br($json->current->lyrics) . "</p>";
+
     echo "</div>";
 
     $image = $document->find(".bio-pic a")->attr("href");
