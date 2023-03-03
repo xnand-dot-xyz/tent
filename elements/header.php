@@ -21,7 +21,7 @@
   <body>
     <header>
       <div class="wrapper">
-        <a href="."><?= $title ?></a>
+        <a href="."><?= $config["title"] ?></a>
         <form action="search.php">
           <input name="query" placeholder="Search..." required>
         </form>
