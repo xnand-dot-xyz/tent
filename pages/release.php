@@ -11,6 +11,7 @@
 
   $document = htmlqp(encode_document(curl_exec($ch)));
   $json = json_decode($document->find("script[data-tralbum]")->attr("data-tralbum"));
+  $additional = json_decode($document->find("script[type=\"application/ld+json\"]")->text());
 
   $title = $json->current->title;
 ?>
@@ -29,7 +30,12 @@
     echo "<div class=\"subpage\">";
 
     $image = "https://f4.bcbits.com/img/" . $json->art_id . "_10.jpg";
-    $text = $json->current->about;
+
+    $about = $json->current->about;
+    $description = $additional->inAlbum->albumRelease[0]->additionalProperty;
+    if ($description) $description = current(array_filter($description, fn($property) => $property->name === 'digital_release_description'));
+    if ($description) $description = $description->value;
+    $text = $about ?? $description;
 
     echo_sidebar($image, $text);
 
@@ -70,9 +76,8 @@
     echo "</div>";
 
     $image = $document->find(".bio-pic a")->attr("href");
-    $text = json_decode($document->find("script[type=\"application/ld+json\"]")->text());
-    if (isset($text->publisher->description))
-      $text = $text->publisher->description;
+    if (isset($additional->publisher->description))
+      $text = $additional->publisher->description;
     else
       $text = null;
     $links = $document->find("#band-links li a");
