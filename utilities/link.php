@@ -1,8 +1,8 @@
 <?php
   function convert_link($link) {
-    if ($_SERVER["REQUEST_SCHEME"])
+    if (isset($_SERVER["REQUEST_SCHEME"]))
       $scheme = $_SERVER["REQUEST_SCHEME"];
-    elseif ($_SERVER["HTTPS"])
+    elseif (isset($_SERVER["HTTPS"]))
       $scheme = "https";
     else
       $scheme = "http";
