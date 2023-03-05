@@ -45,15 +45,24 @@
 
     foreach ($json->trackinfo as $track) {
       $link = $track->title_link;
-      $link = prefix_link($link, "artist");
-      $link = convert_link($link);
+      if ($link) {
+        $link = prefix_link($link, "artist");
+        $link = convert_link($link);
+      };
 
       $duration = round($track->duration);
-      $duration = floor($duration / 60) . ":" . sprintf("%02d", $duration % 60);
+      if ($duration)
+        $duration = floor($duration / 60) . ":" . sprintf("%02d", $duration % 60);
+      else
+        $duration = null;
 
       echo "<tr>";
       echo "<td>" . ($track->track_num ?? 1) . ".</td>";
-      echo "<td><a href=\"" . $link . "\">" . $track->title . "</a></td>";
+      echo "<td>";
+      if ($link) echo "<a href=\"" . $link . "\">";
+      echo $track->title;
+      if ($link) echo "</a>";
+      echo "</td>";
       echo "<td>" . $duration . "</td>";
       echo "</tr>";
 
