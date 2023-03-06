@@ -27,8 +27,12 @@
   <li>manage your account or collection.</li>
 </ul>
 
-<h2>How do I set up Redirector?</h2>
-<p>To set up a redirection extension, create the following rules:</p>
+<h2>How do I set up redirection?</h2>
+<p>
+  The easiest way to automatically redirect Bandcamp to Tent is to use <a href="https://libredirect.github.io/">LibRedirect</a>.
+  <br>
+  You can also use a generic redirection extension, in which case you need to create the following rules:
+</p>
 <ul>
   <?php
     $rules = [
