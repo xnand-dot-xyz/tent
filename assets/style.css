@@ -149,6 +149,10 @@ a {
   text-decoration: initial;
 }
 
+#icon {
+  height: 12px;
+}
+
 ::selection {
   background: var(--color);
   color: var(--background);
@@ -165,5 +169,9 @@ a {
   :root {
     --background: black;
     --color: white;
+  }
+
+  #icon {
+    filter: invert(1);
   }
 }
