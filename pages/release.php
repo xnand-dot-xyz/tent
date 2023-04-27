@@ -29,7 +29,7 @@
 
     echo "<div class=\"subpage\">";
 
-    $image = "https://f4.bcbits.com/img/" . $json->art_id . "_10.jpg";
+    $image = "https://f4.bcbits.com/img/" . $json->art_id . "_4.jpg";
 
     $about = $json->current->about;
     $description = $additional->inAlbum->albumRelease[0]->additionalProperty;
@@ -88,6 +88,8 @@
     echo "</div>";
 
     $image = $document->find(".bio-pic a")->attr("href");
+    $image = resize_link($image, 4);
+
     if (isset($additional->publisher->description))
       $text = $additional->publisher->description;
     else

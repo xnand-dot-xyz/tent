@@ -41,7 +41,7 @@
         break;
     };
 
-    echo_item($link, convert_link($result->img), htmlspecialchars($result->name), $text ?? null);
+    echo_item($link, convert_link(resize_link($result->img, 3)), htmlspecialchars($result->name), $text ?? null);
   };
 
   if (empty($results))

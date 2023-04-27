@@ -30,6 +30,7 @@
 
     $image = $release->find("img");
     $image = $image->hasAttr("data-original") ? $image->attr("data-original") : $image->attr("src");
+    $image = resize_link($image, 3);
     $image = convert_link($image);
 
     $link = $release->find("a")->attr("href");
@@ -45,6 +46,8 @@
   echo "</div>";
 
   $image = $document->find(".bio-pic a")->attr("href");
+  $image = resize_link($image, 4);
+
   $description = $document->find("meta[property=\"og:description\"]")->attr("content");
   $links = $document->find("#band-links li a");
 

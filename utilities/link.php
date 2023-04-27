@@ -62,4 +62,14 @@
     else
       return $link;
   };
+
+  function resize_link($link, $size) {
+    $host = parse_url($link, PHP_URL_HOST);
+    if ($host !== "f4.bcbits.com") return $link;
+
+    $file = pathinfo($link)["filename"];
+    $ext = pathinfo($link)["extension"];
+
+    return "https://" . $host . "/img/" . explode("_", $file)[0] . "_" . $size . "." . $ext;
+  };
 ?>
