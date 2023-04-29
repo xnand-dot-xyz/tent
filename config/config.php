@@ -2,7 +2,7 @@
   $commit = trim(file_get_contents("../.git/refs/heads/main"));
 
   $text = substr($commit, 0, 7);
-  $link = "https://codeberg.org/sun/Tent/commit/" . $commit;
+  $link = "https://forgejo.sny.sh/sun/Tent/commit/" . $commit;
 
   $config = [
     // The title of this instance, displayed throughout the front-end. Default: Tent.
