@@ -29,7 +29,7 @@
 
 <h2>How do I set up redirection?</h2>
 <p>
-  The easiest way to automatically redirect Bandcamp to Tent is to use <a href="https://libredirect.github.io/">LibRedirect</a>.
+  The easiest way to automatically redirect Bandcamp to <?= $config["title"] ?> is to use <a href="https://libredirect.github.io/">LibRedirect</a>.
   <br>
   You can also use a generic redirection extension, in which case you need to create the following rules:
 </p>
