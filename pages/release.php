@@ -12,12 +12,14 @@
   $document = htmlqp(encode_document(curl_exec($ch)));
   $json = json_decode($document->find("script[data-tralbum]")->attr("data-tralbum"));
   $additional = json_decode($document->find("script[type=\"application/ld+json\"]")->text());
+  $recommendations = $document->find("li.recommended-album");
 
   $title = $json->current->title;
 ?>
 
 <?php require_once "../elements/header.php" ?>
 <?php require_once "../elements/sidebar.php" ?>
+<?php require_once "../elements/item.php" ?>
 <?php require_once "../utilities/link.php" ?>
 
 <?php
@@ -36,7 +38,6 @@
     if ($description) $description = current(array_filter($description, fn($property) => $property->name === 'digital_release_description'));
     if ($description) $description = $description->value;
     $text = $about ?? $description;
-
     echo_sidebar($image, $text);
 
     echo "<div class=\"tracks\">";
@@ -84,6 +85,13 @@
 
     $lyrics = $json->current->lyrics;
     if ($lyrics) echo "<p>" . nl2br($json->current->lyrics) . "</p>";
+    echo "<p><b>Recommendations:</b></p>";
+    echo "<div class=\"recommendations\">";
+    foreach ($recommendations as $ra){
+      $image = convert_link(resize_link($ra->find("img.album-art")->attr("src"), 3));
+      echo_item(convert_link($ra->find("a.album-link")->attr("href")), $image, "<br>" . $ra->attr("data-albumtitle"), "by " . $ra->attr("data-artist"));
+    }
+    echo "</div>";
 
     echo "</div>";
 
