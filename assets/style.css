@@ -29,14 +29,6 @@ body {
 .wrapper div > :last-child {
   margin-bottom: 0;
 }
-.recommendations {
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-  width: min-content;
-  margin: auto;
-  object-fit: fill;
-}
 
 header {
   border-bottom: 1px solid;
@@ -94,7 +86,7 @@ main .wrapper .subpage {
   grid-template-columns: 250px auto 250px;
 }
 
-main .wrapper img:not(div.recommendations img),
+main .wrapper img,
 main .wrapper table {
   width: 100%;
 }
@@ -147,7 +139,7 @@ main .wrapper .results img {
   object-fit: cover;
 }
 
-main .wrapper .tracks a,
+main .wrapper .tracks table a,
 main .wrapper .sidebar a {
   font-weight: bold;
 }
