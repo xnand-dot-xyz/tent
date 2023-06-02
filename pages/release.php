@@ -97,7 +97,7 @@
 
     foreach ($recommendations as $recommendation) {
       $link = convert_link($recommendation->find(".album-link")->attr("href"));
-      $image = convert_link(resize_link($recommendation->find("img")->attr("src"), 9));
+      $image = convert_link(resize_link($recommendation->find("img")->attr("src"), 3));
       $text = $recommendation->attr("data-albumtitle");
       $description = "by " . $recommendation->attr("data-artist");
 
