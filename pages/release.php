@@ -42,6 +42,8 @@
 
     echo "<div class=\"tracks\">";
 
+    echo "<details open>";
+    echo "<summary>Tracklist</summary>";
     echo "<table>";
 
     foreach ($json->trackinfo as $track) {
@@ -82,17 +84,21 @@
     };
 
     echo "</table>";
+    echo "</details>";
 
     $lyrics = $json->current->lyrics;
 
     if ($lyrics) {
-      echo "<p><b>Lyrics</b></p>";
+      echo "<details>";
+      echo "<summary>Lyrics</summary>";
       echo "<p>" . nl2br($json->current->lyrics) . "</p>";
+      echo "</details>";
     };
 
     $recommendations = $document->find(".recommended-album");
 
-    echo "<p><b>Recommendations</b></p>";
+    echo "<details>";
+    echo "<summary>Recommendations</summary>";
     echo "<div class=\"results\">";
 
     foreach ($recommendations as $recommendation) {
@@ -105,6 +111,7 @@
     };
 
     echo "</div>";
+    echo "</details>";
 
     echo "</div>";
 
