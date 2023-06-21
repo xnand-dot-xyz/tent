@@ -31,6 +31,11 @@ body {
   margin-bottom: 0;
 }
 
+.wrapper p a,
+.wrapper span a {
+  font-weight: bold;
+}
+
 header {
   border-bottom: 1px solid;
 }
