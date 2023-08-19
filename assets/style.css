@@ -151,6 +151,10 @@ main .wrapper .results img {
   object-fit: cover;
 }
 
+main .wrapper .sidebar {
+  overflow-wrap: anywhere;
+}
+
 main .wrapper .tracks table a,
 main .wrapper .sidebar a {
   font-weight: bold;
