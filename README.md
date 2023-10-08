@@ -22,4 +22,4 @@ For end-user documentation, see the home page of an instance of your choice.
 
 ## License
 
-Tent is licensed under the [Blue Oak Model License 1.0.0](https://blueoakcouncil.org/license/1.0.0).
+Tent is licensed under the [For Good Eyes Only](https://forgoodeyesonly.eu/) license.
