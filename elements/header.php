@@ -8,6 +8,8 @@
     $title = $config["title"] . " · " . $title;
   else
     $title = $config["title"];
+
+  header("Content-Security-Policy: default-src 'self'");
 ?>
 
 <!doctype html>
