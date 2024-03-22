@@ -3,7 +3,7 @@
     echo "<div class=\"sidebar\">";
 
     if (isset($image)) echo "<img src=\"" . convert_link($image) . "\">";
-    if (!empty($text)) echo "<p>" . nl2br(trim($text)) . "</p>";
+    if (!empty($text)) echo "<p>" . nl2br(htmlspecialchars(trim($text))) . "</p>";
 
     if ($links) {
       echo "<p>";

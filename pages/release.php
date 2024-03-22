@@ -63,7 +63,7 @@
       echo "<td>" . ($track->track_num ?? 1) . ".</td>";
       echo "<td>";
       if ($link) echo "<a href=\"" . $link . "\">";
-      echo $track->title;
+      echo htmlspecialchars($track->title);
       if ($link) echo "</a>";
       echo "</td>";
       echo "<td>" . $duration . "</td>";
@@ -91,7 +91,7 @@
     if ($lyrics) {
       echo "<details>";
       echo "<summary>Lyrics</summary>";
-      echo "<p>" . nl2br($json->current->lyrics) . "</p>";
+      echo "<p>" . nl2br(htmlspecialchars($json->current->lyrics)) . "</p>";
       echo "</details>";
     };
 

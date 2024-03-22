@@ -51,7 +51,7 @@
         "token" => $query["token"]
       ];
     } else
-      return $link;
+      return htmlspecialchars($link);
 
     return $base . $file . ".php?" . http_build_query($data);
   };
