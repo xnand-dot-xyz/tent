@@ -1,8 +1,21 @@
+<?php require_once "../utilities/link.php" ?>
+
 <?php
   require_once "../utilities/dom.php";
   require_once "../modules/querypath/src/qp.php";
 
-  $document = htmlqp(encode_document(file_get_contents("https://" . urlencode($_GET["name"]) . ".bandcamp.com/music")));
+  $ch = curl_init("https://" . urlencode($_GET["name"]) . ".bandcamp.com/" . "/music");
+
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+
+  $document = htmlqp(encode_document(curl_exec($ch)));
+
+  $redirectUrl = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
+  if ($redirectUrl) {
+    header("Location: " . convert_link($redirectUrl));
+    die();
+  }
 
   $title = $document->find("#band-name-location .title")->text();
 ?>
@@ -10,7 +23,6 @@
 <?php require_once "../elements/header.php" ?>
 <?php require_once "../elements/item.php" ?>
 <?php require_once "../elements/sidebar.php" ?>
-<?php require_once "../utilities/link.php" ?>
 
 <?php
   if ($document->find("#band-name-location .title")->length)
