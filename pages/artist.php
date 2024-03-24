@@ -4,18 +4,18 @@
   require_once "../utilities/dom.php";
   require_once "../modules/querypath/src/qp.php";
 
-  $ch = curl_init("https://" . urlencode($_GET["name"]) . ".bandcamp.com/" . "/music");
+  $ch = curl_init("https://" . urlencode($_GET["name"]) . ".bandcamp.com/music");
 
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
   $document = htmlqp(encode_document(curl_exec($ch)));
+  $redirect = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
 
-  $redirectUrl = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
-  if ($redirectUrl) {
-    header("Location: " . convert_link($redirectUrl));
-    die();
-  }
+  if ($redirect) {
+    header("Location: " . convert_link($redirect));
+    exit();
+  };
 
   $title = $document->find("#band-name-location .title")->text();
 ?>
