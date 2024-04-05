@@ -18,6 +18,7 @@
   };
 
   $title = $document->find("#band-name-location .title")->text();
+  $items = json_decode($document->find("#music-grid")->attr("data-client-items"), true);
 ?>
 
 <?php require_once "../elements/header.php" ?>
@@ -52,7 +53,26 @@
     echo_item($link, $image, htmlspecialchars($title[0]), $text ?? null);
   };
 
-  if (!$releases->length)
+  if (isset($items)) {
+    foreach ($items as $item) {
+      $title = $item["title"];
+  
+      unset($text);
+      if (array_key_exists("artist", $item)) $text = "by " . $item["artist"];
+  
+      $image = $item["art_id"];
+      $image = "https://f4.bcbits.com/img/a" . $image . "_0.jpg";
+      $image = resize_link($image, 3);
+      $image = convert_link($image);
+  
+      $link = prefix_link($item["page_url"], "name");
+      $link = convert_link($link);
+  
+      echo_item($link, $image, htmlspecialchars($title), $text ?? null);
+    };
+  };
+
+  if (!$releases->length && !isset($items))
     echo "<span>No results.</span>";
 
   echo "</div>";
