@@ -33,10 +33,14 @@
     $image = "https://f4.bcbits.com/img/" . $json->art_id . "_4.jpg";
 
     $about = $json->current->about;
-    $description = $additional->inAlbum->albumRelease[0]->additionalProperty;
-    if ($description) $description = current(array_filter($description, fn($property) => $property->name === 'digital_release_description'));
-    if ($description) $description = $description->value;
-    $text = $about ?? $description;
+
+    if (property_exists($additional, "inAlbum")) {
+      $description = $additional->inAlbum->albumRelease[0]->additionalProperty;
+      if ($description) $description = current(array_filter($description, fn($property) => $property->name === 'digital_release_description'));
+      if ($description) $description = $description->value;
+    };
+
+    $text = $about ?? $description ?? null;
 
     echo_sidebar($image, $text);
 
@@ -86,12 +90,13 @@
     echo "</table>";
     echo "</details>";
 
-    $lyrics = $json->current->lyrics;
+    if (property_exists($json->current, "lyrics"))
+      $lyrics = $json->current->lyrics;
 
-    if ($lyrics) {
+    if (isset($lyrics)) {
       echo "<details>";
       echo "<summary>Lyrics</summary>";
-      echo "<p>" . nl2br(htmlspecialchars($json->current->lyrics)) . "</p>";
+      echo "<p>" . nl2br(htmlspecialchars($lyrics)) . "</p>";
       echo "</details>";
     };
 
