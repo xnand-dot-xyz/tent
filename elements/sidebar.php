@@ -2,7 +2,12 @@
   function echo_sidebar ($image, $text, $links = null) {
     echo "<div class=\"sidebar\">";
 
-    if (isset($image)) echo "<img src=\"" . convert_link($image) . "\">";
+    if (isset($image)) {
+      echo "<a href=\"" . convert_link(resize_link($image, 0)) . "\">";
+      echo "<img src=\"" . convert_link($image) . "\">";
+      echo "</a>";
+    };
+
     if (!empty($text)) echo "<p>" . nl2br(htmlspecialchars(trim($text))) . "</p>";
 
     if ($links) {
