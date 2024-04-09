@@ -1,6 +1,3 @@
-[submodule "modules/mime-db"]
-	path = modules/mime-db
-	url = https://github.com/jshttp/mime-db.git
 [submodule "modules/querypath"]
 	path = modules/querypath
 	url = https://github.com/technosophos/querypath.git
