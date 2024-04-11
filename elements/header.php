@@ -21,7 +21,12 @@
     <link rel="icon" href="asset.php?file=icon.svg">
     <link rel="stylesheet" href="asset.php?file=style.css">
   </head>
-  <body>
+  <body class="
+    <?php
+      if (in_array($_COOKIE["theme"], ["light", "dark"]))
+        echo "theme-" . $_COOKIE["theme"];
+    ?>
+  ">
     <header>
       <div class="wrapper">
         <a href=".">
@@ -30,6 +35,9 @@
         <form action="search.php">
           <input name="query" placeholder="Search..." required>
         </form>
+        <a href="settings.php">
+          ⚙️
+        </a>
       </div>
     </header>
     <main>

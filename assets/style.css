@@ -1,9 +1,7 @@
-:root {
+body {
   --background: white;
   --color: black;
-}
 
-body {
   background: var(--background);
   color: var(--color);
   font-family: system-ui;
@@ -12,6 +10,15 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: initial;
+}
+
+body.theme-dark {
+  --background: black;
+  --color: white;
+}
+
+body.theme-dark #icon {
+  filter: invert(1);
 }
 
 .wrapper {
@@ -90,6 +97,10 @@ main .wrapper .page {
 
 main .wrapper .subpage {
   grid-template-columns: 250px auto 250px;
+}
+
+main .wrapper form div {
+  margin-bottom: 2em;
 }
 
 main .wrapper img,
@@ -182,12 +193,12 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  body:not(.theme-light) {
     --background: black;
     --color: white;
   }
 
-  #icon {
+  body:not(.theme-light) #icon {
     filter: invert(1);
   }
 }
