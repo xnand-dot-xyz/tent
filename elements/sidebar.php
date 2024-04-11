@@ -3,6 +3,9 @@
     echo "<div class=\"sidebar\">";
 
     if (isset($image)) {
+      if ($_COOKIE["images"] === "disabled")
+        $image = get_placeholder();
+
       echo "<a href=\"" . convert_link(resize_link($image, 0)) . "\">";
       echo "<img src=\"" . convert_link($image) . "\">";
       echo "</a>";

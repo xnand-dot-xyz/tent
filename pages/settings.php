@@ -37,6 +37,25 @@
     </p>
   </div>
 
+  <div>
+    <p><b>Images</b></p>
+    <p>If disabled, speeds up loading and saves data by not loading any images.</p>
+    <p>
+      <select name="images">
+        <?php
+          foreach ([
+            "enabled" => "Enabled",
+            "disabled" => "Disabled"
+          ] as $name => $value) {
+            echo "<option value=\"" . $name . "\"";
+            if ($_COOKIE["images"] === $name) echo " selected";
+            echo ">" . $value . "</option>";
+          };
+        ?>
+      </select>
+    </p>
+  </div>
+
   <input type="submit" value="Save">
 </form>
 
