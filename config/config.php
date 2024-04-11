@@ -9,7 +9,9 @@
     "title" => "Tent",
 
     // A line of text displayed in the footer. May contain HTML. No default.
-    "text" => "Tent © <a href=\"https://sny.sh/\">Sunny</a> and contributors, Tent's logo © SecularSteve. Not affiliated with <a href=\"https://bandcamp.com/\">Bandcamp</a>. Running commit <a href=\"" . $link . "\">" . $text . "</a>.",
+    "text" => "Tent © <a href=\"https://sny.sh/\">Sunny</a> and contributors, Tent's logo © SecularSteve. " .
+              "Not affiliated with <a href=\"https://bandcamp.com/\">Bandcamp</a>. " .
+              "Running commit <a href=\"" . $link . "\">" . $text . "</a>.",
 
     // Contents of the identity cookie when logged in to Bandcamp. Allows access to higher quality audio files. No default.
     "identity" => null
