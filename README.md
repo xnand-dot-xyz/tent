@@ -12,6 +12,8 @@ For end-user documentation, see the home page of an instance of your choice.
 - http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/
 - http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/
 
+A machine-readable list is available via [instances.json](instances.json).
+
 ## Setup
 
 1. Install PHP.
