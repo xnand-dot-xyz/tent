@@ -36,6 +36,18 @@
     }
   },
   {
+    "url": "https://tent.deep-swarm.xyz/",
+    "type": "http",
+    "provider": {
+      "name": "Deepswarm",
+      "url": "https://deep-swarm.xyz/"
+    },
+    "location": "SE",
+    "antifeatures": {
+      "cloudflare": false
+    }
+  },
+  {
     "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
     "type": "tor",
     "provider": {
