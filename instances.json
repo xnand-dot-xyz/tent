@@ -6,7 +6,10 @@
       "name": "Sunny",
       "url": "https://sny.sh/"
     },
-    "location": "DE"
+    "location": "DE",
+    "antifeatures": {
+      "cloudflare": false
+    }
   },
   {
     "url": "https://tent.bloat.cat/",
@@ -15,7 +18,10 @@
       "name": "bloat.cat",
       "url": "https://bloat.cat/"
     },
-    "location": "RO"
+    "location": "RO",
+    "antifeatures": {
+      "cloudflare": false
+    }
   },
   {
     "url": "https://tn.vern.cc/",
@@ -24,7 +30,10 @@
       "name": "~vern",
       "url": "https://vern.cc/"
     },
-    "location": "US"
+    "location": "US",
+    "antifeatures": {
+      "cloudflare": false
+    }
   },
   {
     "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
@@ -33,7 +42,10 @@
       "name": "~vern",
       "url": "https://vern.cc/"
     },
-    "location": "US"
+    "location": "US",
+    "antifeatures": {
+      "cloudflare": false
+    }
   },
   {
     "url": "http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/",
@@ -42,6 +54,9 @@
       "name": "~vern",
       "url": "https://vern.cc/"
     },
-    "location": "US"
+    "location": "US",
+    "antifeatures": {
+      "cloudflare": false
+    }
   }
 ]
