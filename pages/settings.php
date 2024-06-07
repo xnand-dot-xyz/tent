@@ -44,6 +44,7 @@
       <select name="images">
         <?php
           foreach ([
+            "system" => "System",
             "enabled" => "Enabled",
             "disabled" => "Disabled"
           ] as $name => $value) {
