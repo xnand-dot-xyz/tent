@@ -17,10 +17,6 @@ body.theme-dark {
   --color: white;
 }
 
-body.theme-dark #icon {
-  filter: invert(1);
-}
-
 .wrapper {
   max-width: 1400px;
   margin: auto;
@@ -63,15 +59,7 @@ footer .wrapper {
   gap: 1em;
 }
 
-header .wrapper a {
-  max-width: 50%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-header .wrapper form,
-footer .wrapper span {
+header .wrapper form {
   flex: 1;
 }
 
@@ -176,10 +164,6 @@ a {
   text-decoration: initial;
 }
 
-#icon {
-  height: 12px;
-}
-
 ::selection {
   background: var(--color);
   color: var(--background);
@@ -196,9 +180,5 @@ a {
   body:not(.theme-light) {
     --background: black;
     --color: white;
-  }
-
-  body:not(.theme-light) #icon {
-    filter: invert(1);
   }
 }
