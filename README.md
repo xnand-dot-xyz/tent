@@ -25,4 +25,4 @@ A machine-readable list is available via [instances.json](instances.json).
 
 ## License
 
-Tent is licensed under the [For Good Eyes Only](https://forgoodeyesonly.eu/) license.
+Tent is licensed under the [Hippocratic License](https://firstdonoharm.dev/version/3/0/core.html).
