@@ -29,7 +29,7 @@
             "dark" => "Dark"
           ] as $name => $value) {
             echo "<option value=\"" . $name . "\"";
-            if ($_COOKIE["theme"] === $name) echo " selected";
+            if (isset($_COOKIE["theme"]) && $_COOKIE["theme"] === $name) echo " selected";
             echo ">" . $value . "</option>";
           };
         ?>
@@ -49,7 +49,7 @@
             "disabled" => "Disabled"
           ] as $name => $value) {
             echo "<option value=\"" . $name . "\"";
-            if ($_COOKIE["images"] === $name) echo " selected";
+            if (isset($_COOKIE["images"]) && $_COOKIE["images"] === $name) echo " selected";
             echo ">" . $value . "</option>";
           };
         ?>

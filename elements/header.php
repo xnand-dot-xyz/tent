@@ -23,7 +23,7 @@
   </head>
   <body class="
     <?php
-      if (in_array($_COOKIE["theme"], ["light", "dark"]))
+      if (isset($_COOKIE["theme"]) && in_array($_COOKIE["theme"], ["light", "dark"]))
         echo "theme-" . $_COOKIE["theme"];
     ?>
   ">
