@@ -33,7 +33,7 @@
           ⛺
         </a>
         <form action="search.php">
-          <input name="query" placeholder="Search..." required>
+          <input name="query" placeholder="Search..." required autofocus>
         </form>
         <a href="settings.php">
           ⚙️
