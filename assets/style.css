@@ -159,6 +159,10 @@ main .wrapper .sidebar a {
   font-weight: bold;
 }
 
+main .wrapper .sidebar img {
+  display: block;
+}
+
 a {
   color: inherit;
   text-decoration: initial;
