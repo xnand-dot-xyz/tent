@@ -1,6 +1,8 @@
 <?php
   function convert_link($link) {
-    if (isset($_SERVER["REQUEST_SCHEME"]))
+    if (isset($_SERVER["HTTP_X_FORWARDED_PROTO"]))
+      $scheme = $_SERVER["HTTP_X_FORWARDED_PROTO"];
+    elseif (isset($_SERVER["REQUEST_SCHEME"]))
       $scheme = $_SERVER["REQUEST_SCHEME"];
     elseif (isset($_SERVER["HTTPS"]))
       $scheme = "https";
