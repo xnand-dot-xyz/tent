@@ -4,6 +4,7 @@ body {
 
   background: var(--background);
   color: var(--color);
+  accent-color: var(--color);
   font-family: system-ui;
 
   display: flex;
