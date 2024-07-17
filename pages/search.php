@@ -4,6 +4,7 @@
 
 <?php require_once "../elements/header.php" ?>
 <?php require_once "../elements/item.php" ?>
+<?php require_once "../utilities/dom.php" ?>
 <?php require_once "../utilities/file.php" ?>
 <?php require_once "../utilities/link.php" ?>
 
@@ -45,13 +46,8 @@
     echo_item($link, convert_link(resize_link($result->img, 3)), htmlspecialchars($result->name), $text ?? null);
   };
 
-  if (empty($results)) {
-    echo "<h1>No results.</h1>";
-    echo "<p>
-      If you're certain that something should be here, Bandcamp may be rate limiting this instance.<br>
-      In that case, try refreshing this page a few times or using a different instance.
-    </p>";
-  };
+  if (empty($results))
+    echo_error_message();
 
   echo "</div>";
 ?>

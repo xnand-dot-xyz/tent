@@ -1,6 +1,7 @@
+<?php require_once "../utilities/dom.php" ?>
+
 <?php
   require_once "../config/config.php";
-  require_once "../utilities/dom.php";
   require_once "../modules/querypath/src/qp.php";
 
   $ch = curl_init("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]));
@@ -134,11 +135,7 @@
 
     echo "</div>";
   } else {
-    echo "<h1>No results.</h1>";
-    echo "<p>
-      If you're certain that something should be here, Bandcamp may be rate limiting this instance.<br>
-      In that case, try refreshing this page a few times or using a different instance.
-    </p>";
+    echo_error_message();
   };
 ?>
 
