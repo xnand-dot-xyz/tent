@@ -1,5 +1,5 @@
+<?php require_once "../utilities/index.php" ?>
 <?php require_once "../elements/header.php" ?>
-<?php require_once "../utilities/link.php" ?>
 
 <h1><?= $config["title"] ?></h1>
 <p>

@@ -1,4 +1,4 @@
-<?php require_once "../utilities/dom.php" ?>
+<?php require_once "../utilities/index.php" ?>
 
 <?php
   require_once "../config/config.php";
@@ -20,8 +20,6 @@
 <?php require_once "../elements/header.php" ?>
 <?php require_once "../elements/sidebar.php" ?>
 <?php require_once "../elements/item.php" ?>
-<?php require_once "../utilities/file.php" ?>
-<?php require_once "../utilities/link.php" ?>
 
 <?php
   if ($json) {

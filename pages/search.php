@@ -1,12 +1,11 @@
+<?php require_once "../utilities/index.php" ?>
+
 <?php
   $title = htmlspecialchars($_GET["query"]);
 ?>
 
 <?php require_once "../elements/header.php" ?>
 <?php require_once "../elements/item.php" ?>
-<?php require_once "../utilities/dom.php" ?>
-<?php require_once "../utilities/file.php" ?>
-<?php require_once "../utilities/link.php" ?>
 
 <?php
   echo "<h1>Search: “" . htmlspecialchars($_GET["query"]) . "”</h1>";

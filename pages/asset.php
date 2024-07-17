@@ -1,4 +1,4 @@
-<?php require_once "../utilities/file.php" ?>
+<?php require_once "../utilities/index.php" ?>
 
 <?php
   $file = "../assets/" . basename($_GET["file"]);

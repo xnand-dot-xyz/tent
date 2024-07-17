@@ -1,6 +1,4 @@
-<?php require_once "../utilities/dom.php" ?>
-<?php require_once "../utilities/file.php" ?>
-<?php require_once "../utilities/link.php" ?>
+<?php require_once "../utilities/index.php" ?>
 
 <?php
   require_once "../modules/querypath/src/qp.php";
