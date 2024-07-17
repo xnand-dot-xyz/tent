@@ -7,7 +7,8 @@
       "url": "https://sny.sh/"
     },
     "location": "DE",
-    "antifeatures": {
+    "features": {
+      "official": true,
       "cloudflare": false
     }
   },
@@ -19,7 +20,8 @@
       "url": "https://bloat.cat/"
     },
     "location": "RO",
-    "antifeatures": {
+    "features": {
+      "official": false,
       "cloudflare": false
     }
   },
@@ -31,7 +33,8 @@
       "url": "https://vern.cc/"
     },
     "location": "US",
-    "antifeatures": {
+    "features": {
+      "official": false,
       "cloudflare": false
     }
   },
@@ -43,7 +46,8 @@
       "url": "https://deep-swarm.xyz/"
     },
     "location": "SE",
-    "antifeatures": {
+    "features": {
+      "official": false,
       "cloudflare": false
     }
   },
@@ -55,7 +59,8 @@
       "url": "https://vern.cc/"
     },
     "location": "US",
-    "antifeatures": {
+    "features": {
+      "official": false,
       "cloudflare": false
     }
   },
@@ -67,7 +72,8 @@
       "url": "https://vern.cc/"
     },
     "location": "US",
-    "antifeatures": {
+    "features": {
+      "official": false,
       "cloudflare": false
     }
   }
