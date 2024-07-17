@@ -13,7 +13,7 @@
               "Not affiliated with <a href=\"https://bandcamp.com/\">Bandcamp</a>. " .
               "Running commit <a href=\"" . $link . "\">" . $text . "</a>.",
 
-    // Contents of the identity cookie when logged in to Bandcamp. Allows access to higher quality audio files. No default.
+    // Contents of the identity cookie when logged in to Bandcamp. Allows access to higher quality audio files and purchased tracks. No default.
     "identity" => null
   ];
 
