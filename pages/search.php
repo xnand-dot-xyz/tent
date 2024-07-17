@@ -22,6 +22,9 @@
 
   $results = json_decode(curl_exec($ch))->auto->results;
 
+  if (empty($results))
+    echo_error_message();
+
   echo "<div class=\"results\">";
 
   foreach ($results as $result) {
@@ -44,9 +47,6 @@
 
     echo_item($link, convert_link(resize_link($result->img, 3)), htmlspecialchars($result->name), $text ?? null);
   };
-
-  if (empty($results))
-    echo_error_message();
 
   echo "</div>";
 ?>

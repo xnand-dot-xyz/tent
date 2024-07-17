@@ -28,11 +28,14 @@
   if ($document->find("#band-name-location .title")->length)
     echo "<h1>" . htmlspecialchars($document->find("#band-name-location .title")->text()) . "</h1>";
 
+  $releases = $document->find("#music-grid li");
+
+  if (!$releases->length && !isset($items))
+    echo_error_message();
+
   echo "<div class=\"page\">";
 
   echo "<div class=\"results\">";
-
-  $releases = $document->find("#music-grid li");
 
   foreach ($releases as $release) {
     $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
@@ -70,9 +73,6 @@
       echo_item($link, $image, htmlspecialchars($title), $text ?? null);
     };
   };
-
-  if (!$releases->length && !isset($items))
-    echo_error_message();
 
   echo "</div>";
 
