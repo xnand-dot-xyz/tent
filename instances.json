@@ -52,6 +52,19 @@
     }
   },
   {
+    "url": "https://bandcamp.lurkmore.com/",
+    "type": "http",
+    "provider": {
+      "name": "LURKMORE",
+      "url": "https://www.lurkmore.com/view/Main_Page"
+    },
+    "location": "ES",
+    "features": {
+      "official": false,
+      "cloudflare": false
+    }
+  },
+  {
     "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
     "type": "tor",
     "provider": {
