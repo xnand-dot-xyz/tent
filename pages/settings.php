@@ -5,8 +5,12 @@
 <?php require_once "../elements/header.php" ?>
 
 <?php
-  foreach ($_GET as $name => $value)
+  foreach ($_GET as $name => $value) {
+    if (is_array($value))
+      $value = json_encode($value);
+
     setcookie($name, $value);
+  };
 
   if (count($_GET)) {
     header("Location: " . strtok($_SERVER["REQUEST_URI"], "?"));
@@ -30,6 +34,32 @@
           ] as $name => $value) {
             echo "<option value=\"" . $name . "\"";
             if (isset($_COOKIE["theme"]) && $_COOKIE["theme"] === $name) echo " selected";
+            echo ">" . $value . "</option>";
+          };
+        ?>
+      </select>
+    </p>
+  </div>
+
+  <div>
+    <p><b>Details</b></p>
+    <p>Which of the collapsible details the release page is made up of to expand by default.</p>
+    <p>
+      <select name="details[]" multiple>
+        <?php
+          foreach ([
+            "tracklist" => "Tracklist",
+            "lyrics" => "Lyrics",
+            "license" => "License",
+            "tags" => "Tags",
+            "recommendations" => "Recommendations"
+          ] as $name => $value) {
+            echo "<option value=\"" . $name . "\"";
+            if (
+              (isset($_COOKIE["details"]) && in_array($name, json_decode($_COOKIE["details"]))) ||
+              (!isset($_COOKIE["details"]) && $name === "tracklist")
+            )
+              echo " selected";
             echo ">" . $value . "</option>";
           };
         ?>

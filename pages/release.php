@@ -46,7 +46,7 @@
 
     echo "<div class=\"tracks\">";
 
-    echo "<details open>";
+    echo "<details" . (isset($_COOKIE["details"]) && !in_array("tracklist", json_decode($_COOKIE["details"])) ? "" : " open") . ">";
     echo "<summary>Tracklist</summary>";
     echo "<table>";
 
@@ -94,13 +94,13 @@
       $lyrics = $json->current->lyrics;
 
     if (isset($lyrics)) {
-      echo "<details>";
+      echo "<details" . (isset($_COOKIE["details"]) && in_array("lyrics", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
       echo "<summary>Lyrics</summary>";
       echo "<p>" . nl2br(htmlspecialchars($lyrics)) . "</p>";
       echo "</details>";
     };
 
-    echo "<details>";
+    echo "<details" . (isset($_COOKIE["details"]) && in_array("license", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
     echo "<summary>License</summary>";
 
     if ($additional->copyrightNotice === "All Rights Reserved") {
@@ -124,7 +124,7 @@
 
     $tags = $additional->keywords;
 
-    echo "<details>";
+    echo "<details" . (isset($_COOKIE["details"]) && in_array("tags", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
     echo "<summary>Tags</summary>";
     echo "<ul>";
 
@@ -141,7 +141,7 @@
 
     $recommendations = $document->find(".recommended-album");
 
-    echo "<details>";
+    echo "<details" . (isset($_COOKIE["details"]) && in_array("recommendations", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
     echo "<summary>Recommendations</summary>";
     echo "<div class=\"results\">";
 
