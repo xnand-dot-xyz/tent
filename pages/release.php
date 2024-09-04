@@ -100,6 +100,23 @@
       echo "</details>";
     };
 
+    $tags = $additional->keywords;
+
+    echo "<details>";
+    echo "<summary>Tags</summary>";
+    echo "<ul>";
+
+    foreach ($tags as $tag) {
+      echo "<li>";
+      echo "<a href=\"" . convert_link("https://bandcamp.com/discover/" . strtolower(htmlspecialchars(str_replace(" ", "-", $tag)))) . "\">";
+      echo htmlspecialchars($tag);
+      echo "</a>";
+      echo "</li>";
+    };
+
+    echo "</ul>";
+    echo "</details>";
+
     $recommendations = $document->find(".recommended-album");
 
     echo "<details>";
