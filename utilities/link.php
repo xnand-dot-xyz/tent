@@ -27,6 +27,13 @@
       $data = [
         "query" => $query["q"]
       ];
+    } elseif ($host === "bandcamp.com" && $path === "discover") {
+      $file = "discover";
+    } elseif ($host === "bandcamp.com" && str_starts_with($path, "discover/")) {
+      $file = "discover";
+      $data = [
+        "tags" => explode("/", $path)[1]
+      ];
     } elseif (str_ends_with($host, ".bandcamp.com") && !$path) {
       $file = "artist";
       $data = [
@@ -55,7 +62,11 @@
     } else
       return htmlspecialchars($link);
 
-    return $base . $file . ".php?" . http_build_query($data);
+    $link = $base . $file . ".php";
+    if (isset($data))
+      $link .= "?" . http_build_query($data);
+
+    return $link;
   };
 
   function prefix_link($link, $parameter) {

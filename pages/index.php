@@ -41,6 +41,8 @@
       "https://$1.bandcamp.com/",
       "https://$1.bandcamp.com/$2/$3",
       "https://bandcamp.com/search?q=$1",
+      "https://bandcamp.com/discover",
+      "https://bandcamp.com/discover/$1",
       "https://f4.bcbits.com/img/$1",
       "https://t4.bcbits.com/stream/$1/$2/$3?token=$4"
     ];
