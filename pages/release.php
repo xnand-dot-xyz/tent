@@ -100,6 +100,28 @@
       echo "</details>";
     };
 
+    echo "<details>";
+    echo "<summary>License</summary>";
+
+    if ($additional->copyrightNotice === "All Rights Reserved") {
+      echo "All rights reserved.";
+    } elseif ($additional->copyrightNotice === "Various") {
+      echo "License varies by track. See the invidual track pages for details.";
+    } else {
+      $license = str_replace(
+        ["Attribution", "No-Derivatives", "Non-Commercial", "Share-Alike"],
+        ["BY", "ND", "NC", "SA"],
+        str_replace(" ", "-", $additional->copyrightNotice)
+      );
+
+      echo "CC " . $license . " 3.0. ";
+      echo "<a href=\"https://creativecommons.org/licenses/" . strtolower($license) . "/3.0/\">";
+      echo "See the Creative Commons website for details.";
+      echo "</a>";
+    };
+
+    echo "</details>";
+
     $tags = $additional->keywords;
 
     echo "<details>";
