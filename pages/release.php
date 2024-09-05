@@ -141,25 +141,27 @@
 
     $recommendations = $document->find(".recommended-album");
 
-    echo "<details" . (isset($_COOKIE["details"]) && in_array("recommendations", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
-    echo "<summary>Recommendations</summary>";
-    echo "<div class=\"results\">";
+    if (count($recommendations)) {
+      echo "<details" . (isset($_COOKIE["details"]) && in_array("recommendations", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
+      echo "<summary>Recommendations</summary>";
+      echo "<div class=\"results\">";
 
-    foreach ($recommendations as $recommendation) {
-      $link = convert_link($recommendation->find(".album-link")->attr("href"));
-      $image = convert_link(resize_link($recommendation->find("img")->attr("src"), 3));
-      $text = $recommendation->attr("data-albumtitle");
-      $description = "by " . $recommendation->attr("data-artist");
+      foreach ($recommendations as $recommendation) {
+        $link = convert_link($recommendation->find(".album-link")->attr("href"));
+        $image = convert_link(resize_link($recommendation->find("img")->attr("src"), 3));
+        $text = $recommendation->attr("data-albumtitle");
+        $description = "by " . $recommendation->attr("data-artist");
 
-      echo_item($link, $image, $text, $description);
+        echo_item($link, $image, $text, $description);
+      };
+
+      echo "</div>";
+      echo "</details>";
     };
 
     echo "</div>";
-    echo "</details>";
 
-    echo "</div>";
-
-    $image = $document->find(".bio-pic a")->attr("href");
+    $image = $additional->publisher->image;
     $image = resize_link($image, 4);
 
     if (isset($additional->publisher->description))
