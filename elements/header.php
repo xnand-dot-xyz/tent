@@ -29,7 +29,7 @@
   ">
     <header>
       <div class="wrapper">
-        <a href=".">
+        <a href="." title="Tent">
           ⛺
         </a>
         <form action="search.php">
@@ -38,9 +38,9 @@
         <?php
           $link = convert_tent_link("//" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
           if ($link)
-            echo "<a href=\"" . $link . "\">🔗</a>";
+            echo "<a href=\"" . $link . "\" title=\"Bandcamp\">🔗</a>";
         ?>
-        <a href="settings.php">
+        <a href="settings.php" title="Settings">
           ⚙️
         </a>
       </div>
