@@ -8,7 +8,8 @@
 <?php require_once "../elements/item.php" ?>
 
 <?php
-  echo "<h1>Search: “" . htmlspecialchars($_GET["query"]) . "”</h1>";
+  if (isset($_GET["query"]))
+    echo "<h1>Search: “" . htmlspecialchars($_GET["query"]) . "”</h1>";
 
   $ch = curl_init("https://bandcamp.com/api/bcsearch_public_api/1/autocomplete_elastic");
 
