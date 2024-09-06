@@ -96,6 +96,9 @@
           return false;
         $link .= "bandcamp.com/search?q=" . urlencode($query["query"]);
         break;
+      default:
+        return false;
+        break;
     };
 
     return $link;
