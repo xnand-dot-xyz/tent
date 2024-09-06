@@ -32,8 +32,8 @@
   echo "<div class=\"results\">";
 
   foreach ($results as $result) {
-    $link = convert_link($result->item_url);
-    $image = convert_link(resize_link("https://f4.bcbits.com/img/" . $result->item_image_id . ".jpg", 3));
+    $link = convert_bandcamp_link($result->item_url);
+    $image = convert_bandcamp_link(resize_link("https://f4.bcbits.com/img/" . $result->item_image_id . ".jpg", 3));
     $text = htmlspecialchars($result->title);
     $description = "by " . htmlspecialchars($result->band_name);
 

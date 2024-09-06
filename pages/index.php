@@ -51,7 +51,7 @@
       echo "<li>";
       echo "<code>" . $rule . "</code>";
       echo " → ";
-      echo "<code>" . urldecode(convert_link($rule)) . "</code>";
+      echo "<code>" . urldecode(convert_bandcamp_link($rule)) . "</code>";
       echo "</li>";
     };
   ?>

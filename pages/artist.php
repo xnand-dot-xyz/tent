@@ -12,7 +12,7 @@
   $redirect = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
 
   if ($redirect) {
-    header("Location: " . convert_link($redirect));
+    header("Location: " . convert_bandcamp_link($redirect));
     exit();
   };
 
@@ -46,11 +46,11 @@
     $image = $release->find("img");
     $image = $image->hasAttr("data-original") ? $image->attr("data-original") : $image->attr("src");
     $image = resize_link($image, 3);
-    $image = convert_link($image);
+    $image = convert_bandcamp_link($image);
 
     $link = $release->find("a")->attr("href");
     $link = prefix_link($link, "name");
-    $link = convert_link($link);
+    $link = convert_bandcamp_link($link);
 
     echo_item($link, $image, htmlspecialchars($title[0]), $text ?? null);
   };
@@ -65,10 +65,10 @@
       $image = $item["art_id"];
       $image = "https://f4.bcbits.com/img/a" . $image . "_0.jpg";
       $image = resize_link($image, 3);
-      $image = convert_link($image);
+      $image = convert_bandcamp_link($image);
   
       $link = prefix_link($item["page_url"], "name");
-      $link = convert_link($link);
+      $link = convert_bandcamp_link($link);
   
       echo_item($link, $image, htmlspecialchars($title), $text ?? null);
     };

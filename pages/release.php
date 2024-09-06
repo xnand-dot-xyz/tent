@@ -24,7 +24,7 @@
 <?php
   if ($json) {
     echo "<h1>";
-    echo "<a href=\"" . convert_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com") . "\">" . htmlspecialchars($json->artist) . "</a>: ";
+    echo "<a href=\"" . convert_bandcamp_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com") . "\">" . htmlspecialchars($json->artist) . "</a>: ";
     echo htmlspecialchars($json->current->title);
     echo "</h1>";
 
@@ -54,7 +54,7 @@
       $link = $track->title_link;
       if ($link) {
         $link = prefix_link($link, "artist");
-        $link = convert_link($link);
+        $link = convert_bandcamp_link($link);
       };
 
       $duration = round($track->duration);
@@ -81,7 +81,7 @@
         echo "<tr>";
         echo "<td></td>";
         echo "<td colspan=\"2\">";
-        echo "<audio src=\"" . convert_link($file) . "\" controls preload=\"none\"></audio>";
+        echo "<audio src=\"" . convert_bandcamp_link($file) . "\" controls preload=\"none\"></audio>";
         echo "</td>";
         echo "</tr>";
       };
@@ -130,7 +130,7 @@
 
     foreach ($tags as $tag) {
       echo "<li>";
-      echo "<a href=\"" . convert_link("https://bandcamp.com/discover/" . strtolower(htmlspecialchars(str_replace(" ", "-", $tag)))) . "\">";
+      echo "<a href=\"" . convert_bandcamp_link("https://bandcamp.com/discover/" . strtolower(htmlspecialchars(str_replace(" ", "-", $tag)))) . "\">";
       echo htmlspecialchars($tag);
       echo "</a>";
       echo "</li>";
@@ -147,8 +147,8 @@
       echo "<div class=\"results\">";
 
       foreach ($recommendations as $recommendation) {
-        $link = convert_link($recommendation->find(".album-link")->attr("href"));
-        $image = convert_link(resize_link($recommendation->find("img")->attr("src"), 3));
+        $link = convert_bandcamp_link($recommendation->find(".album-link")->attr("href"));
+        $image = convert_bandcamp_link(resize_link($recommendation->find("img")->attr("src"), 3));
         $text = $recommendation->attr("data-albumtitle");
         $description = "by " . $recommendation->attr("data-artist");
 

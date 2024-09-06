@@ -30,7 +30,7 @@
 
   foreach ($results as $result) {
     $link = $result->item_url_path ?? $result->item_url_root;
-    $link = convert_link($link);
+    $link = convert_bandcamp_link($link);
 
     unset($text);
 
@@ -46,7 +46,7 @@
         break;
     };
 
-    echo_item($link, convert_link(resize_link($result->img, 3)), htmlspecialchars($result->name), $text ?? null);
+    echo_item($link, convert_bandcamp_link(resize_link($result->img, 3)), htmlspecialchars($result->name), $text ?? null);
   };
 
   echo "</div>";

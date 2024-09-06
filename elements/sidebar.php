@@ -10,8 +10,8 @@
       )
         $image = get_placeholder();
 
-      echo "<a href=\"" . convert_link(resize_link($image, 0)) . "\">";
-      echo "<img src=\"" . convert_link($image) . "\">";
+      echo "<a href=\"" . convert_bandcamp_link(resize_link($image, 0)) . "\">";
+      echo "<img src=\"" . convert_bandcamp_link($image) . "\">";
       echo "</a>";
     };
 
@@ -20,7 +20,7 @@
     if ($links) {
       echo "<p>";
       foreach ($links as $index => $link) {
-        echo "<a href=\"" . convert_link($link->attr("href")) . "\">" . htmlspecialchars($link->text()) . "</a>";
+        echo "<a href=\"" . convert_bandcamp_link($link->attr("href")) . "\">" . htmlspecialchars($link->text()) . "</a>";
         if ($index !== count($links) - 1) echo "<br>";
       };
       echo "</p>";

@@ -1,5 +1,5 @@
 <?php
-  function convert_link($link) {
+  function convert_bandcamp_link($link) {
     if (isset($_SERVER["HTTP_X_FORWARDED_PROTO"]))
       $scheme = $_SERVER["HTTP_X_FORWARDED_PROTO"];
     elseif (isset($_SERVER["REQUEST_SCHEME"]))
@@ -65,6 +65,38 @@
     $link = $base . $file . ".php";
     if (isset($data))
       $link .= "?" . http_build_query($data);
+
+    return $link;
+  };
+
+  function convert_tent_link($link) {
+    $path = pathinfo(parse_url($link, PHP_URL_PATH), PATHINFO_FILENAME);
+    parse_str(parse_url($link, PHP_URL_QUERY), $query);
+
+    $link = "https://";
+
+    switch ($path) {
+      case "artist":
+        if (!isset($query["name"]))
+          return false;
+        $link .= urlencode($query["name"]) . ".bandcamp.com/";
+        break;
+      case "discover":
+        $link .= "bandcamp.com/discover";
+        if (isset($query["tags"]))
+          $link .= "/" . urlencode($query["tags"]);
+        break;
+      case "release":
+        if (!isset($query["artist"]) || !isset($query["type"]) || !isset($query["name"]))
+          return false;
+        $link .= urlencode($query["artist"]) . ".bandcamp.com/" . urlencode($query["type"]) . "/" . urlencode($query["name"]);
+        break;
+      case "search":
+        if (!isset($query["query"]))
+          return false;
+        $link .= "bandcamp.com/search?q=" . urlencode($query["query"]);
+        break;
+    };
 
     return $link;
   };
