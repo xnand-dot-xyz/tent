@@ -7,7 +7,7 @@
   });
 
   $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-  header("Content-Type: " . $contentType);
+  header("Content-Type: " . ($contentType ?: "application/octet-stream"));
 
   curl_exec($ch);
 ?>
