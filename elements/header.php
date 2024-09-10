@@ -9,7 +9,7 @@
   else
     $title = $config["title"];
 
-  header("Content-Security-Policy: default-src 'self'; img-src 'self' data:");
+  header("Content-Security-Policy: default-src 'none'; form-action 'self'; img-src 'self' data:; media-src 'self'; style-src 'self'");
 ?>
 
 <!doctype html>
