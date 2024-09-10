@@ -14,7 +14,8 @@
   $json = json_decode($document->find("script[data-tralbum]")->attr("data-tralbum"));
   $additional = json_decode($document->find("script[type=\"application/ld+json\"]")->text());
 
-  $title = $json->current->title;
+  if ($json)
+    $title = $json->current->title;
 ?>
 
 <?php require_once "../elements/header.php" ?>
