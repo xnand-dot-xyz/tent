@@ -1,22 +1,6 @@
 <?php
   function convert_bandcamp_link($link) {
-    if (isset($_SERVER["HTTP_X_FORWARDED_PROTO"]))
-      $scheme = $_SERVER["HTTP_X_FORWARDED_PROTO"];
-    elseif (isset($_SERVER["REQUEST_SCHEME"]))
-      $scheme = $_SERVER["REQUEST_SCHEME"];
-    elseif (isset($_SERVER["HTTPS"]))
-      $scheme = "https";
-    else
-      $scheme = "http";
-
-    $host = $_SERVER["HTTP_HOST"];
-    $uri = $_SERVER["REQUEST_URI"];
-
-    $base = $scheme . "://" . $host . preg_replace("/\/.*.php/", "/", strtok($uri, "?"));
-
-    unset($scheme);
-    unset($host);
-    unset($uri);
+    $base = get_base_url();
 
     $host = parse_url($link, PHP_URL_HOST);
     $path = ltrim(parse_url($link, PHP_URL_PATH), "/");
@@ -96,6 +80,10 @@
           return false;
         $link .= "bandcamp.com/search?q=" . urlencode($query["query"]);
         break;
+      case "redirect":
+        if (!isset($query["url"]))
+          return false;
+        $link = $query["url"];
       default:
         return false;
         break;
@@ -103,6 +91,22 @@
 
     return $link;
   };
+
+  function get_base_url() {
+    if (isset($_SERVER["HTTP_X_FORWARDED_PROTO"]))
+      $scheme = $_SERVER["HTTP_X_FORWARDED_PROTO"];
+    elseif (isset($_SERVER["REQUEST_SCHEME"]))
+      $scheme = $_SERVER["REQUEST_SCHEME"];
+    elseif (isset($_SERVER["HTTPS"]))
+      $scheme = "https";
+    else
+      $scheme = "http";
+
+    $host = $_SERVER["HTTP_HOST"];
+    $uri = $_SERVER["REQUEST_URI"];
+
+    return $scheme . "://" . $host . preg_replace("/\/.*.php/", "/", strtok($uri, "?"));
+  }
 
   function prefix_link($link, $parameter) {
     if (!filter_var($link, FILTER_VALIDATE_URL))

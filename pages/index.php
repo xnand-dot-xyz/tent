@@ -56,5 +56,6 @@
     };
   ?>
 </ul>
+<p>Finally, you can also prefix supported URLs with <code><?= get_base_url() ?>redirect.php?url=</code>.</p>
 
 <?php require_once "../elements/footer.php" ?>
