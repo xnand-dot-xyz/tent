@@ -92,6 +92,16 @@ main .wrapper form div {
   margin-bottom: 2em;
 }
 
+main .wrapper h1,
+main .wrapper h2 {
+  font-weight: initial;
+}
+
+main .wrapper h1 a,
+main .wrapper h2 a {
+  font-weight: bolder;
+}
+
 main .wrapper img,
 main .wrapper table {
   width: 100%;
