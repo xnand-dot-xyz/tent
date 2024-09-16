@@ -25,8 +25,16 @@
 <?php
   if ($json) {
     echo "<h1>";
-    echo "<a href=\"" . convert_bandcamp_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com") . "\">" . htmlspecialchars($json->artist) . "</a>: ";
-    echo htmlspecialchars($json->current->title);
+    echo htmlspecialchars($json->current->title) . " ";
+
+    $album = $document->find(".fromAlbum");
+    if (count($album)) {
+      echo "from <a href=\"" . convert_bandcamp_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com" . $album->parent()->attr("href")) . "\">";
+      echo htmlspecialchars($album->text());
+      echo "</a> ";
+    };
+
+    echo "by <a href=\"" . convert_bandcamp_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com") . "\">" . htmlspecialchars($json->artist) . "</a>";
     echo "</h1>";
 
     echo "<div class=\"subpage\">";
