@@ -30,6 +30,19 @@
         "type" => explode("/", $path)[0],
         "name" => explode("/", $path)[1]
       ];
+    } elseif ($host === "f4.bcbits.com") {
+      $file = "image";
+      $data = [
+        "file" => basename($link)
+      ];
+    } elseif ($host === "t4.bcbits.com") {
+      $file = "audio";
+      $data = [
+        "directory" => explode("/", $path)[1],
+        "format" => explode("/", $path)[2],
+        "file" => explode("/", $path)[3],
+        "token" => $query["token"]
+      ];
     } elseif (is_bandcamp_host($host) && !$path) {
       $file = "artist";
       $data = [
@@ -43,19 +56,6 @@
         "type" => explode("/", $path)[0],
         "name" => explode("/", $path)[1],
         "host" => true
-      ];
-    } elseif ($host === "f4.bcbits.com") {
-      $file = "image";
-      $data = [
-        "file" => basename($link)
-      ];
-    } elseif ($host === "t4.bcbits.com") {
-      $file = "audio";
-      $data = [
-        "directory" => explode("/", $path)[1],
-        "format" => explode("/", $path)[2],
-        "file" => explode("/", $path)[3],
-        "token" => $query["token"]
       ];
     } else
       return htmlspecialchars($link);
