@@ -30,6 +30,20 @@
         "type" => explode("/", $path)[0],
         "name" => explode("/", $path)[1]
       ];
+    } elseif (is_bandcamp_host($host) && !$path) {
+      $file = "artist";
+      $data = [
+        "name" => $host,
+        "host" => true
+      ];
+    } elseif (is_bandcamp_host($host)) {
+      $file = "release";
+      $data = [
+        "artist" => $host,
+        "type" => explode("/", $path)[0],
+        "name" => explode("/", $path)[1],
+        "host" => true
+      ];
     } elseif ($host === "f4.bcbits.com") {
       $file = "image";
       $data = [
@@ -63,7 +77,10 @@
       case "artist":
         if (!isset($query["name"]))
           return false;
-        $link .= urlencode($query["name"]) . ".bandcamp.com/";
+        if (isset($query["host"]) && $query["host"])
+          $link .= urlencode($query["name"]) . "/";
+        else
+          $link .= urlencode($query["name"]) . ".bandcamp.com/";
         break;
       case "discover":
         $link .= "bandcamp.com/discover";
@@ -73,7 +90,11 @@
       case "release":
         if (!isset($query["artist"]) || !isset($query["type"]) || !isset($query["name"]))
           return false;
-        $link .= urlencode($query["artist"]) . ".bandcamp.com/" . urlencode($query["type"]) . "/" . urlencode($query["name"]);
+        if (isset($query["host"]) && $query["host"])
+          $link .= urlencode($query["artist"]) . "/";
+        else
+          $link .= urlencode($query["artist"]) . ".bandcamp.com/";
+        $link .= urlencode($query["type"]) . "/" . urlencode($query["name"]);
         break;
       case "search":
         if (!isset($query["query"]))
@@ -108,11 +129,26 @@
     return $scheme . "://" . $host . preg_replace("/\/.*.php/", "/", strtok($uri, "?"));
   }
 
+  function is_bandcamp_host($host) {
+    $records = array_filter(dns_get_record($host), function($record) {
+      $a = $record["type"] === "A" && $record["ip"] === "35.241.62.186";
+      $cname = $record["type"] === "CNAME" && $record["target"] === "dom.bandcamp.com";
+
+      return $a || $cname;
+    });
+
+    return boolval($records);
+  };
+
   function prefix_link($link, $parameter) {
-    if (!filter_var($link, FILTER_VALIDATE_URL))
-      return $link = "https://" . urlencode($_GET[$parameter]) . ".bandcamp.com" . $link;
-    else
+    if (!filter_var($link, FILTER_VALIDATE_URL)) {
+      if (isset($_GET["host"]) && $_GET["host"])
+        return $link = "https://" . urlencode($_GET[$parameter]) . $link;
+      else
+        return $link = "https://" . urlencode($_GET[$parameter]) . ".bandcamp.com" . $link;
+    } else {
       return $link;
+    };
   };
 
   function resize_link($link, $size) {

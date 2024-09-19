@@ -3,7 +3,12 @@
 <?php
   require_once "../modules/querypath/src/qp.php";
 
-  $ch = curl_init("https://" . urlencode($_GET["name"]) . ".bandcamp.com/music");
+  if (isset($_GET["host"]) && $_GET["host"])
+    $host = urlencode($_GET["name"]);
+  else
+    $host = urlencode($_GET["name"]) . ".bandcamp.com";
+
+  $ch = curl_init("https://" . $host . "/music");
 
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
