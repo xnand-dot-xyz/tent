@@ -130,7 +130,7 @@
   }
 
   function is_bandcamp_host($host) {
-    $records = array_filter(dns_get_record($host), function($record) {
+    $records = array_filter(dns_get_record($host, DNS_ALL), function($record) {
       $a = $record["type"] === "A" && $record["ip"] === "35.241.62.186";
       $cname = $record["type"] === "CNAME" && $record["target"] === "dom.bandcamp.com";
 
