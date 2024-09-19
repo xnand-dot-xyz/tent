@@ -34,12 +34,12 @@
 
     $album = $document->find(".fromAlbum");
     if (count($album)) {
-      echo "from <a href=\"" . convert_bandcamp_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com" . $album->parent()->attr("href")) . "\">";
+      echo "from <a href=\"" . convert_bandcamp_link(prefix_link("/" . $album->parent()->attr("href"), "artist")) . "\">";
       echo htmlspecialchars($album->text());
       echo "</a> ";
     };
 
-    echo "by <a href=\"" . convert_bandcamp_link("https://" . urlencode($_GET["artist"]) . ".bandcamp.com") . "\">" . htmlspecialchars($json->artist) . "</a>";
+    echo "by <a href=\"" . convert_bandcamp_link(prefix_link("/", "artist")) . "\">" . htmlspecialchars($json->artist) . "</a>";
     echo "</h1>";
 
     echo "<div class=\"subpage\">";

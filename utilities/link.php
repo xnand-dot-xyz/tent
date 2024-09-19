@@ -141,10 +141,14 @@
   };
 
   function prefix_link($link, $parameter) {
-    if (!filter_var($link, FILTER_VALIDATE_URL))
-      return $link = "https://" . urlencode($_GET[$parameter]) . ".bandcamp.com" . $link;
-    else
+    if (!filter_var($link, FILTER_VALIDATE_URL)) {
+      if (isset($_GET["host"]) && $_GET["host"])
+        return $link = "https://" . urlencode($_GET[$parameter]) . $link;
+      else
+        return $link = "https://" . urlencode($_GET[$parameter]) . ".bandcamp.com" . $link;
+    } else {
       return $link;
+    };
   };
 
   function resize_link($link, $size) {
