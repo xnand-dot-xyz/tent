@@ -4,7 +4,12 @@
   require_once "../config/config.php";
   require_once "../modules/querypath/src/qp.php";
 
-  $ch = curl_init("https://" . urlencode($_GET["artist"]) . ".bandcamp.com/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]));
+  if (isset($_GET["host"]) && $_GET["host"])
+    $host = urlencode($_GET["artist"]);
+  else
+    $host = urlencode($_GET["artist"]) . ".bandcamp.com";
+
+  $ch = curl_init("https://" . $host . "/" . urlencode($_GET["type"]) . "/" . urlencode($_GET["name"]));
 
   if (isset($config["identity"]))
     curl_setopt($ch, CURLOPT_COOKIE, "identity=" . $config["identity"]);
