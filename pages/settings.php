@@ -60,6 +60,7 @@
           foreach ([
             "tracklist" => "Tracklist",
             "lyrics" => "Lyrics",
+            "credits" => "Credits",
             "license" => "License",
             "tags" => "Tags",
             "recommendations" => "Recommendations"
