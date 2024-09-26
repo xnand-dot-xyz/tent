@@ -175,6 +175,35 @@ main .wrapper .sidebar img {
   display: block;
 }
 
+@media (min-width: 1001px) {
+  body.overflow main .wrapper:has(.page, .subpage) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  body.overflow main .wrapper .page,
+  body.overflow main .wrapper .subpage {
+    min-height: 0;
+  }
+
+  body.overflow main .wrapper .page > *,
+  body.overflow main .wrapper .subpage > * {
+    max-height: 100%;
+    padding-bottom: 1em;
+    overflow: auto;
+    box-sizing: border-box;
+    scrollbar-width: none;
+  }
+
+  body.overflow main .wrapper .page > *::-webkit-scrollbar,
+  body.overflow main .wrapper .subpage > *::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: initial;

@@ -25,6 +25,9 @@
     <?php
       if (isset($_COOKIE["theme"]) && in_array($_COOKIE["theme"], ["light", "dark"]))
         echo "theme-" . $_COOKIE["theme"];
+
+      if (isset($_COOKIE["overflow"]) && $_COOKIE["overflow"] === "on")
+        echo " overflow";
     ?>
   ">
     <header>
