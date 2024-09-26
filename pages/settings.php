@@ -100,7 +100,7 @@
 
   <div>
     <p><b>Overflow</b></p>
-    <p>Allow scrolling each column of the desktop layout independently.</p>
+    <p>Whether to allow scrolling each column of the desktop layout independently.</p>
     <input name="overflow" type="hidden" value="off">
     <input id="overflow" name="overflow" type="checkbox" <?php if (isset($_COOKIE["overflow"]) && $_COOKIE["overflow"] === "on") echo "checked" ?>>
     <label for="overflow">Enabled</label>
