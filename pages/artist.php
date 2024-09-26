@@ -30,6 +30,8 @@
 <?php require_once "../elements/sidebar.php" ?>
 
 <?php
+  echo_design_style($document);
+
   if ($document->find("#band-name-location .title")->length)
     echo "<h1>" . htmlspecialchars($document->find("#band-name-location .title")->text()) . "</h1>";
 

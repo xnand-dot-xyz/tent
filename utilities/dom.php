@@ -1,4 +1,34 @@
 <?php
+  function echo_design_style($document) {
+    if (!isset($_COOKIE["design"]) || $_COOKIE["design"] !== "on")
+      return;
+
+    $design = $document->find("#custom-design-rules-style")->attr("data-design");
+
+    if (!$design)
+      return;
+
+    $design = json_decode($design);
+
+    if (
+      $design->body_color === "FFFFFF" &&
+      $design->text_color === "363636" &&
+      $design->link_color === "0687F5"
+    )
+      return;
+
+    echo "<style>
+      body {
+        --background: #" . $design->body_color . " !important;
+        --color: #" . $design->text_color . " !important;
+      }
+
+      a {
+        color: #" . $design->link_color . ";
+      }
+    </style>";
+  };
+
   function echo_error_message() {
     echo "<h1>No results.</h1>";
     echo "<p>

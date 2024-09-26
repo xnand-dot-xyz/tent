@@ -44,6 +44,14 @@
   </div>
 
   <div>
+    <p><b>Design</b></p>
+    <p>Whether to, if available, use artist-defined colors on artist and release pages.</p>
+    <input name="design" type="hidden" value="off">
+    <input id="design" name="design" type="checkbox" <?php if (isset($_COOKIE["design"]) && $_COOKIE["design"] === "on") echo "checked" ?>>
+    <label for="design">Enabled</label>
+  </div>
+
+  <div>
     <p><b>Details</b></p>
     <p>Which of the collapsible details the release page is made up of to expand by default.</p>
     <p>

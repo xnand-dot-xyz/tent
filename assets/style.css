@@ -25,6 +25,7 @@ body.theme-dark {
 }
 
 .wrapper > :first-child,
+.wrapper > style:first-child + *,
 .wrapper div > :first-child,
 .wrapper details:first-child summary {
   margin-top: 0;

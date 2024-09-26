@@ -28,6 +28,8 @@
 <?php require_once "../elements/item.php" ?>
 
 <?php
+  echo_design_style($document);
+
   if ($json) {
     echo "<h1>";
     echo htmlspecialchars($json->current->title) . " ";
