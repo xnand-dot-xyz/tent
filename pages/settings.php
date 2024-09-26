@@ -55,7 +55,7 @@
     <p><b>Details</b></p>
     <p>Which of the collapsible details the release page is made up of to expand by default.</p>
     <p>
-      <select name="details[]" multiple>
+      <select name="details[]" multiple size="6">
         <?php
           foreach ([
             "tracklist" => "Tracklist",
