@@ -118,7 +118,12 @@
 
     echo "<details" . (isset($_COOKIE["details"]) && in_array("credits", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
     echo "<summary>Credits</summary>";
-    echo $document->find(".tralbum-credits")->innerHTML();
+
+    $credits = $document->find(".tralbum-credits");
+    $from = $credits->find("[href^=\"/album/\"]");
+    $from->attr("href", convert_bandcamp_link(prefix_link($from->attr("href"), "artist")));
+    echo $credits->innerHTML();
+
     echo "</details>";
 
     echo "<details" . (isset($_COOKIE["details"]) && in_array("license", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
