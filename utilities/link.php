@@ -87,6 +87,10 @@
         if (isset($query["tags"]))
           $link .= "/" . urlencode($query["tags"]);
         break;
+      case "redirect":
+        if (!isset($query["url"]))
+          return false;
+        $link = $query["url"];
       case "release":
         if (!isset($query["artist"]) || !isset($query["type"]) || !isset($query["name"]))
           return false;
@@ -101,10 +105,6 @@
           return false;
         $link .= "bandcamp.com/search?q=" . urlencode($query["query"]);
         break;
-      case "redirect":
-        if (!isset($query["url"]))
-          return false;
-        $link = $query["url"];
       default:
         return false;
         break;
