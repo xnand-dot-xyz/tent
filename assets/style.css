@@ -117,7 +117,7 @@ main .wrapper table td[colspan] {
 }
 
 main .wrapper table td[colspan] audio,
-main .wrapper table td[colspan] video {
+main .wrapper video {
   width: 100%;
   margin-top: 4px;
 }

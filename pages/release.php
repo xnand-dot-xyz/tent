@@ -98,14 +98,6 @@
         echo "<td></td>";
         echo "<td colspan=\"2\">";
         echo "<audio src=\"" . convert_bandcamp_link($file) . "\" controls preload=\"none\"></audio>";
-
-        if ($track->video_mobile_url) {
-          $video = convert_bandcamp_link("https://bandcamp.23video.com" . $track->video_mobile_url);
-          $poster = convert_bandcamp_link("https://bandcamp.23video.com/" . $track->video_poster_url);
-
-          echo "<video src=\"" . $video . "\" poster=\"" . $poster . "\" controls preload=\"none\"></video>";
-        };
-
         echo "</td>";
         echo "</tr>";
       };
@@ -113,6 +105,22 @@
 
     echo "</table>";
     echo "</details>";
+
+    $videos = array_filter($json->trackinfo, fn($track) => $track->video_mobile_url);
+
+    if ($videos) {
+      echo "<details" . (isset($_COOKIE["details"]) && in_array("videos", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
+      echo "<summary>Videos</summary>";
+
+      foreach ($videos as $video) {
+        $src = convert_bandcamp_link("https://bandcamp.23video.com" . $video->video_mobile_url);
+        $poster = convert_bandcamp_link("https://bandcamp.23video.com/" . $video->video_poster_url);
+
+        echo "<video src=\"" . $src . "\" poster=\"" . $poster . "\" controls preload=\"none\"></video>";
+      };
+
+      echo "</details>";
+    };
 
     if (property_exists($json->current, "lyrics"))
       $lyrics = $json->current->lyrics;
