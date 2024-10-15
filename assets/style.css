@@ -116,7 +116,8 @@ main .wrapper table td[colspan] {
   padding: initial !important;
 }
 
-main .wrapper table td[colspan] audio {
+main .wrapper table td[colspan] audio,
+main .wrapper table td[colspan] video {
   width: 100%;
   margin-top: 4px;
 }
