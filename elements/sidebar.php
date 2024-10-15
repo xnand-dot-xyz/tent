@@ -17,7 +17,7 @@
 
     if (!empty($text)) echo "<p>" . nl2br(htmlspecialchars(trim($text))) . "</p>";
 
-    if ($links->length) {
+    if ($links && $links->length) {
       echo "<p>";
       foreach ($links as $index => $link) {
         echo "<a href=\"" . convert_bandcamp_link($link->attr("href")) . "\">" . htmlspecialchars($link->text()) . "</a>";
