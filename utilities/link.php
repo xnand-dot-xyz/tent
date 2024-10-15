@@ -57,6 +57,14 @@
         "name" => explode("/", $path)[1],
         "host" => true
       ];
+    } elseif ($host === "bandcamp.23video.com" && str_starts_with(explode("/", $path)[3], "video_")) {
+      $file = "video";
+      $data = [
+        "parent" => explode("/", $path)[0],
+        "child" => explode("/", $path)[1],
+        "hash" => explode("/", $path)[2],
+        "file" => explode("/", $path)[4]
+      ];
     } elseif ($host === "bandcamp.23video.com" && explode("/", $path)[4] === "thumbnail.png") {
       $file = "poster";
       $data = [
@@ -116,6 +124,10 @@
           return false;
         $link .= "bandcamp.com/search?q=" . urlencode($query["query"]);
         break;
+      case "video":
+        if (!isset($query["parent"]) || !isset($query["child"]) || !isset($query["hash"]) || !isset($query["file"]))
+          return false;
+        $link .= "bandcamp.23video.com/" . $query["parent"] . "/" . $query["child"] . "/" . $query["hash"] . "/video_hd/" . $query["file"];
       default:
         return false;
         break;
