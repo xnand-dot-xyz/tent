@@ -101,7 +101,7 @@
 
         if ($track->video_mobile_url) {
           $video = "https://bandcamp.23video.com" . str_replace("video_mobile_high", "video_4k", $track->video_mobile_url);
-          $poster = "https://bandcamp.23video.com/" . str_replace("standard", "original", $track->video_poster_url);
+          $poster = convert_bandcamp_link("https://bandcamp.23video.com/" . $track->video_poster_url);
 
           echo "<video src=\"" . $video . "\" poster=\"" . $poster . "\" controls preload=\"none\"></video>";
         };

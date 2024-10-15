@@ -57,6 +57,13 @@
         "name" => explode("/", $path)[1],
         "host" => true
       ];
+    } elseif ($host === "bandcamp.23video.com" && explode("/", $path)[4] === "thumbnail.png") {
+      $file = "poster";
+      $data = [
+        "parent" => explode("/", $path)[0],
+        "child" => explode("/", $path)[1],
+        "hash" => explode("/", $path)[2]
+      ];
     } else
       return htmlspecialchars($link);
 
@@ -87,6 +94,10 @@
         if (isset($query["tags"]))
           $link .= "/" . urlencode($query["tags"]);
         break;
+      case "poster":
+        if (!isset($query["parent"]) || !isset($query["child"]) || !isset($query["hash"]))
+          return false;
+        $link .= "bandcamp.23video.com/" . $query["parent"] . "/" . $query["child"] . "/" . $query["hash"] . "/standard/thumbnail.png";
       case "redirect":
         if (!isset($query["url"]))
           return false;

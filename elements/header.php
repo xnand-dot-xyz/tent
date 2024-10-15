@@ -9,7 +9,7 @@
   else
     $title = $config["title"];
 
-  header("Content-Security-Policy: default-src 'none'; form-action 'self'; img-src 'self' data: bandcamp.23video.com delivery.twentythree.com; media-src 'self' bandcamp.23video.com delivery.twentythree.com; style-src 'self' 'unsafe-inline'");
+  header("Content-Security-Policy: default-src 'none'; form-action 'self'; img-src 'self' data:; media-src 'self' bandcamp.23video.com delivery.twentythree.com; style-src 'self' 'unsafe-inline'");
 ?>
 
 <!doctype html>
