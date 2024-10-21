@@ -62,49 +62,51 @@
 
     echo "<div class=\"tracks\">";
 
-    echo "<details" . (isset($_COOKIE["details"]) && !in_array("tracklist", json_decode($_COOKIE["details"])) ? "" : " open") . ">";
-    echo "<summary>Tracklist</summary>";
-    echo "<table>";
+    if (count($json->trackinfo)) {
+      echo "<details" . (isset($_COOKIE["details"]) && !in_array("tracklist", json_decode($_COOKIE["details"])) ? "" : " open") . ">";
+      echo "<summary>Tracklist</summary>";
+      echo "<table>";
 
-    foreach ($json->trackinfo as $track) {
-      $link = $track->title_link;
-      if ($link) {
-        $link = prefix_link($link, "artist");
-        $link = convert_bandcamp_link($link);
-      };
+      foreach ($json->trackinfo as $track) {
+        $link = $track->title_link;
+        if ($link) {
+          $link = prefix_link($link, "artist");
+          $link = convert_bandcamp_link($link);
+        };
 
-      $duration = round($track->duration);
-      if ($duration)
-        $duration = floor($duration / 60) . ":" . sprintf("%02d", $duration % 60);
-      else
-        $duration = null;
-
-      echo "<tr>";
-      echo "<td>" . ($track->track_num ?? 1) . ".</td>";
-      echo "<td>";
-      if ($link) echo "<a href=\"" . $link . "\">";
-      echo htmlspecialchars($track->title);
-      if ($link) echo "</a>";
-      echo "</td>";
-      echo "<td>" . $duration . "</td>";
-      echo "</tr>";
-
-      if ($track->file) {
-        $file = $track->file;
-        $file = get_mangled_object_vars($file);
-        $file = end($file);
+        $duration = round($track->duration);
+        if ($duration)
+          $duration = floor($duration / 60) . ":" . sprintf("%02d", $duration % 60);
+        else
+          $duration = null;
 
         echo "<tr>";
-        echo "<td></td>";
-        echo "<td colspan=\"2\">";
-        echo "<audio src=\"" . convert_bandcamp_link($file) . "\" controls preload=\"none\"></audio>";
+        echo "<td>" . ($track->track_num ?? 1) . ".</td>";
+        echo "<td>";
+        if ($link) echo "<a href=\"" . $link . "\">";
+        echo htmlspecialchars($track->title);
+        if ($link) echo "</a>";
         echo "</td>";
+        echo "<td>" . $duration . "</td>";
         echo "</tr>";
-      };
-    };
 
-    echo "</table>";
-    echo "</details>";
+        if ($track->file) {
+          $file = $track->file;
+          $file = get_mangled_object_vars($file);
+          $file = end($file);
+
+          echo "<tr>";
+          echo "<td></td>";
+          echo "<td colspan=\"2\">";
+          echo "<audio src=\"" . convert_bandcamp_link($file) . "\" controls preload=\"none\"></audio>";
+          echo "</td>";
+          echo "</tr>";
+        };
+      };
+
+      echo "</table>";
+      echo "</details>";
+    };
 
     $videos = array_filter($json->trackinfo, fn($track) => $track->video_mobile_url);
 
@@ -142,27 +144,29 @@
 
     echo "</details>";
 
-    echo "<details" . (isset($_COOKIE["details"]) && in_array("license", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
-    echo "<summary>License</summary>";
+    if (property_exists($additional, "copyrightNotice")) {
+      echo "<details" . (isset($_COOKIE["details"]) && in_array("license", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
+      echo "<summary>License</summary>";
 
-    if ($additional->copyrightNotice === "All Rights Reserved") {
-      echo "All rights reserved.";
-    } elseif ($additional->copyrightNotice === "Various") {
-      echo "License varies by track. See the invidual track pages for details.";
-    } else {
-      $license = str_replace(
-        ["Attribution", "No-Derivatives", "Non-Commercial", "Share-Alike"],
-        ["BY", "ND", "NC", "SA"],
-        str_replace(" ", "-", $additional->copyrightNotice)
-      );
+      if ($additional->copyrightNotice === "All Rights Reserved") {
+        echo "All rights reserved.";
+      } elseif ($additional->copyrightNotice === "Various") {
+        echo "License varies by track. See the invidual track pages for details.";
+      } else {
+        $license = str_replace(
+          ["Attribution", "No-Derivatives", "Non-Commercial", "Share-Alike"],
+          ["BY", "ND", "NC", "SA"],
+          str_replace(" ", "-", $additional->copyrightNotice)
+        );
 
-      echo "CC " . $license . " 3.0. ";
-      echo "<a href=\"https://creativecommons.org/licenses/" . strtolower($license) . "/3.0/\">";
-      echo "See the Creative Commons website for details.";
-      echo "</a>";
+        echo "CC " . $license . " 3.0. ";
+        echo "<a href=\"https://creativecommons.org/licenses/" . strtolower($license) . "/3.0/\">";
+        echo "See the Creative Commons website for details.";
+        echo "</a>";
+      };
+
+      echo "</details>";
     };
-
-    echo "</details>";
 
     $tags = $additional->keywords;
 
@@ -203,13 +207,17 @@
 
     echo "</div>";
 
-    $image = $additional->publisher->image;
-    $image = resize_link($image, 4);
+    if (isset($additional->publisher->image)) {
+      $image = $additional->publisher->image;
+      $image = resize_link($image, 4);
+    } else
+      $image = null;
 
     if (isset($additional->publisher->description))
       $text = $additional->publisher->description;
     else
       $text = null;
+
     $links = $document->find("#band-links li a");
 
     echo_sidebar($image, $text, $links);
