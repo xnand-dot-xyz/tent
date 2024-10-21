@@ -18,11 +18,17 @@ A machine-readable list is available via [instances.json](instances.json).
 
 ## Setup
 
+### Manual
+
 1. Install PHP.
 2. Install PHP's cURL and XML extensions.
 3. Clone the repository and its submodules.
 4. Adapt `config/config.php`.
 5. Point your server to `pages`.
+
+### Docker
+
+See the [Tent Docker image](https://git.bloat.cat/vlnst/tent-docker), kindly provided by vlnst.
 
 ## License
 
