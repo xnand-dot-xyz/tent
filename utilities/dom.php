@@ -23,7 +23,7 @@
         --color: #" . $design->text_color . " !important;
       }
 
-      a {
+      a[href] {
         color: #" . $design->link_color . ";
       }
     </style>";
