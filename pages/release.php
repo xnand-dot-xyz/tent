@@ -2,7 +2,6 @@
 
 <?php
   require_once "../config/config.php";
-  require_once "../modules/querypath/src/qp.php";
 
   if (isset($_GET["host"]) && $_GET["host"])
     $host = urlencode($_GET["artist"]);
@@ -15,9 +14,9 @@
     curl_setopt($ch, CURLOPT_COOKIE, "identity=" . $config["identity"]);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-  $document = htmlqp(encode_document(curl_exec($ch)));
-  $json = json_decode($document->find("script[data-tralbum]")->attr("data-tralbum"));
-  $additional = json_decode($document->find("script[type=\"application/ld+json\"]")->text());
+  $document = new DOMXPath(encode_document(curl_exec($ch)));
+  $json = json_decode($document->evaluate("//script[@data-tralbum]")->item(0)->getAttribute("data-tralbum"));
+  $additional = json_decode($document->evaluate("//script[@type=\"application/ld+json\"]")->item(0)->textContent);
 
   if ($json)
     $title = $json->current->title;
@@ -34,10 +33,10 @@
     echo "<h1>";
     echo htmlspecialchars($json->current->title) . " ";
 
-    $album = $document->find(".fromAlbum");
-    if (count($album)) {
-      echo "from <a href=\"" . convert_bandcamp_link(prefix_link("/" . $album->parent()->attr("href"), "artist")) . "\">";
-      echo htmlspecialchars($album->text());
+    $album = $document->evaluate("//span[@class=\"fromAlbum\"]")->item(0);
+    if ($album) {
+      echo "from <a href=\"" . convert_bandcamp_link(prefix_link("/" . $album->parentElement->getAttribute("href"), "artist")) . "\">";
+      echo htmlspecialchars($album->textContent);
       echo "</a> ";
     };
 
@@ -137,10 +136,11 @@
     echo "<details" . (isset($_COOKIE["details"]) && in_array("credits", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
     echo "<summary>Credits</summary>";
 
-    $credits = $document->find(".tralbum-credits");
-    $from = $credits->find("[href]");
-    $from->removeAttr("href");
-    echo $credits->innerHTML();
+    $credits = $document->evaluate("//div[contains(@class, \"tralbum-credits\")]")->item(0);
+    $from = $document->evaluate("./a[@href]", $credits)->item(0);
+    if ($from)
+      $from->removeAttribute("href");
+    echo $document->document->saveHTML($credits);
 
     echo "</details>";
 
@@ -185,18 +185,18 @@
     echo "</ul>";
     echo "</details>";
 
-    $recommendations = $document->find(".recommended-album");
+    $recommendations = $document->evaluate("//li[contains(@class, \"recommended-album\")]");
 
-    if (count($recommendations)) {
+    if ($recommendations->count()) {
       echo "<details" . (isset($_COOKIE["details"]) && in_array("recommendations", json_decode($_COOKIE["details"])) ? " open" : "") . ">";
       echo "<summary>Recommendations</summary>";
       echo "<div class=\"results\">";
 
       foreach ($recommendations as $recommendation) {
-        $link = convert_bandcamp_link($recommendation->find(".album-link")->attr("href"));
-        $image = convert_bandcamp_link(resize_link($recommendation->find("img")->attr("src"), 3));
-        $text = $recommendation->attr("data-albumtitle");
-        $description = "by " . $recommendation->attr("data-artist");
+        $link = convert_bandcamp_link($document->evaluate(".//a[@class=\"album-link\"]", $recommendation)->item(0)->getAttribute("href"));
+        $image = convert_bandcamp_link(resize_link($document->evaluate(".//img", $recommendation)->item(0)->getAttribute("src"), 3));
+        $text = $recommendation->getAttribute("data-albumtitle");
+        $description = "by " . $recommendation->getAttribute("data-artist");
 
         echo_item($link, $image, $text, $description);
       };
@@ -218,7 +218,7 @@
     else
       $text = null;
 
-    $links = $document->find("#band-links li a");
+    $links = $document->evaluate("//ol[@id=\"band-links\"]//a");
 
     echo_sidebar($image, $text, $links);
 

@@ -1,3 +1,0 @@
-[submodule "modules/querypath"]
-	path = modules/querypath
-	url = https://github.com/technosophos/querypath.git

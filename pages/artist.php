@@ -1,8 +1,6 @@
 <?php require_once "../utilities/index.php" ?>
 
 <?php
-  require_once "../modules/querypath/src/qp.php";
-
   if (isset($_GET["host"]) && $_GET["host"])
     $host = urlencode($_GET["name"]);
   else
@@ -13,7 +11,7 @@
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-  $document = htmlqp(encode_document(curl_exec($ch)));
+  $document = new DOMXPath(encode_document(curl_exec($ch)));
   $redirect = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
 
   if ($redirect) {
@@ -21,8 +19,8 @@
     exit();
   };
 
-  $title = $document->find("#band-name-location .title")->text();
-  $items = json_decode($document->find("#music-grid")->attr("data-client-items"), true);
+  $title = $document->evaluate("//p[@id=\"band-name-location\"]//span[@class=\"title\"]")->item(0)->textContent;
+  $items = json_decode($document->evaluate("//ol[@id=\"music-grid\"]")->item(0)->getAttribute("data-client-items"), true);
 ?>
 
 <?php require_once "../elements/header.php" ?>
@@ -32,12 +30,12 @@
 <?php
   echo_design_style($document);
 
-  if ($document->find("#band-name-location .title")->length)
-    echo "<h1>" . htmlspecialchars($document->find("#band-name-location .title")->text()) . "</h1>";
+  if ($document->evaluate("//p[@id=\"band-name-location\"]//span[@class=\"title\"]")->count())
+    echo "<h1>" . htmlspecialchars($document->evaluate("//p[@id=\"band-name-location\"]//span[@class=\"title\"]")->item(0)->textContent) . "</h1>";
 
-  $releases = $document->find("#music-grid li");
+  $releases = $document->evaluate("//ol[@id=\"music-grid\"]//li");
 
-  if (!$releases->length && !isset($items))
+  if (!$releases->count() && !isset($items))
     echo_error_message();
 
   echo "<div class=\"page\">";
@@ -45,17 +43,17 @@
   echo "<div class=\"results\">";
 
   foreach ($releases as $release) {
-    $title = preg_split("/\n[\n\s]+/", trim($release->find(".title")->text()));
+    $title = preg_split("/\n[\n\s]+/", trim($document->evaluate(".//p[@class=\"title\"]", $release)->item(0)->textContent));
 
     unset($text);
     if (array_key_exists(1, $title)) $text = "by " . htmlspecialchars($title[1]);
 
-    $image = $release->find("img");
-    $image = $image->hasAttr("data-original") ? $image->attr("data-original") : $image->attr("src");
+    $image = $document->evaluate(".//img", $release)->item(0);
+    $image = $image->hasAttribute("data-original") ? $image->getAttribute("data-original") : $image->getAttribute("src");
     $image = resize_link($image, 3);
     $image = convert_bandcamp_link($image);
 
-    $link = $release->find("a")->attr("href");
+    $link = $document->evaluate(".//a", $release)->item(0)->getAttribute("href");
     $link = prefix_link($link, "name");
     $link = convert_bandcamp_link($link);
 
@@ -83,11 +81,11 @@
 
   echo "</div>";
 
-  $image = $document->find(".bio-pic a")->attr("href");
+  $image = $document->evaluate("//div[contains(@class, \"bio-pic\")]//a")->item(0)->getAttribute("href");
   $image = resize_link($image, 4);
 
-  $description = $document->find("meta[property=\"og:description\"]")->attr("content");
-  $links = $document->find("#band-links li a");
+  $description = $document->evaluate("//meta[@property=\"og:description\"]")->item(0)->getAttribute("content");
+  $links = $document->evaluate("//ol[@id=\"band-links\"]//a");
 
   echo_sidebar($image, $description, $links);
 

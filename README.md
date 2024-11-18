@@ -22,7 +22,7 @@ A machine-readable list is available via [instances.json](instances.json).
 
 1. Install PHP.
 2. Install PHP's cURL and XML extensions.
-3. Clone the repository and its submodules.
+3. Clone the repository.
 4. Adapt `config/config.php`.
 5. Point your server to `pages`.
 

@@ -3,7 +3,10 @@
     if (!isset($_COOKIE["design"]) || $_COOKIE["design"] !== "on")
       return;
 
-    $design = $document->find("#custom-design-rules-style")->attr("data-design");
+    $design = $document
+      ->evaluate("//style[@id=\"custom-design-rules-style\"]")
+      ->item(0)
+      ->getAttribute("data-design");
 
     if (!$design)
       return;
