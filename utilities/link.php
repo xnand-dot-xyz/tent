@@ -92,10 +92,10 @@
       case "artist":
         if (!isset($query["name"]))
           return false;
-        if (isset($query["host"]) && $query["host"])
-          $link .= urlencode($query["name"]) . "/";
-        else
-          $link .= urlencode($query["name"]) . ".bandcamp.com/";
+        $link .= urlencode($query["name"]);
+        if (!isset($query["host"]))
+          $link .= ".bandcamp.com";
+        $link .= "/music";
         break;
       case "discover":
         $link .= "bandcamp.com/discover";
