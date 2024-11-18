@@ -138,7 +138,7 @@
     echo "<summary>Credits</summary>";
 
     $credits = $document->find(".tralbum-credits");
-    $from = $credits->find("[href^=\"/album/\"]");
+    $from = $credits->find("[href]");
     $from->removeAttr("href");
     echo $credits->innerHTML();
 
