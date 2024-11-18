@@ -139,7 +139,7 @@
 
     $credits = $document->find(".tralbum-credits");
     $from = $credits->find("[href^=\"/album/\"]");
-    $from->attr("href", convert_bandcamp_link(prefix_link($from->attr("href"), "artist")));
+    $from->removeAttr("href");
     echo $credits->innerHTML();
 
     echo "</details>";
