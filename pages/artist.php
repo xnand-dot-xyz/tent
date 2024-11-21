@@ -81,8 +81,11 @@
 
   echo "</div>";
 
-  $image = $document->evaluate("//div[contains(@class, \"bio-pic\")]//a")->item(0)->getAttribute("href");
-  $image = resize_link($image, 4);
+  $image = $document->evaluate("//div[contains(@class, \"bio-pic\")]//a")->item(0);
+  if ($image) {
+    $image = $image->getAttribute("href");
+    $image = resize_link($image, 4);
+  };
 
   $description = $document->evaluate("//meta[@property=\"og:description\"]")->item(0)->getAttribute("content");
   $links = $document->evaluate("//ol[@id=\"band-links\"]//a");

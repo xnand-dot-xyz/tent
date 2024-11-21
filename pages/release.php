@@ -45,7 +45,10 @@
 
     echo "<div class=\"subpage\">";
 
-    $image = "https://f4.bcbits.com/img/" . $json->art_id . "_4.jpg";
+    if (isset($json->art_id))
+      $image = "https://f4.bcbits.com/img/" . $json->art_id . "_4.jpg";
+    else
+      $image = null;
 
     $about = $json->current->about;
 
