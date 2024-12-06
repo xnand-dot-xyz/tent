@@ -150,7 +150,7 @@
     $uri = $_SERVER["REQUEST_URI"];
 
     return $scheme . "://" . $host . preg_replace("/\/.*.php/", "/", strtok($uri, "?"));
-  }
+  };
 
   function is_bandcamp_host($host) {
     $records = dns_get_record($host, DNS_ALL);
