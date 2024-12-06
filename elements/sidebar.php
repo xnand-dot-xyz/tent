@@ -3,12 +3,7 @@
     echo "<div class=\"sidebar\">";
 
     if (isset($image)) {
-      if (
-        isset($_COOKIE["images"]) &&
-        ($_COOKIE["images"] === "disabled" ||
-        ($_COOKIE["images"] !== "enabled" && (isset($_SERVER["HTTP_SAVE_DATA"]) && $_SERVER["HTTP_SAVE_DATA"] === "on")))
-      )
-        $image = get_placeholder();
+      $image = get_placeholder() ?: $image;
 
       echo "<a href=\"" . convert_bandcamp_link(resize_link($image, 0)) . "\">";
       echo "<img src=\"" . convert_bandcamp_link($image) . "\">";

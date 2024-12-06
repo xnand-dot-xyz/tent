@@ -10,7 +10,13 @@
   };
 
   function get_placeholder() {
-    // Base64-encoded gray (50% opacity) PNG pixel
-    return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsqAcAAYUBAdpOiIkAAAAASUVORK5CYII=";
+    if (
+      isset($_COOKIE["images"]) &&
+      ($_COOKIE["images"] === "disabled" ||
+      ($_COOKIE["images"] !== "enabled" && (isset($_SERVER["HTTP_SAVE_DATA"]) && $_SERVER["HTTP_SAVE_DATA"] === "on")))
+    ) {
+      // Base64-encoded gray (50% opacity) PNG pixel
+      return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsqAcAAYUBAdpOiIkAAAAASUVORK5CYII=";
+    };
   }
 ?>

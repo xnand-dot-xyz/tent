@@ -1,11 +1,6 @@
 <?php
   function echo_item ($link, $image, $text, $description) {
-    if (
-      isset($_COOKIE["images"]) &&
-      ($_COOKIE["images"] === "disabled" ||
-      ($_COOKIE["images"] !== "enabled" && (isset($_SERVER["HTTP_SAVE_DATA"]) && $_SERVER["HTTP_SAVE_DATA"] === "on")))
-    )
-      $image = get_placeholder();
+    $image = get_placeholder() ?: $image;
 
     echo "<a href=\"" . $link . "\">";
     echo "<img src=\"" . $image . "\">";

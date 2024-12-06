@@ -118,14 +118,7 @@
 
       foreach ($videos as $video) {
         $src = convert_bandcamp_link("https://bandcamp.23video.com" . $video->video_mobile_url);
-        $poster = convert_bandcamp_link("https://bandcamp.23video.com/" . $video->video_poster_url);
-
-        if (
-          isset($_COOKIE["images"]) &&
-          ($_COOKIE["images"] === "disabled" ||
-          ($_COOKIE["images"] !== "enabled" && (isset($_SERVER["HTTP_SAVE_DATA"]) && $_SERVER["HTTP_SAVE_DATA"] === "on")))
-        )
-          $poster = get_placeholder();
+        $poster = get_placeholder() ?: convert_bandcamp_link("https://bandcamp.23video.com/" . $video->video_poster_url);
 
         echo "<video src=\"" . $src . "\" poster=\"" . $poster . "\" controls preload=\"none\"></video>";
       };
