@@ -18,94 +18,105 @@
     header("Location: " . strtok($_SERVER["REQUEST_URI"], "?"));
     exit();
   };
+
+  $settings = [
+    "theme" => [
+      "title" => "Theme",
+      "description" => "Whether to adapt to the system theme or always use a light or dark interface.",
+      "type" => "select",
+      "options" => [
+        "system" => "System",
+        "light" => "Light",
+        "dark" => "Dark"
+      ]
+    ],
+    "design" => [
+      "title" => "Design",
+      "description" => "Whether to, if available, use artist-defined colors on artist and release pages.",
+      "type" => "checkbox"
+    ],
+    "details" => [
+      "title" => "Details",
+      "description" => "Which of the collapsible details the release page is made up of to expand by default.",
+      "type" => "multiple",
+      "options" => [
+        "tracklist" => "Tracklist",
+        "videos" => "Videos",
+        "lyrics" => "Lyrics",
+        "credits" => "Credits",
+        "license" => "License",
+        "tags" => "Tags",
+        "recommendations" => "Recommendations"
+      ]
+    ],
+    "images" => [
+      "title" => "Images",
+      "description" => "If disabled, speeds up loading and saves data by not loading any images.",
+      "type" => "select",
+      "options" => [
+        "system" => "System",
+        "enabled" => "Enabled",
+        "disabled" => "Disabled"
+      ]
+    ],
+    "overflow" => [
+      "title" => "Overflow",
+      "description" => "Whether to allow scrolling each column of the desktop layout independently.",
+      "type" => "checkbox"
+    ]
+  ];
 ?>
 
 <h1>Settings</h1>
 
 <form>
-  <div>
-    <p><b>Theme</b></p>
-    <p>Whether to adapt to the system theme or always use a light or dark interface.</p>
-    <p>
-      <select name="theme">
-        <?php
-          foreach ([
-            "system" => "System",
-            "light" => "Light",
-            "dark" => "Dark"
-          ] as $name => $value) {
-            echo "<option value=\"" . $name . "\"";
-            if (isset($_COOKIE["theme"]) && $_COOKIE["theme"] === $name) echo " selected";
-            echo ">" . $value . "</option>";
-          };
-        ?>
-      </select>
-    </p>
-  </div>
+  <?php
+    foreach ($settings as $key => $value) { ?>
+      <div>
+        <p><b><?= $value["title"] ?></b></p>
+        <p><?= $value["description"] ?></p>
+        <p>
+          <?php
+            switch ($value["type"]) {
+              case "checkbox":
+                echo "<input name=\"" . $key . "\" type=\"hidden\" value=\"off\">";
+                echo "<input id=\"" . $key . "\" name=\"" . $key . "\" type=\"checkbox\"";
+                if (isset($_COOKIE[$key]) && $_COOKIE[$key] === "on")
+                  echo " checked";
+                echo "> ";
+                echo "<label for=\"" . $key . "\">Enabled</label>";
+                break;
 
-  <div>
-    <p><b>Design</b></p>
-    <p>Whether to, if available, use artist-defined colors on artist and release pages.</p>
-    <input name="design" type="hidden" value="off">
-    <input id="design" name="design" type="checkbox" <?php if (isset($_COOKIE["design"]) && $_COOKIE["design"] === "on") echo "checked" ?>>
-    <label for="design">Enabled</label>
-  </div>
+              case "multiple":
+                echo "<select name=\"" . $key . "[]\" multiple size=\"" . count($value["options"]) . "\">";
+                foreach ($value["options"] as $optionkey => $optionvalue) {
+                  echo "<option value=\"" . $optionkey . "\"";
+                  if (
+                    (isset($_COOKIE[$key]) && in_array($optionkey, json_decode($_COOKIE[$key]))) ||
+                    (!isset($_COOKIE[$key]) && $optionkey === array_key_first($value["options"]))
+                  )
+                    echo " selected";
+                  echo ">" . $optionvalue . "</option>";
+                };
+                echo "</select>";
+                break;
 
-  <div>
-    <p><b>Details</b></p>
-    <p>Which of the collapsible details the release page is made up of to expand by default.</p>
-    <p>
-      <select name="details[]" multiple size="7">
-        <?php
-          foreach ([
-            "tracklist" => "Tracklist",
-            "videos" => "Videos",
-            "lyrics" => "Lyrics",
-            "credits" => "Credits",
-            "license" => "License",
-            "tags" => "Tags",
-            "recommendations" => "Recommendations"
-          ] as $name => $value) {
-            echo "<option value=\"" . $name . "\"";
-            if (
-              (isset($_COOKIE["details"]) && in_array($name, json_decode($_COOKIE["details"]))) ||
-              (!isset($_COOKIE["details"]) && $name === "tracklist")
-            )
-              echo " selected";
-            echo ">" . $value . "</option>";
-          };
-        ?>
-      </select>
-    </p>
-  </div>
-
-  <div>
-    <p><b>Images</b></p>
-    <p>If disabled, speeds up loading and saves data by not loading any images.</p>
-    <p>
-      <select name="images">
-        <?php
-          foreach ([
-            "system" => "System",
-            "enabled" => "Enabled",
-            "disabled" => "Disabled"
-          ] as $name => $value) {
-            echo "<option value=\"" . $name . "\"";
-            if (isset($_COOKIE["images"]) && $_COOKIE["images"] === $name) echo " selected";
-            echo ">" . $value . "</option>";
-          };
-        ?>
-      </select>
-    </p>
-  </div>
-
-  <div>
-    <p><b>Overflow</b></p>
-    <p>Whether to allow scrolling each column of the desktop layout independently.</p>
-    <input name="overflow" type="hidden" value="off">
-    <input id="overflow" name="overflow" type="checkbox" <?php if (isset($_COOKIE["overflow"]) && $_COOKIE["overflow"] === "on") echo "checked" ?>>
-    <label for="overflow">Enabled</label>
-  </div>
+              case "select":
+                echo "<select name=\"" . $key . "\">";
+                foreach ($value["options"] as $optionkey => $optionvalue) {
+                  echo "<option value=\"" . $optionkey . "\"";
+                  if (isset($_COOKIE[$key]) && $_COOKIE[$key] === $optionkey)
+                    echo " selected";
+                  echo ">" . $optionvalue . "</option>";
+                };
+                echo "</select>";
+                break;
+            };
+          ?>
+        </p>
+      </div>
+    <?php };
+  ?>
 
   <input type="submit" value="Save">
 </form>
