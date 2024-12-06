@@ -19,4 +19,17 @@
       return "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsqAcAAYUBAdpOiIkAAAAASUVORK5CYII=";
     };
   };
+
+  function proxy_file($ch) {
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_WRITEFUNCTION, function($ch, $data) {
+      echo $data;
+      return strlen($data);
+    });
+  
+    $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+    header("Content-Type: " . ($contentType ?: "application/octet-stream"));
+  
+    curl_exec($ch);
+  };
 ?>
