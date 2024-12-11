@@ -36,7 +36,7 @@
           ⛺
         </a>
         <form action="search.php">
-          <input name="query" placeholder="Search..." required autofocus>
+          <input name="query" placeholder="Search..." required>
         </form>
         <?php
           $link = convert_tent_link("//" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
