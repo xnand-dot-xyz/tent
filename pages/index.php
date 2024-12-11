@@ -5,7 +5,7 @@
 <p>
   <?= $config["title"] ?> is a simple alternative front-end for <a href="https://bandcamp.com/">Bandcamp</a>.
   <br>
-  It is free and open source software, with its code available on <a href="https://forgejo.sny.sh/sun/Tent">Forgejo</a>.
+  Its source code is available on <a href="https://forgejo.sny.sh/sun/Tent">Forgejo</a>.
   <br>
   It was inspired by <a href="https://invidious.io/">Invidious</a>, <a href="https://nitter.net/">Nitter</a> and the like.
 </p>
