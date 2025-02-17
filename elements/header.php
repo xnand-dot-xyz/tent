@@ -49,5 +49,5 @@
         </a>
       </div>
     </header>
-    <main tabindex="-1">
+    <main>
       <div class="wrapper">
