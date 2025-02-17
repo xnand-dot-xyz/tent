@@ -15,8 +15,15 @@
   };
 
   if (count($_POST)) {
-    header("Location: " . $_SERVER["REQUEST_URI"]);
+    header("Location: " . strtok($_SERVER["REQUEST_URI"], "?") . "?dialog");
     exit();
+  } elseif (array_key_exists("dialog", $_GET)) {
+    echo "<dialog open>";
+    echo "<span>Your settings have been saved successfully.</span>";
+    echo "<form method=\"dialog\">";
+    echo "<input type=\"submit\" value=\"❌\">";
+    echo "</form>";
+    echo "</dialog>";
   };
 
   $settings = [

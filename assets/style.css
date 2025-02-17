@@ -26,6 +26,7 @@ body.theme-dark {
 
 .wrapper > :first-child,
 .wrapper > style:first-child + *,
+.wrapper > dialog:not([open]):first-child + *,
 .wrapper div > :first-child,
 .wrapper details:first-child summary {
   margin-top: 0;
@@ -55,7 +56,8 @@ footer {
 }
 
 header .wrapper,
-footer .wrapper {
+footer .wrapper,
+dialog[open] {
   display: flex;
   align-items: center;
   gap: 1em;
@@ -67,9 +69,11 @@ header .wrapper form {
   flex: 1;
 }
 
-header .wrapper input {
+header .wrapper input,
+dialog[open] input {
   background: none;
   border: none;
+  padding: 0;
   font-family: inherit;
   font-size: inherit;
   color: inherit;
@@ -220,6 +224,18 @@ a {
   text-decoration: initial;
 }
 
+dialog[open] {
+  position: initial;
+  width: initial;
+  border: none;
+  justify-content: space-between;
+}
+
+dialog[open] input {
+  cursor: pointer;
+}
+
+dialog[open],
 ::selection {
   background: var(--color);
   color: var(--background);
