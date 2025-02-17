@@ -11,7 +11,7 @@
 </p>
 
 <h2>How do I get started?</h2>
-<p>Use the search bar at the top to find what you're looking for.</p>
+<p>Use the search bar at the top to find what you're looking for or go to the <a href="discover.php">Discover page</a>.</p>
 
 <h2>Why would I use this?</h2>
 <p>You might prefer it over the official Bandcamp website if you want to</p>
