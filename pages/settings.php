@@ -7,15 +7,15 @@
 <?php require_once "../elements/header.php" ?>
 
 <?php
-  foreach ($_GET as $name => $value) {
+  foreach ($_POST as $name => $value) {
     if (is_array($value))
       $value = json_encode($value);
 
     setcookie($name, $value);
   };
 
-  if (count($_GET)) {
-    header("Location: " . strtok($_SERVER["REQUEST_URI"], "?"));
+  if (count($_POST)) {
+    header("Location: " . $_SERVER["REQUEST_URI"]);
     exit();
   };
 
@@ -71,7 +71,7 @@
 
 <h1>Settings</h1>
 
-<form>
+<form method="post">
   <?php
     foreach ($settings as $key => $value) { ?>
       <div>
