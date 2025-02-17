@@ -33,7 +33,8 @@
     "design" => [
       "title" => "Design",
       "description" => "Whether to, if available, use artist-defined colors on artist and release pages.",
-      "type" => "checkbox"
+      "type" => "checkbox",
+      "label" => "Enabled"
     ],
     "details" => [
       "title" => "Details",
@@ -62,7 +63,8 @@
     "overflow" => [
       "title" => "Overflow",
       "description" => "Whether to allow scrolling each column of the desktop layout independently.",
-      "type" => "checkbox"
+      "type" => "checkbox",
+      "label" => "Enabled"
     ]
   ];
 ?>
@@ -84,7 +86,7 @@
                 if (isset($_COOKIE[$key]) && $_COOKIE[$key] === "on")
                   echo " checked";
                 echo "> ";
-                echo "<label for=\"" . $key . "\">Enabled</label>";
+                echo "<label for=\"" . $key . "\">" . $value["label"] . "</label>";
                 break;
 
               case "multiple":
