@@ -23,8 +23,7 @@
   </head>
   <body class="
     <?php
-      if (isset($_COOKIE["theme"]) && in_array($_COOKIE["theme"], ["light", "dark"]))
-        echo "theme-" . $_COOKIE["theme"];
+      echo "theme-" . (isset($_COOKIE["theme"]) ? htmlspecialchars($_COOKIE["theme"]) : "system");
 
       if (isset($_COOKIE["overflow"]) && $_COOKIE["overflow"] === "on")
         echo " overflow";

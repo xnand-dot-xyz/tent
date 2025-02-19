@@ -1,7 +1,4 @@
 body {
-  --background: white;
-  --color: black;
-
   background: var(--background);
   color: var(--color);
   accent-color: var(--color);
@@ -13,9 +10,44 @@ body {
   margin: initial;
 }
 
+@media (prefers-color-scheme: light) {
+  body.theme-system {
+    --background: white;
+    --color: black;
+    --borders: rgba(0, 0, 0, 25%);
+    --links: var(--color);
+    --selection-background: var(--color);
+    --selection-color: var(--background);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body.theme-system {
+    --background: black;
+    --color: white;
+    --borders: rgba(255, 255, 255, 25%);
+    --links: var(--color);
+    --selection-background: var(--color);
+    --selection-color: var(--background);
+  }
+}
+
+body.theme-light {
+  --background: white;
+  --color: black;
+  --borders: rgba(0, 0, 0, 25%);
+  --links: var(--color);
+  --selection-background: var(--color);
+  --selection-color: var(--background);
+}
+
 body.theme-dark {
   --background: black;
   --color: white;
+  --borders: rgba(255, 255, 255, 25%);
+  --links: var(--color);
+  --selection-background: var(--color);
+  --selection-color: var(--background);
 }
 
 .wrapper {
@@ -43,7 +75,7 @@ body.theme-dark {
 }
 
 header {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--borders);
 }
 
 main {
@@ -52,7 +84,7 @@ main {
 }
 
 footer {
-  border-top: 1px solid;
+  border-top: 1px solid var(--borders);
 }
 
 header .wrapper,
@@ -220,7 +252,7 @@ main .wrapper .sidebar img {
 }
 
 a {
-  color: inherit;
+  color: var(--links);
   text-decoration: initial;
 }
 
@@ -229,28 +261,22 @@ dialog[open] {
   width: initial;
   border: none;
   justify-content: space-between;
+  background: var(--color);
+  color: var(--background);
 }
 
 dialog[open] input {
   cursor: pointer;
 }
 
-dialog[open],
 ::selection {
-  background: var(--color);
-  color: var(--background);
+  background: var(--selection-background);
+  color: var(--selection-color);
 }
 
 @media (max-width: 1000px) {
   main .wrapper .page,
   main .wrapper .subpage {
     grid-template-columns: auto;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body:not(.theme-light) {
-    --background: black;
-    --color: white;
   }
 }

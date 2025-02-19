@@ -29,7 +29,7 @@
   $settings = [
     "theme" => [
       "title" => "Theme",
-      "description" => "Whether to adapt to the system theme or always use a light or dark interface.",
+      "description" => "Whether to adapt to the system theme or always use a specific color scheme.",
       "type" => "select",
       "options" => [
         "system" => "System",
