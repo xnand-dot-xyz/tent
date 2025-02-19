@@ -34,7 +34,11 @@
       "options" => [
         "system" => "System",
         "light" => "Light",
-        "dark" => "Dark"
+        "dark" => "Dark",
+        "catppuccin" => "Catppuccin",
+        "dracula" => "Dracula",
+        "nord" => "Nord",
+        "rose-pine" => "Rosé Pine"
       ]
     ],
     "design" => [
