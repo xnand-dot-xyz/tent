@@ -20,14 +20,17 @@
     )
       return;
 
+    $borders = sscanf($design->text_color, "%02x%02x%02x");
+    $borders = "rgba(" . implode(", ", $borders) . ", 25%)";
+
     echo "<style>
       body {
         --background: #" . $design->body_color . " !important;
         --color: #" . $design->text_color . " !important;
-      }
-
-      a[href] {
-        color: #" . $design->link_color . ";
+        --borders: " . $borders . " !important;
+        --links: #" . $design->link_color . " !important;
+        --selection-background: var(--color) !important;
+        --selection-color: var(--background) !important;
       }
     </style>";
   };
