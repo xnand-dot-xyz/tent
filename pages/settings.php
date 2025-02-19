@@ -37,6 +37,7 @@
         "dark" => "Dark",
         "catppuccin" => "Catppuccin",
         "dracula" => "Dracula",
+        "flexoki" => "Flexoki",
         "nord" => "Nord",
         "rose-pine" => "Rosé Pine"
       ]

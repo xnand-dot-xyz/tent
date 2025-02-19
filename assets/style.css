@@ -68,6 +68,15 @@ body.theme-dracula {
   --selection-color: var(--color);
 }
 
+body.theme-flexoki {
+  --background: #100F0F;
+  --color: #CECDC3;
+  --borders: #282726;
+  --links: #3AA99F;
+  --selection-background: rgba(30, 95, 91, 30%);
+  --selection-color: var(--color);
+}
+
 body.theme-nord {
   --background: #2E3440;
   --color: #ECEFF4;
