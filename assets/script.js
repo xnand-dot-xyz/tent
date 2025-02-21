@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   for (const audio of audios) {
     audio.addEventListener("play", (event) => {
       audios
-        .filter((audio) => event.target !== audio && !audio.paused)
+        .filter((audio) => audio !== event.target && !audio.paused)
         .forEach((audio) => audio.pause());
     });
 
