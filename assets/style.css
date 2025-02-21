@@ -51,47 +51,47 @@ body.theme-dark {
 }
 
 body.theme-catppuccin {
-  --background: #1E1E2E;
-  --color: #CDD6F4;
-  --borders: #6C7086;
-  --links: #89B4FA;
+  --background: #1e1e2e;
+  --color: #cdd6f4;
+  --borders: #6c7086;
+  --links: #89b4fa;
   --selection-background: rgba(147, 153, 178, 25%);
   --selection-color: var(--color);
 }
 
 body.theme-dracula {
-  --background: #282A36;
-  --color: #F8F8F2;
-  --borders: #BD93F9;
-  --links: #FF79C6;
-  --selection-background: #44475A;
+  --background: #282a36;
+  --color: #f8f8f2;
+  --borders: #bd93f9;
+  --links: #ff79c6;
+  --selection-background: #44475a;
   --selection-color: var(--color);
 }
 
 body.theme-flexoki {
-  --background: #100F0F;
-  --color: #CECDC3;
+  --background: #100f0f;
+  --color: #cecdc3;
   --borders: #282726;
-  --links: #3AA99F;
+  --links: #3aa99f;
   --selection-background: rgba(30, 95, 91, 30%);
   --selection-color: var(--color);
 }
 
 body.theme-nord {
-  --background: #2E3440;
-  --color: #ECEFF4;
-  --borders: #3B4252;
-  --links: #88C0D0;
-  --selection-background: #434C5E;
+  --background: #2e3440;
+  --color: #eceff4;
+  --borders: #3b4252;
+  --links: #88c0d0;
+  --selection-background: #434c5e;
   --selection-color: var(--color);
 }
 
 body.theme-rose-pine {
   --background: #191724;
-  --color: #E0DEF4;
-  --borders: #524F67;
-  --links: #C4A7E7;
-  --selection-background: #403D52;
+  --color: #e0def4;
+  --borders: #524f67;
+  --links: #c4a7e7;
+  --selection-background: #403d52;
   --selection-color: var(--color);
 }
 
