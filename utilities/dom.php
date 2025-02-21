@@ -5,7 +5,12 @@
 
     $design = $document
       ->evaluate("//style[@id=\"custom-design-rules-style\"]")
-      ->item(0)
+      ->item(0);
+
+    if (!$design)
+      return;
+
+    $design = $design
       ->getAttribute("data-design");
 
     if (!$design)

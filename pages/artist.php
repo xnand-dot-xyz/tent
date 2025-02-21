@@ -19,8 +19,12 @@
     exit();
   };
 
-  $title = $document->evaluate("//p[@id=\"band-name-location\"]//span[@class=\"title\"]")->item(0)->textContent;
-  $items = json_decode($document->evaluate("//ol[@id=\"music-grid\"]")->item(0)->getAttribute("data-client-items"), true);
+  $title = $document->evaluate("//p[@id=\"band-name-location\"]//span[@class=\"title\"]")->item(0);
+  if ($title)
+    $title = $title->textContent;
+  $items = $document->evaluate("//ol[@id=\"music-grid\"]")->item(0);
+  if ($items)
+    $items = json_decode($items->getAttribute("data-client-items"), true);
 ?>
 
 <?php require_once "../elements/header.php" ?>
