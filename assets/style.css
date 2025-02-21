@@ -272,6 +272,7 @@ main .wrapper .sidebar img {
     display: flex;
     flex-direction: column;
     height: 100%;
+    max-width: calc(1400px + 2em);
     padding-bottom: 0;
     box-sizing: border-box;
   }
