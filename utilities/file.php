@@ -3,7 +3,8 @@
     $extension = pathinfo($name, PATHINFO_EXTENSION);
 
     $type = match ($extension) {
-      "css" => "text/css"
+      "css" => "text/css",
+      "js" => "text/javascript"
     };
 
     return $type;

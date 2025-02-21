@@ -9,7 +9,7 @@
   else
     $title = $config["title"];
 
-  header("Content-Security-Policy: default-src 'none'; form-action 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'");
+  header("Content-Security-Policy: default-src 'none'; form-action 'self'; img-src 'self' data:; media-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'");
 ?>
 
 <!doctype html>
@@ -20,6 +20,7 @@
     <title><?= $title ?></title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛺</text></svg>">
     <link rel="stylesheet" href="asset.php?file=style.css">
+    <script src="asset.php?file=script.js"></script>
   </head>
   <body class="
     <?php
