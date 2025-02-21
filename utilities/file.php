@@ -4,7 +4,8 @@
 
     $type = match ($extension) {
       "css" => "text/css",
-      "js" => "text/javascript"
+      "js" => "text/javascript",
+      "svg" => "image/svg+xml"
     };
 
     return $type;
