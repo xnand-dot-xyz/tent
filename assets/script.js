@@ -12,5 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.addEventListener("ended", (event) => {
       audios[audios.indexOf(event.target) + 1]?.play();
     });
+
+    audio.addEventListener("volumechange", (event) => {
+      audios
+        .filter((audio) => audio !== event.target)
+        .forEach((audio) => audio.volume = event.target.volume);
+    });
   }
 });
