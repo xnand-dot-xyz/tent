@@ -15,8 +15,12 @@
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
   $document = new DOMXPath(encode_document(curl_exec($ch)));
-  $json = json_decode($document->evaluate("//script[@data-tralbum]")->item(0)->getAttribute("data-tralbum"));
-  $additional = json_decode($document->evaluate("//script[@type=\"application/ld+json\"]")->item(0)->textContent);
+  $json = $document->evaluate("//script[@data-tralbum]")->item(0);
+  if ($json)
+    $json = json_decode($json->getAttribute("data-tralbum"));
+  $additional = $document->evaluate("//script[@type=\"application/ld+json\"]")->item(0);
+  if ($additional)
+    $additional = json_decode($additional->textContent);
 
   if ($json)
     $title = $json->current->title;
