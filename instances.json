@@ -65,6 +65,19 @@
     }
   },
   {
+    "url": "https://tent.qunn.link/",
+    "type": "http",
+    "provider": {
+      "name": null,
+      "url": "https://qunn.link/"
+    },
+    "location": "SG",
+    "features": {
+      "official": false,
+      "cloudflare": false
+    }
+  },
+  {
     "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
     "type": "tor",
     "provider": {
