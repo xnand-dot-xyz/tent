@@ -6,10 +6,16 @@
     $path = ltrim(parse_url($link, PHP_URL_PATH), "/");
     parse_str(parse_url($link, PHP_URL_QUERY), $query);
 
-    if ($host === "bandcamp.com" && $path === "search") {
+    if ($host === "bandcamp.com" && $path === "search" && !array_key_exists("item_type", $query)) {
       $file = "search";
       $data = [
         "query" => $query["q"]
+      ];
+    } elseif ($host === "bandcamp.com" && $path === "search") {
+      $file = "search";
+      $data = [
+        "query" => $query["q"],
+        "type" => $query["item_type"]
       ];
     } elseif ($host === "bandcamp.com" && $path === "discover") {
       $file = "discover";
@@ -123,6 +129,8 @@
         if (!isset($query["query"]))
           return false;
         $link .= "bandcamp.com/search?q=" . urlencode($query["query"]);
+        if (isset($query["type"]))
+          $link .= "&item_type=" . urlencode($query["type"]);
         break;
       case "video":
         if (!isset($query["parent"]) || !isset($query["child"]) || !isset($query["hash"]) || !isset($query["file"]))

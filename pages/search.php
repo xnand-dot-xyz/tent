@@ -16,7 +16,7 @@
   curl_setopt($ch, CURLOPT_HTTPHEADER, ["Content-Type: application/json"]);
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
     "search_text" => $_GET["query"],
-    "search_filter" => "",
+    "search_filter" => isset($_GET["type"]) ? $_GET["type"] : "",
     "full_page" => true
   ]));
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

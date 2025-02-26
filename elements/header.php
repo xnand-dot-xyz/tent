@@ -35,6 +35,12 @@
         </a>
         <form action="search.php">
           <input name="query" placeholder="Search..." required>
+          <select name="type">
+            <option value="">Everything</option>
+            <option value="b">Artists</option>
+            <option value="a">Albums</option>
+            <option value="t">Tracks</option>
+          </select>
           <input type="submit" value="🔍" title="Search">
         </form>
         <?php
