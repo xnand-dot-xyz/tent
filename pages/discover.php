@@ -20,18 +20,19 @@
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
     "tag_norm_names" => isset($_GET["tags"]) ? explode(" ", $_GET["tags"]) : [],
     "include_result_types" => ["a", "s"],
+    "cursor" => isset($_GET["cursor"]) ? $_GET["cursor"] : "*",
     "slice" => "top"
   ]));
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-  $results = json_decode(curl_exec($ch))->results;
+  $results = json_decode(curl_exec($ch));
 
-  if (empty($results))
+  if (empty($results->results))
     echo_error_message();
 
   echo "<div class=\"results\">";
 
-  foreach ($results as $result) {
+  foreach ($results->results as $result) {
     $link = convert_bandcamp_link($result->item_url);
     $image = convert_bandcamp_link(resize_link("https://f4.bcbits.com/img/" . $result->item_image_id . ".jpg", 3));
     $text = htmlspecialchars($result->title);
@@ -41,6 +42,19 @@
   };
 
   echo "</div>";
+
+  if ($results->cursor) {
+    if (array_key_exists("QUERY_STRING", $_SERVER))
+      parse_str($_SERVER["QUERY_STRING"], $query);
+    else
+      $query = [];
+
+    $query["cursor"] = $results->cursor;
+
+    echo "<p>";
+    echo "<a href=\"?" . http_build_query($query) . "\">Next page →</a>";
+    echo "</p>";
+  };
 ?>
 
 <?php require_once "../elements/footer.php" ?>
