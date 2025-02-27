@@ -34,7 +34,7 @@
           ⛺
         </a>
         <form action="search.php">
-          <input name="query" placeholder="Search..." required>
+          <input name="query" placeholder="Search..." size="1" required>
           <select name="type">
             <option value="">Everything</option>
             <option value="b">Artists</option>

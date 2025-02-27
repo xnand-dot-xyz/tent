@@ -302,6 +302,10 @@ a {
   text-decoration: initial;
 }
 
+code {
+  overflow-wrap: anywhere;
+}
+
 dialog[open] {
   position: initial;
   width: initial;
