@@ -67,18 +67,18 @@
   if (isset($items)) {
     foreach ($items as $item) {
       $title = $item["title"];
-  
+
       unset($text);
       if (array_key_exists("artist", $item)) $text = "by " . $item["artist"];
-  
+
       $image = $item["art_id"];
       $image = "https://f4.bcbits.com/img/a" . $image . "_0.jpg";
       $image = resize_link($image, 3);
       $image = convert_bandcamp_link($image);
-  
+
       $link = prefix_link($item["page_url"], "name");
       $link = convert_bandcamp_link($link);
-  
+
       echo_item($link, $image, htmlspecialchars($title), $text ?? null);
     };
   };
