@@ -91,7 +91,9 @@
     $image = resize_link($image, 4);
   };
 
-  $description = $document->evaluate("//meta[@property=\"og:description\"]")->item(0)->getAttribute("content");
+  $description = $document->evaluate("//meta[@property=\"og:description\"]")->item(0);
+  if ($description)
+    $description = $description->getAttribute("content");
   $links = $document->evaluate("//ol[@id=\"band-links\"]//a");
 
   echo_sidebar($image, $description, $links);
