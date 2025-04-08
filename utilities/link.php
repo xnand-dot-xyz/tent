@@ -3,8 +3,15 @@
     $base = get_base_url();
 
     $host = parse_url($link, PHP_URL_HOST);
-    $path = ltrim(parse_url($link, PHP_URL_PATH), "/");
-    parse_str(parse_url($link, PHP_URL_QUERY), $query);
+
+    $path = parse_url($link, PHP_URL_PATH);
+    $path = $path ? ltrim($path, "/") : null;
+
+    $query = parse_url($link, PHP_URL_QUERY);
+    if ($query)
+      parse_str($query, $query);
+    else
+      $query = null;
 
     if ($host === "bandcamp.com" && $path === "search" && !array_key_exists("item_type", $query)) {
       $file = "search";
@@ -90,7 +97,12 @@
 
   function convert_tent_link($link) {
     $path = pathinfo(parse_url($link, PHP_URL_PATH), PATHINFO_FILENAME);
-    parse_str(parse_url($link, PHP_URL_QUERY), $query);
+
+    $query = parse_url($link, PHP_URL_QUERY);
+    if ($query)
+      parse_str($query, $query);
+    else
+      $query = null;
 
     $link = "https://";
 

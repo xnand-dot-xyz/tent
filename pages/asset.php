@@ -1,6 +1,6 @@
-<?php require_once "../utilities/index.php" ?>
-
 <?php
+  require_once "../utilities/index.php";
+
   $file = "../assets/" . basename($_GET["file"]);
 
   if (!file_exists($file))

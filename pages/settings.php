@@ -1,12 +1,8 @@
-<?php require_once "../utilities/index.php" ?>
-
 <?php
+  require_once "../utilities/index.php";
+
   $title = "Settings";
-?>
 
-<?php require_once "../elements/header.php" ?>
-
-<?php
   foreach ($_POST as $name => $value) {
     if (is_array($value))
       $value = json_encode($value);
@@ -18,13 +14,16 @@
     header("Location: " . strtok($_SERVER["REQUEST_URI"], "?") . "?dialog");
     exit();
   } elseif (array_key_exists("dialog", $_GET)) {
+    require_once "../elements/header.php";
+
     echo "<dialog open>";
     echo "<span>Your settings have been saved successfully.</span>";
     echo "<form method=\"dialog\">";
     echo "<input type=\"submit\" value=\"❌\">";
     echo "</form>";
     echo "</dialog>";
-  };
+  } else
+    require_once "../elements/header.php";
 
   $settings = [
     "theme" => [
