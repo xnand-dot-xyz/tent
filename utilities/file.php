@@ -2,11 +2,11 @@
   function get_mime_type($name) {
     $extension = pathinfo($name, PATHINFO_EXTENSION);
 
-    $type = match ($extension) {
+    $type = [
       "css" => "text/css",
       "js" => "text/javascript",
       "svg" => "image/svg+xml"
-    };
+    ][$extension];
 
     return $type;
   };

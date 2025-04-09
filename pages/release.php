@@ -39,7 +39,7 @@
 
     $album = $document->evaluate("//span[@class=\"fromAlbum\"]")->item(0);
     if ($album) {
-      echo "from <a href=\"" . convert_bandcamp_link(prefix_link("/" . $album->parentElement->getAttribute("href"), "artist")) . "\">";
+      echo "from <a href=\"" . convert_bandcamp_link(prefix_link("/" . $album->parentNode->getAttribute("href"), "artist")) . "\">";
       echo htmlspecialchars($album->textContent);
       echo "</a> ";
     };
