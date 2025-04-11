@@ -12,8 +12,10 @@ For end-user documentation, see the home page of an instance of your choice.
 - https://tent.deep-swarm.xyz/
 - https://bandcamp.lurkmore.com/
 - https://tent.qunn.link/
+- https://tent.private.coffee/
 - http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/
 - http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/
+- http://tent.dswarmsikhttkg7jgsoyfiqpj3ighupfrvuz5ri3lu5q2dlqyrpgk7ad.onion/
 
 A machine-readable list is available via [instances.json](instances.json).
 

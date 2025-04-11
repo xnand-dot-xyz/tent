@@ -78,6 +78,19 @@
     }
   },
   {
+    "url": "https://tent.private.coffee/",
+    "type": "http",
+    "provider": {
+      "name": "Private.coffee",
+      "url": "https://private.coffee/",
+    },
+    "location": "BE",
+    "features": {
+      "official": false,
+      "cloudflare": false
+    }
+  },
+  {
     "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
     "type": "tor",
     "provider": {
@@ -98,6 +111,19 @@
       "url": "https://vern.cc/"
     },
     "location": "US",
+    "features": {
+      "official": false,
+      "cloudflare": false
+    }
+  },
+  {
+    "url": "http://tent.dswarmsikhttkg7jgsoyfiqpj3ighupfrvuz5ri3lu5q2dlqyrpgk7ad.onion/",
+    "type": "tor",
+    "provider": {
+      "name": "Deepswarm",
+      "url": "https://deep-swarm.xyz/"
+    },
+    "location": "LU",
     "features": {
       "official": false,
       "cloudflare": false
