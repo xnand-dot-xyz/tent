@@ -6,6 +6,8 @@ For end-user documentation, see the home page of an instance of your choice.
 
 ## Instances
 
+### HTTP
+
 - https://tent.sny.sh/
 - https://tent.bloat.cat/
 - https://tn.vern.cc/
@@ -13,9 +15,17 @@ For end-user documentation, see the home page of an instance of your choice.
 - https://bandcamp.lurkmore.com/
 - https://tent.qunn.link/
 - https://tent.private.coffee/
+
+### Tor
+
 - http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/
-- http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/
 - http://tent.dswarmsikhttkg7jgsoyfiqpj3ighupfrvuz5ri3lu5q2dlqyrpgk7ad.onion/
+
+### I2P
+
+- http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/
+
+### JSON
 
 A machine-readable list is available via [instances.json](instances.json).
 
