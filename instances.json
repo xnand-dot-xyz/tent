@@ -104,19 +104,6 @@
     }
   },
   {
-    "url": "http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/",
-    "type": "i2p",
-    "provider": {
-      "name": "~vern",
-      "url": "https://vern.cc/"
-    },
-    "location": "US",
-    "features": {
-      "official": false,
-      "cloudflare": false
-    }
-  },
-  {
     "url": "http://tent.dswarmsikhttkg7jgsoyfiqpj3ighupfrvuz5ri3lu5q2dlqyrpgk7ad.onion/",
     "type": "tor",
     "provider": {
@@ -124,6 +111,19 @@
       "url": "https://deep-swarm.xyz/"
     },
     "location": "LU",
+    "features": {
+      "official": false,
+      "cloudflare": false
+    }
+  },
+  {
+    "url": "http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/",
+    "type": "i2p",
+    "provider": {
+      "name": "~vern",
+      "url": "https://vern.cc/"
+    },
+    "location": "US",
     "features": {
       "official": false,
       "cloudflare": false
