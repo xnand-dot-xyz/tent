@@ -41,10 +41,30 @@
   };
 
   function echo_error_message() {
+    $url = get_base_url();
+    $type = pathinfo(parse_url($url, PHP_URL_HOST), PATHINFO_EXTENSION);
+
+    switch ($type) {
+      case "onion":
+        $type = "tor";
+        break;
+      case "i2p":
+        break;
+      default:
+        $type = "http";
+        break;
+    };
+
+    $instances = json_decode(file_get_contents("../instances.json"));
+    $instances = array_filter($instances, fn($instance) => $instance->url !== $url && $instance->type === $type);
+
+    if ($instances)
+      $instance = $instances[array_rand($instances)]->url . basename($_SERVER["REQUEST_URI"]);
+
     echo "<h1>No results.</h1>";
     echo "<p>
-      If you're certain that something should be here, Bandcamp may be rate limiting this instance.<br>
-      In that case, try refreshing this page a few times or using a different instance.
+      If you're certain that something should be here, Bandcamp may be temporarily rate limiting this instance.<br>
+      In that case, try refreshing this page a few times or using a different instance." . ($instances ? " <a href=\"" . $instance . "\">Open this page on a random instance.</a>" : "") . "
     </p>";
   };
 
