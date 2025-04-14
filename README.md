@@ -8,18 +8,19 @@ For end-user documentation, see the home page of an instance of your choice.
 
 ### HTTP
 
-- https://tent.sny.sh/
-- https://tent.bloat.cat/
-- https://tn.vern.cc/
-- https://tent.deep-swarm.xyz/
 - https://bandcamp.lurkmore.com/
-- https://tent.qunn.link/
+- https://tent.bloat.cat/
+- https://tent.canine.tools/
+- https://tent.deep-swarm.xyz/
 - https://tent.private.coffee/
+- https://tent.qunn.link/
+- https://tent.sny.sh/
+- https://tn.vern.cc/
 
 ### Tor
 
-- http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/
 - http://tent.dswarmsikhttkg7jgsoyfiqpj3ighupfrvuz5ri3lu5q2dlqyrpgk7ad.onion/
+- http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/
 
 ### I2P
 

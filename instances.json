@@ -1,15 +1,16 @@
 [
   {
-    "url": "https://tent.sny.sh/",
+    "url": "https://bandcamp.lurkmore.com/",
     "type": "http",
     "provider": {
-      "name": "Sunny",
-      "url": "https://sny.sh/"
+      "name": "LURKMORE",
+      "url": "https://www.lurkmore.com/view/Main_Page"
     },
-    "location": "DE",
+    "location": "ES",
     "features": {
-      "official": true,
-      "cloudflare": false
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
     }
   },
   {
@@ -22,20 +23,22 @@
     "location": "DE",
     "features": {
       "official": false,
-      "cloudflare": false
+      "cloudflare": false,
+      "anubis": false
     }
   },
   {
-    "url": "https://tn.vern.cc/",
+    "url": "https://tent.canine.tools/",
     "type": "http",
     "provider": {
-      "name": "~vern",
-      "url": "https://vern.cc/"
+      "name": "canine.tools",
+      "url": "https://canine.tools/"
     },
     "location": "US",
     "features": {
       "official": false,
-      "cloudflare": false
+      "cloudflare": false,
+      "anubis": true
     }
   },
   {
@@ -48,33 +51,8 @@
     "location": "LU",
     "features": {
       "official": false,
-      "cloudflare": false
-    }
-  },
-  {
-    "url": "https://bandcamp.lurkmore.com/",
-    "type": "http",
-    "provider": {
-      "name": "LURKMORE",
-      "url": "https://www.lurkmore.com/view/Main_Page"
-    },
-    "location": "ES",
-    "features": {
-      "official": false,
-      "cloudflare": false
-    }
-  },
-  {
-    "url": "https://tent.qunn.link/",
-    "type": "http",
-    "provider": {
-      "name": null,
-      "url": "https://qunn.link/"
-    },
-    "location": "SG",
-    "features": {
-      "official": false,
-      "cloudflare": false
+      "cloudflare": false,
+      "anubis": false
     }
   },
   {
@@ -87,12 +65,41 @@
     "location": "BE",
     "features": {
       "official": false,
-      "cloudflare": false
+      "cloudflare": false,
+      "anubis": false
     }
   },
   {
-    "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
-    "type": "tor",
+    "url": "https://tent.qunn.link/",
+    "type": "http",
+    "provider": {
+      "name": null,
+      "url": "https://qunn.link/"
+    },
+    "location": "SG",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
+    "url": "https://tent.sny.sh/",
+    "type": "http",
+    "provider": {
+      "name": "Sunny",
+      "url": "https://sny.sh/"
+    },
+    "location": "DE",
+    "features": {
+      "official": true,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
+    "url": "https://tn.vern.cc/",
+    "type": "http",
     "provider": {
       "name": "~vern",
       "url": "https://vern.cc/"
@@ -100,7 +107,8 @@
     "location": "US",
     "features": {
       "official": false,
-      "cloudflare": false
+      "cloudflare": false,
+      "anubis": false
     }
   },
   {
@@ -113,7 +121,22 @@
     "location": "LU",
     "features": {
       "official": false,
-      "cloudflare": false
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
+    "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
+    "type": "tor",
+    "provider": {
+      "name": "~vern",
+      "url": "https://vern.cc/"
+    },
+    "location": "US",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
     }
   },
   {
@@ -126,7 +149,8 @@
     "location": "US",
     "features": {
       "official": false,
-      "cloudflare": false
+      "cloudflare": false,
+      "anubis": false
     }
   }
 ]
