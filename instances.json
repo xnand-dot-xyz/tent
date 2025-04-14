@@ -82,7 +82,7 @@
     "type": "http",
     "provider": {
       "name": "Private.coffee",
-      "url": "https://private.coffee/",
+      "url": "https://private.coffee/"
     },
     "location": "BE",
     "features": {
