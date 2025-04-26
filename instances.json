@@ -98,6 +98,20 @@
     }
   },
   {
+    "url": "https://tn.dc09.ru/",
+    "type": "http",
+    "provider": {
+      "name": "DarkCat09",
+      "url": "https://dc09.ru/"
+    },
+    "location": "RU",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
     "url": "https://tn.vern.cc/",
     "type": "http",
     "provider": {

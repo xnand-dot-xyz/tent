@@ -6,7 +6,7 @@ For end-user documentation, see the home page of an instance of your choice.
 
 ## Instances
 
-### HTTP
+### Clearnet
 
 - https://bandcamp.lurkmore.com/
 - https://tent.bloat.cat/
@@ -15,6 +15,7 @@ For end-user documentation, see the home page of an instance of your choice.
 - https://tent.private.coffee/
 - https://tent.qunn.link/
 - https://tent.sny.sh/
+- https://tn.dc09.ru/
 - https://tn.vern.cc/
 
 ### Tor
@@ -29,6 +30,8 @@ For end-user documentation, see the home page of an instance of your choice.
 ### JSON
 
 A machine-readable list is available via [instances.json](instances.json).
+
+Clearnet instances use the `http` type for historical, i. e. compatibility reasons.
 
 ## Setup
 
