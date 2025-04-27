@@ -112,6 +112,20 @@
     }
   },
   {
+    "url": "https://tn.maid.zone/",
+    "type": "http",
+    "provider": {
+      "name": "maid.zone",
+      "url": "https://maid.zone/"
+    },
+    "location": "IL",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
     "url": "https://tn.vern.cc/",
     "type": "http",
     "provider": {
@@ -140,6 +154,20 @@
     }
   },
   {
+    "url": "http://tn.maidzonekwrk4xbbmynqnprq2lu7picruncfscfwmyzbmec6naurhyqd.onion/",
+    "type": "tor",
+    "provider": {
+      "name": "maid.zone",
+      "url": "https://maid.zone/"
+    },
+    "location": "IL",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
     "url": "http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/",
     "type": "tor",
     "provider": {
@@ -147,6 +175,20 @@
       "url": "https://vern.cc/"
     },
     "location": "US",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
+    "url": "http://maidzong64yczoqm5wlg2hiodip6ktpldcfdvoxanqaxmonyim4q.b32.i2p/",
+    "type": "i2p",
+    "provider": {
+      "name": "maid.zone",
+      "url": "https://maid.zone/"
+    },
+    "location": "IL",
     "features": {
       "official": false,
       "cloudflare": false,

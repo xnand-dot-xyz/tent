@@ -16,15 +16,17 @@ For end-user documentation, see the home page of an instance of your choice.
 - https://tent.qunn.link/
 - https://tent.sny.sh/
 - https://tn.dc09.ru/
+- https://tn.maid.zone/
 - https://tn.vern.cc/
 
 ### Tor
 
 - http://tent.dswarmsikhttkg7jgsoyfiqpj3ighupfrvuz5ri3lu5q2dlqyrpgk7ad.onion/
+- http://tn.maidzonekwrk4xbbmynqnprq2lu7picruncfscfwmyzbmec6naurhyqd.onion/
 - http://tn.vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/
 
 ### I2P
-
+- http://maidzong64yczoqm5wlg2hiodip6ktpldcfdvoxanqaxmonyim4q.b32.i2p/
 - http://vernk23oml2talve3keetcqmjylmu7r7kdrcfciv36oxitgpos5a.b32.i2p/
 
 ### JSON
