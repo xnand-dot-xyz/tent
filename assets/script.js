@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.addEventListener("volumechange", (event) => {
       audios
         .filter((audio) => audio !== event.target)
-        .forEach((audio) => audio.volume = event.target.volume);
+        .forEach((audio) => (audio.volume = event.target.volume));
     });
   }
 });
