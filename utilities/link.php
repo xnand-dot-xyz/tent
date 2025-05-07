@@ -173,7 +173,7 @@
   };
 
   function is_bandcamp_host($host) {
-    $records = dns_get_record($host . ".", DNS_ALL);
+    $records = dns_get_record($host . ".", DNS_A | DNS_CNAME);
 
     if (!$records)
       return false;
