@@ -56,6 +56,20 @@
     }
   },
   {
+    "url": "https://tent.lab8.cz/",
+    "type": "http",
+    "provider": {
+      "name": "lab8.cz",
+      "url": "https://lab8.cz/"
+    },
+    "location": "CZ",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
     "url": "https://tent.private.coffee/",
     "type": "http",
     "provider": {
