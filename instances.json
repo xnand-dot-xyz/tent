@@ -158,7 +158,7 @@
     "type": "tor",
     "provider": {
       "name": "Deepswarm",
-      "url": "https://deep-swarm.xyz/"
+      "url": "http://dswarmsikhttkg7jgsoyfiqpj3ighupfrvuz5ri3lu5q2dlqyrpgk7ad.onion/"
     },
     "location": "LU",
     "features": {
@@ -172,7 +172,7 @@
     "type": "tor",
     "provider": {
       "name": "maid.zone",
-      "url": "https://maid.zone/"
+      "url": "http://maidzonekwrk4xbbmynqnprq2lu7picruncfscfwmyzbmec6naurhyqd.onion/"
     },
     "location": "IL",
     "features": {
@@ -186,7 +186,7 @@
     "type": "tor",
     "provider": {
       "name": "~vern",
-      "url": "https://vern.cc/"
+      "url": "http://vernccvbvyi5qhfzyqengccj7lkove6bjot2xhh5kajhwvidqafczrad.onion/"
     },
     "location": "US",
     "features": {
@@ -200,7 +200,7 @@
     "type": "i2p",
     "provider": {
       "name": "maid.zone",
-      "url": "https://maid.zone/"
+      "url": "http://maidzoneeehzlhw5nqsltiuxjepfdlhuct2g4av6bbs36i5ojosq.b32.i2p/"
     },
     "location": "IL",
     "features": {
@@ -214,7 +214,7 @@
     "type": "i2p",
     "provider": {
       "name": "~vern",
-      "url": "https://vern.cc/"
+      "url": "http://verncceu2kgz54wi7r5jatgmx2mqtsh3knxhiy4m5shescuqtqfa.b32.i2p/"
     },
     "location": "US",
     "features": {
