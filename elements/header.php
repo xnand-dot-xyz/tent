@@ -24,6 +24,9 @@
     <?php
       echo "theme-" . (isset($_COOKIE["theme"]) ? htmlspecialchars($_COOKIE["theme"]) : "system");
 
+      if (isset($_COOKIE["layout"]) && $_COOKIE["layout"] === "on")
+        echo " layout";
+
       if (isset($_COOKIE["overflow"]) && $_COOKIE["overflow"] === "on")
         echo " overflow";
     ?>

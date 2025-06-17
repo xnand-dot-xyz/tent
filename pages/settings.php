@@ -47,6 +47,12 @@
       "type" => "checkbox",
       "label" => "Enabled"
     ],
+    "layout" => [
+      "title" => "Layout",
+      "description" => "Whether the page header and footer should always be on-screen.",
+      "type" => "checkbox",
+      "label" => "Enabled"
+    ],
     "details" => [
       "title" => "Details",
       "description" => "Which of the collapsible details the release page is made up of to expand by default.",
