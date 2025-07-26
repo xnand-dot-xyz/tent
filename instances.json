@@ -222,5 +222,19 @@
       "cloudflare": false,
       "anubis": false
     }
+  },
+  {
+    "url": "https://tent.nbh.ax/",
+    "type": "http",
+    "provider": {
+      "name": "nbhax",
+      "url": "https://nbh.ax/"
+    },
+    "location": "DE",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
   }
 ]
