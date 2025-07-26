@@ -70,6 +70,20 @@
     }
   },
   {
+    "url": "https://tent.nbh.ax/",
+    "type": "http",
+    "provider": {
+      "name": "nbhax",
+      "url": "https://nbh.ax/"
+    },
+    "location": "DE",
+    "features": {
+      "official": false,
+      "cloudflare": false,
+      "anubis": false
+    }
+  },
+  {
     "url": "https://tent.private.coffee/",
     "type": "http",
     "provider": {
@@ -217,20 +231,6 @@
       "url": "http://verncceu2kgz54wi7r5jatgmx2mqtsh3knxhiy4m5shescuqtqfa.b32.i2p/"
     },
     "location": "US",
-    "features": {
-      "official": false,
-      "cloudflare": false,
-      "anubis": false
-    }
-  },
-  {
-    "url": "https://tent.nbh.ax/",
-    "type": "http",
-    "provider": {
-      "name": "nbhax",
-      "url": "https://nbh.ax/"
-    },
-    "location": "DE",
     "features": {
       "official": false,
       "cloudflare": false,

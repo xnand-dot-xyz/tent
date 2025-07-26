@@ -13,6 +13,7 @@ For end-user documentation, see the home page of an instance of your choice.
 - https://tent.canine.tools/
 - https://tent.deep-swarm.xyz/
 - https://tent.lab8.cz/
+- https://tent.nbh.ax/
 - https://tent.private.coffee/
 - https://tent.qunn.link/
 - https://tent.sny.sh/
