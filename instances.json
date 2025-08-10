@@ -98,20 +98,6 @@
     }
   },
   {
-    "url": "https://tent.qunn.link/",
-    "type": "http",
-    "provider": {
-      "name": null,
-      "url": "https://qunn.link/"
-    },
-    "location": "SG",
-    "features": {
-      "official": false,
-      "cloudflare": false,
-      "anubis": false
-    }
-  },
-  {
     "url": "https://tent.sny.sh/",
     "type": "http",
     "provider": {

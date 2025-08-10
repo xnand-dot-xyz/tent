@@ -15,7 +15,6 @@ For end-user documentation, see the home page of an instance of your choice.
 - https://tent.lab8.cz/
 - https://tent.nbh.ax/
 - https://tent.private.coffee/
-- https://tent.qunn.link/
 - https://tent.sny.sh/
 - https://tn.dc09.ru/
 - https://tn.maid.zone/
