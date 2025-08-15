@@ -1,4 +1,20 @@
 <?php
+  function echo_blacklist_message($artist) {
+    if (!in_array(strtolower($artist), [
+      "joshuaharrison888"
+    ]))
+      return false;
+
+    $bandcamp = convert_tent_link("//" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+
+    echo "<h1>Not available.</h1>";
+    echo "<p>
+      This artist has explicitly asked for their content to not be available via Tent." . ($bandcamp ? " <a href=\"" . $bandcamp . "\">Open this page on Bandcamp.</a>" : "") . "
+    </p>";
+
+    return true;
+  };
+
   function echo_design_style($document) {
     if (!isset($_COOKIE["design"]) || $_COOKIE["design"] !== "on")
       return;

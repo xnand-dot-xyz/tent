@@ -34,6 +34,9 @@
 <?php
   echo_design_style($document);
 
+  if (echo_blacklist_message($_GET["name"]))
+    return require_once "../elements/footer.php";
+
   if ($document->evaluate("//p[@id=\"band-name-location\"]//span[@class=\"title\"]")->count())
     echo "<h1>" . htmlspecialchars($document->evaluate("//p[@id=\"band-name-location\"]//span[@class=\"title\"]")->item(0)->textContent) . "</h1>";
 

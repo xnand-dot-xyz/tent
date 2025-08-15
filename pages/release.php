@@ -33,6 +33,9 @@
 <?php
   echo_design_style($document);
 
+  if (echo_blacklist_message($_GET["artist"]))
+    return require_once "../elements/footer.php";
+
   if ($json) {
     echo "<h1>";
     echo htmlspecialchars($json->current->title) . " ";
