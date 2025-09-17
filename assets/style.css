@@ -10,27 +10,26 @@ body {
   margin: initial;
 }
 
-@media (prefers-color-scheme: light) {
-  body.theme-system {
-    --background: white;
-    --color: black;
-    --borders: rgba(0, 0, 0, 25%);
-    --links: var(--color);
-    --selection-background: var(--color);
-    --selection-color: var(--background);
-  }
+body.theme-system {
+  --background: white;
+  --color: black;
+  --borders: rgba(0, 0, 0, 25%);
+  --links: var(--color);
+  --selection-background: var(--color);
+  --selection-color: var(--background);
 }
 
 @media (prefers-color-scheme: dark) {
   body.theme-system {
-    --background: black;
-    --color: white;
-    --borders: rgba(255, 255, 255, 25%);
-    --links: var(--color);
-    --selection-background: var(--color);
-    --selection-color: var(--background);
+    --background: #1d1d1d;
+    --color: #eee;
+    --borders: #2d2d2d;
+    --links: #a62f33;
+    --selection-background: var(--links);
+    --selection-color: var(--color);
   }
 }
+
 
 body.theme-light {
   --background: white;
@@ -48,6 +47,15 @@ body.theme-dark {
   --links: var(--color);
   --selection-background: var(--color);
   --selection-color: var(--background);
+}
+
+body.theme-xnand {
+  --background: #1d1d1d;
+  --color: #eee;
+  --borders: #2d2d2d;
+  --links: #a62f33;
+  --selection-background: var(--links);
+  --selection-color: var(--color);
 }
 
 body.theme-catppuccin {

@@ -34,6 +34,7 @@
         "system" => "System",
         "light" => "Light",
         "dark" => "Dark",
+        "xnand" => "XNAND",
         "catppuccin" => "Catppuccin",
         "dracula" => "Dracula",
         "flexoki" => "Flexoki",
