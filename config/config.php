@@ -1,8 +1,8 @@
 <?php
-  $commit = trim(file_get_contents("../.git/refs/heads/main"));
+  $commit = trim(file_get_contents("../.git/refs/heads/xnand"));
 
   $text = substr($commit, 0, 7);
-  $link = "https://forgejo.sny.sh/sun/Tent/commit/" . $commit;
+  $link = "https://git.xnand.xyz/XNAND/tent/commit/" . $commit;
 
   $config = [
     // The title of this instance, displayed throughout the front-end. Default: Tent.
